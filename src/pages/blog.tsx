@@ -100,7 +100,7 @@ const BlogPage = (props: BlogProps) => {
 export default withLayout(BlogPage);
 
 export const pageQuery = graphql`
-query PageBlog {
+query PageBlog2 {
   # Get tags
   tags: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
     group(field: frontmatter___tags) {
