@@ -1,97 +1,41 @@
-# Gatsby 2.0 starter
+# Im-D Blog
 
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[![Build Status](https://travis-ci.org/fabien0102/gatsby-starter.svg?branch=master)](https://travis-ci.org/fabien0102/gatsby-starter)
-[![Build status](https://ci.appveyor.com/api/projects/status/k06pajqcm23lay1s/branch/master?svg=true)](https://ci.appveyor.com/project/fabien0102/gatsby-starter/branch/master)
-[![Code Climate](https://codeclimate.com/github/fabien0102/gatsby-starter/badges/gpa.svg)](https://codeclimate.com/github/fabien0102/gatsby-starter)
-[![Test Coverage](https://codeclimate.com/github/fabien0102/gatsby-starter/badges/coverage.svg)](https://codeclimate.com/github/fabien0102/gatsby-starter/coverage)
+지식을 공유합니다.
 
-Demo: <https://fabien0102-gatsby-starter.netlify.com/>
+## 🔒 Rule
 
-Storybook: <https://fabien0102-gatsby-starter.netlify.com/docs/>
+-   새로운 포스트는 `data/blog/` 하위에 YYYY-MM-DD--Title의 형태의 디렉토리를 만들어 작성한다.
+    -   디렉토리의 Title에는 영문만 작성한다.
+    -   해당 디렉토리 안에 index.md를 만들어 글을 작성한다.
+-   index의 최상위에 적어야하는 내용은 아래와 같다.
 
-Gatsby 2.0 starter for generate awesome static website working with a nice env development.
+    ```markdown
+    title: 'test 문서입니다.'
+    createdDate: '2019-03-16'
+    updatedDate: '2019-03-17'
+    author: Jinseong
+    tags:
 
-## Warning
+    - rendering
+    - optimization
+    - browser
+    - html
+    - css
+    - http
 
-This starter is currently in wip (see progression to #What's inside session).
+    image: test.jpg
+    draft: false
 
-## Getting started
+    ## markdown 올바르게 작성하기
+    ```
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+    -   글 작성시 사용되는 resources는 모두 같은 디렉토리에 담는다.
+    -   title은 글 내부의 제목이며 외부에 노출되는 제목이기도 하다.
+        <!-- - 게시글은 createdDate를 기준으로 정렬된다. -->
+    -   author는 `data/author.json`에 미리 입력해둔 정보를 이용한다.
+    -   tag는 검색에도 이용되니 최대한 자세히 적고 camelCase를 이용한다.
+    -   image는 thumnail과 게시글 최상위의 사진이다.
+    -   draft를 통해 작성하고 있는 글은 숨길 수 있다.
+    -   title을 적기 때문에 h1의 내용은 따로 작성하지 않는다.
 
-```bash
-$ gatsby new my-website https://github.com/fabien0102/gatsby-starter
-```
-
-Run `npm start` (or press `F5` if you are on VSCode) to hot-serve your website on <http://localhost:8000>.
-
-Run `npm run build` to create static site ready to host (`/public`)
-
-## What's inside?
-
--   [ ] Gatsby 2.0 (alpha)
-    -   [x] sharp
-    -   [x] offline support
-    -   [ ] google analytics
-    -   [x] manifest
-    -   [x] typescript
-    -   [x] blog in markdown
--   [x] Best practices tools
-    -   [x] [Jest](https://facebook.github.io/jest/) / [Enzyme](http://airbnb.io/enzyme/)
-    -   [x] [Storybook](https://storybooks.js.org/)
-    -   [x] [Typescript](https://www.typescriptlang.org/) / [tslint](https://palantir.github.io/tslint/)
-    -   [x] [xo linter](https://github.com/sindresorhus/xo)
-    -   [x] [Remark-lint](https://github.com/wooorm/remark-lint)
-    -   [x] [Husky](https://github.com/typicode/husky) & [lint-staged](https://github.com/okonet/lint-staged) for autofix each commit
-    -   [x] Travis/AppVeyor config (unix-osx-windows CI)
-    -   [x] Code climate config
--   [x] SEO
-    -   [x] [Helmet](https://github.com/nfl/react-helmet)
--   [x] [Semantic-ui](http://react.semantic-ui.com) for styling
--   [x] Lazyboy tools
-    -   [x] [plop](https://github.com/amwmedia/plop) templates -> `npm run generate`
-
-## Files structure
-
-     .
-     ├── data                          // website data (included into graphQL)
-     │   ├── author.json               // list of blog authors
-     │   ├── avatars                   // authors avatars
-     │   └── blog                      // all blog data (posts, images)
-     ├── gatsby-config.js              // gatsby configuration
-     ├── gatsby-node.js                // gatsby node hooks
-     ├── generators                    // generators (`npm run generate`)
-     │   ├── blog-post-generator.js    // `blog post` generator
-     │   ├── component-generator.js    // `component` generator
-     │   ├── page-generator.js         // `page` generator
-     │   ├── plopfile.js               // generators entry
-     │   ├── templates                 // all templates (handlebar notation)
-     │   └── utils.js                  // utils scripts for generators
-     ├── package.json
-     ├── public                        // output folder (in .gitignore)
-     ├── README.md                     // this file
-     ├── src                           // sources
-     │   ├── components                // all react components
-     │   ├── css                       // styles
-     │   ├── declarations.d.ts         // declarations for no typescript modules/files
-     │   ├── graphql-types.d.ts        // graphql types (`npm run graphql-types`)
-     │   ├── html.tsx                  // main html (required)
-     │   ├── layouts                   // layouts
-     │   │   └── default.tsx           // default layout (required)
-     │   ├── pages                     // all pages
-     │   └── templates                 // all templates (used for procedural page creation, see `gatsby-node.js`)
-     ├── tools                         // miscs tools for dev
-     │   └── update-post-date.js       // update post date hook
-     ├── tsconfig.json                 // typescript configuration
-     ├── tslint.json                   // tslint configuration
-     └── package-lock.json             // npm lock file
-
-## Plop generators - `npm run generate`
-
-To avoid any boring copy/paste, this starter-kit have many generators to permit
-simple bootstrap of current file pattern (eg. components/pages/blog posts). e.g. to add a new blog post first add the authors to data/authors.json and add authors' images to the data/avatars folder. Next execute 'npm run generate' and select 'Blog post'. Follow the prompts for a new post. Each blog post requires an image be added to the /data/blog/<your new post> folder prior to running 'gatsby develop'.
-
-You can add/delete/modify any generators into `/generators` folder.
-
-Be lazy and have fun!
+-   prettier를 적용하여 문서작성 스타일을 통일시킬 것. (vscode 플러그인)
