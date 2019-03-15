@@ -95,6 +95,7 @@
     "lint-staged": "3.4.0",
     "mkdirp": "^0.5.1",
     "plop": "^1.7.4",
+    "prettier": "^1.16.4",
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.5.1",
     "react-test-renderer": "16",
