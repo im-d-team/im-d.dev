@@ -31,7 +31,7 @@
 
     -   글 작성시 사용되는 resources는 모두 같은 디렉토리에 담는다.
     -   title은 글 내부의 제목이며 외부에 노출되는 제목이기도 하다.
-        <!-- - 게시글은 createdDate를 기준으로 정렬된다. -->
+    -   게시글은 createdDate를 기준으로 정렬된다.
     -   author는 `data/author.json`에 미리 입력해둔 정보를 이용한다.
     -   tag는 검색에도 이용되니 최대한 자세히 적고 camelCase를 이용한다.
     -   image는 thumnail과 게시글 최상위의 사진이다.

@@ -41,9 +41,7 @@ const IndexPage = (props: BlogProps) => {
               <Comment.Avatar src={avatar.fixed.src} srcSet={avatar.fixed.srcSet} />
               <Comment.Content>
                 <Comment.Author style={{ fontWeight: 400 }}>{frontmatter.author.id}</Comment.Author>
-                <Comment.Metadata style={{ margin: 0 }}>
-                  {frontmatter.createdDate} - {timeToRead} min read
-                </Comment.Metadata>
+                <Comment.Metadata style={{ margin: 0 }}>{frontmatter.createdDate}</Comment.Metadata>
               </Comment.Content>
             </Comment>
           </Comment.Group>
@@ -114,7 +112,7 @@ export const pageQuery = graphql`
 
     # Get posts
     posts: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___updatedDate] }
+      sort: { order: DESC, fields: [frontmatter___createdDate] }
       filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: { regex: "/blog/" } }
       limit: 10
     ) {
@@ -129,6 +127,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             updatedDate(formatString: "DD MMMM, YYYY")
+            createdDate(formatString: "DD MMMM, YYYY")
             image {
               children {
                 ... on ImageSharp {

@@ -7,7 +7,7 @@ import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
 import BlogPagination from "../components/BlogPagination/BlogPagination";
 import { get } from "lodash";
-import {withLayout, LayoutProps} from "../components/Layout";
+import { withLayout, LayoutProps } from "../components/Layout";
 import { MarkdownRemark } from "../graphql-types";
 
 interface BlogProps extends LayoutProps {
@@ -29,25 +29,23 @@ const BlogPage = (props: BlogProps) => {
   // TODO export posts in a proper component
   const Posts = (
     <Container>
-      {posts.map(({ node }: {node: MarkdownRemark}) => {
-        const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
+      {posts.map(({ node }: { node: MarkdownRemark }) => {
+        const {
+          frontmatter,
+          timeToRead,
+          fields: { slug },
+          excerpt,
+        } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
         const cover = get(frontmatter, "image.children.0.fixed", {});
 
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar
-                src={avatar.fixed.src}
-                srcSet={avatar.fixed.srcSet}
-              />
+              <Comment.Avatar src={avatar.fixed.src} srcSet={avatar.fixed.srcSet} />
               <Comment.Content>
-                <Comment.Author style={{ fontWeight: 400 }}>
-                  {frontmatter.author.id}
-                </Comment.Author>
-                <Comment.Metadata style={{ margin: 0 }}>
-                  {frontmatter.updatedDate} - {timeToRead} min read
-              </Comment.Metadata>
+                <Comment.Author style={{ fontWeight: 400 }}>{frontmatter.author.id}</Comment.Author>
+                <Comment.Metadata style={{ margin: 0 }}>{frontmatter.createdDate}</Comment.Metadata>
               </Comment.Content>
             </Comment>
           </Comment.Group>
@@ -62,7 +60,8 @@ const BlogPage = (props: BlogProps) => {
         );
 
         return (
-          <Card key={slug}
+          <Card
+            key={slug}
             fluid
             image={cover}
             header={frontmatter.title}
@@ -100,53 +99,52 @@ const BlogPage = (props: BlogProps) => {
 export default withLayout(BlogPage);
 
 export const pageQuery = graphql`
-query PageBlog2 {
-  # Get tags
-  tags: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
-    group(field: frontmatter___tags) {
-      fieldValue
-      totalCount
+  query PageBlog2 {
+    # Get tags
+    tags: allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
     }
-  }
 
-  # Get posts
-  posts: allMarkdownRemark(
-    sort: { order: DESC, fields: [frontmatter___updatedDate] },
-    filter: {
-      frontmatter: { draft: { ne: true } },
-      fileAbsolutePath: { regex: "/blog/" }
-    },
-    limit: 10
-  ) {
-    totalCount
-    edges {
-      node {
-        excerpt
-        timeToRead
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          updatedDate(formatString: "DD MMMM, YYYY")
-          image {
-          	children {
-              ... on ImageSharp {
-                fixed(width: 700, height: 100) {
-                  src
-                  srcSet
+    # Get posts
+    posts: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___createdDate] }
+      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: { regex: "/blog/" } }
+      limit: 10
+    ) {
+      totalCount
+      edges {
+        node {
+          excerpt
+          timeToRead
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            updatedDate(formatString: "DD MMMM, YYYY")
+            createdDate(formatString: "DD MMMM, YYYY")
+            image {
+              children {
+                ... on ImageSharp {
+                  fixed(width: 700, height: 100) {
+                    src
+                    srcSet
+                  }
                 }
               }
             }
-          }
-          author {
-            id
-            avatar {
-              children {
-                ... on ImageSharp {
-                  fixed(width: 35, height: 35) {
-                    src
-                    srcSet
+            author {
+              id
+              avatar {
+                children {
+                  ... on ImageSharp {
+                    fixed(width: 35, height: 35) {
+                      src
+                      srcSet
+                    }
                   }
                 }
               }
@@ -156,5 +154,4 @@ query PageBlog2 {
       }
     }
   }
-}
 `;
