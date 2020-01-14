@@ -7,6 +7,8 @@ import { MarkdownRemark } from '../graphql-types';
 
 import HeaderMenu from '../components/HeaderMenu/HeaderMenu';
 import { withLayout, LayoutProps, menuItems } from '../components/Layout';
+import TagsCard from '../components/TagsCard/TagsCard';
+import BlogPagination from '../components/BlogPagination/BlogPagination';
 import {
   Button,
   Segment,
@@ -31,6 +33,9 @@ interface BlogProps extends LayoutProps {
 
 const IndexPage = (props: BlogProps) => {
   const posts = props.data.posts.edges;
+  const { pathname } = props.location;
+  const tags = props.data.tags.group;
+  const pageCount = Math.ceil(props.data.posts.totalCount / 10);
 
   const Posts = (
     <Container>
@@ -97,20 +102,34 @@ const IndexPage = (props: BlogProps) => {
         />
         <Container text>
           <Header inverted as="h1">
-            Gatsby 2.0 - Starter kit
+            Im-d - Blog
           </Header>
           <Header inverted as="h2">
-            Typescript - Jest - Semantic UI
+            {/* Typescript - Jest - Semantic UI */}
           </Header>
           <Button primary size="huge">
-            Get started!
+            지원하기
           </Button>
         </Container>
       </Segment>
 
       {/* About this starter */}
       <Segment vertical className="stripe">
-        {Posts}
+        <Grid padded style={{ justifyContent: 'space-evenly' }}>
+          <div style={{ maxWidth: 600 }}>
+            {Posts}
+            <Segment vertical textAlign="center">
+              <BlogPagination
+                Link={Link}
+                pathname={pathname}
+                pageCount={pageCount}
+              />
+            </Segment>
+          </div>
+          <div>
+            <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+          </div>
+        </Grid>
       </Segment>
 
       {/* Key features */}

@@ -27,7 +27,7 @@ export default (props: HtmlProps) => {
     <html lang="en">
       <head>
         {props.headComponents}
-        <title>My website</title>
+        <title>ImD_Blog</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta

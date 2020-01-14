@@ -26,7 +26,7 @@ export const HeaderMenu = ({
         onClick={() => dispatch && dispatch(toggleSidebar())}
       />
       <Menu.Item className="mobile hidden">
-        <Icon name="spy" size="big" />
+        <Icon name="address book" size="big" />
       </Menu.Item>
       {items.map(item => {
         const active = item.exact
