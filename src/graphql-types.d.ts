@@ -224,9 +224,26 @@ export interface sitePageConnectionSort {
   order: sitePageConnectionSortOrderValues | null;
 }
 
-export type SitePageConnectionSortByFieldsEnum = "jsonName" | "internalComponentName" | "path" | "component" | "componentChunkName" | "context___slug" | "context___tag" | "context___skip" | "pluginCreator___NODE" | "pluginCreatorId" | "componentPath" | "id" | "parent" | "internal___type" | "internal___contentDigest" | "internal___description" | "internal___owner";
+export type SitePageConnectionSortByFieldsEnum =
+  | 'jsonName'
+  | 'internalComponentName'
+  | 'path'
+  | 'component'
+  | 'componentChunkName'
+  | 'context___slug'
+  | 'context___tag'
+  | 'context___skip'
+  | 'pluginCreator___NODE'
+  | 'pluginCreatorId'
+  | 'componentPath'
+  | 'id'
+  | 'parent'
+  | 'internal___type'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___owner';
 
-export type sitePageConnectionSortOrderValues = "ASC" | "DESC";
+export type sitePageConnectionSortOrderValues = 'ASC' | 'DESC';
 
 export interface filterSitePage {
   jsonName: sitePageConnectionJsonNameQueryString | null;
@@ -993,9 +1010,43 @@ export interface internal_9 {
   owner: string | null;
 }
 
-export type sitePageDistinctEnum = "jsonName" | "internalComponentName" | "path" | "component" | "componentChunkName" | "context___slug" | "context___tag" | "context___skip" | "pluginCreator___NODE" | "pluginCreatorId" | "componentPath" | "id" | "parent" | "internal___type" | "internal___contentDigest" | "internal___description" | "internal___owner";
+export type sitePageDistinctEnum =
+  | 'jsonName'
+  | 'internalComponentName'
+  | 'path'
+  | 'component'
+  | 'componentChunkName'
+  | 'context___slug'
+  | 'context___tag'
+  | 'context___skip'
+  | 'pluginCreator___NODE'
+  | 'pluginCreatorId'
+  | 'componentPath'
+  | 'id'
+  | 'parent'
+  | 'internal___type'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___owner';
 
-export type sitePageGroupEnum = "jsonName" | "internalComponentName" | "path" | "component" | "componentChunkName" | "context___slug" | "context___tag" | "context___skip" | "pluginCreator___NODE" | "pluginCreatorId" | "componentPath" | "id" | "parent" | "internal___type" | "internal___contentDigest" | "internal___description" | "internal___owner";
+export type sitePageGroupEnum =
+  | 'jsonName'
+  | 'internalComponentName'
+  | 'path'
+  | 'component'
+  | 'componentChunkName'
+  | 'context___slug'
+  | 'context___tag'
+  | 'context___skip'
+  | 'pluginCreator___NODE'
+  | 'pluginCreatorId'
+  | 'componentPath'
+  | 'id'
+  | 'parent'
+  | 'internal___type'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___owner';
 
 export interface sitePageGroupConnectionConnection {
   pageInfo: PageInfo;
@@ -1016,9 +1067,46 @@ export interface sitePluginConnectionSort {
   order: sitePluginConnectionSortOrderValues | null;
 }
 
-export type SitePluginConnectionSortByFieldsEnum = "resolve" | "id" | "name" | "version" | "pluginOptions___plugins" | "pluginOptions___name" | "pluginOptions___path" | "pluginOptions___trackingId" | "pluginOptions___head" | "pluginOptions___anonymize" | "pluginOptions___respectDNT" | "pluginOptions___maxWidth" | "pluginOptions___backgroundColor" | "pluginOptions___short_name" | "pluginOptions___start_url" | "pluginOptions___background_color" | "pluginOptions___theme_color" | "pluginOptions___display" | "pluginOptions___pathCheck" | "nodeAPIs" | "browserAPIs" | "ssrAPIs" | "pluginFilepath" | "packageJson___name" | "packageJson___description" | "packageJson___version" | "packageJson___main" | "packageJson___author" | "packageJson___license" | "packageJson___dependencies" | "packageJson___devDependencies" | "packageJson___peerDependencies" | "packageJson___keywords" | "parent" | "internal___contentDigest" | "internal___type" | "internal___owner";
+export type SitePluginConnectionSortByFieldsEnum =
+  | 'resolve'
+  | 'id'
+  | 'name'
+  | 'version'
+  | 'pluginOptions___plugins'
+  | 'pluginOptions___name'
+  | 'pluginOptions___path'
+  | 'pluginOptions___trackingId'
+  | 'pluginOptions___head'
+  | 'pluginOptions___anonymize'
+  | 'pluginOptions___respectDNT'
+  | 'pluginOptions___maxWidth'
+  | 'pluginOptions___backgroundColor'
+  | 'pluginOptions___short_name'
+  | 'pluginOptions___start_url'
+  | 'pluginOptions___background_color'
+  | 'pluginOptions___theme_color'
+  | 'pluginOptions___display'
+  | 'pluginOptions___pathCheck'
+  | 'nodeAPIs'
+  | 'browserAPIs'
+  | 'ssrAPIs'
+  | 'pluginFilepath'
+  | 'packageJson___name'
+  | 'packageJson___description'
+  | 'packageJson___version'
+  | 'packageJson___main'
+  | 'packageJson___author'
+  | 'packageJson___license'
+  | 'packageJson___dependencies'
+  | 'packageJson___devDependencies'
+  | 'packageJson___peerDependencies'
+  | 'packageJson___keywords'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___owner';
 
-export type sitePluginConnectionSortOrderValues = "ASC" | "DESC";
+export type sitePluginConnectionSortOrderValues = 'ASC' | 'DESC';
 
 export interface filterSitePlugin {
   resolve: sitePluginConnectionResolveQueryString_2 | null;
@@ -1505,9 +1593,83 @@ export interface SitePluginEdge {
   previous: SitePlugin | null;
 }
 
-export type sitePluginDistinctEnum = "resolve" | "id" | "name" | "version" | "pluginOptions___plugins" | "pluginOptions___name" | "pluginOptions___path" | "pluginOptions___trackingId" | "pluginOptions___head" | "pluginOptions___anonymize" | "pluginOptions___respectDNT" | "pluginOptions___maxWidth" | "pluginOptions___backgroundColor" | "pluginOptions___short_name" | "pluginOptions___start_url" | "pluginOptions___background_color" | "pluginOptions___theme_color" | "pluginOptions___display" | "pluginOptions___pathCheck" | "nodeAPIs" | "browserAPIs" | "ssrAPIs" | "pluginFilepath" | "packageJson___name" | "packageJson___description" | "packageJson___version" | "packageJson___main" | "packageJson___author" | "packageJson___license" | "packageJson___dependencies" | "packageJson___devDependencies" | "packageJson___peerDependencies" | "packageJson___keywords" | "parent" | "internal___contentDigest" | "internal___type" | "internal___owner";
+export type sitePluginDistinctEnum =
+  | 'resolve'
+  | 'id'
+  | 'name'
+  | 'version'
+  | 'pluginOptions___plugins'
+  | 'pluginOptions___name'
+  | 'pluginOptions___path'
+  | 'pluginOptions___trackingId'
+  | 'pluginOptions___head'
+  | 'pluginOptions___anonymize'
+  | 'pluginOptions___respectDNT'
+  | 'pluginOptions___maxWidth'
+  | 'pluginOptions___backgroundColor'
+  | 'pluginOptions___short_name'
+  | 'pluginOptions___start_url'
+  | 'pluginOptions___background_color'
+  | 'pluginOptions___theme_color'
+  | 'pluginOptions___display'
+  | 'pluginOptions___pathCheck'
+  | 'nodeAPIs'
+  | 'browserAPIs'
+  | 'ssrAPIs'
+  | 'pluginFilepath'
+  | 'packageJson___name'
+  | 'packageJson___description'
+  | 'packageJson___version'
+  | 'packageJson___main'
+  | 'packageJson___author'
+  | 'packageJson___license'
+  | 'packageJson___dependencies'
+  | 'packageJson___devDependencies'
+  | 'packageJson___peerDependencies'
+  | 'packageJson___keywords'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___owner';
 
-export type sitePluginGroupEnum = "resolve" | "id" | "name" | "version" | "pluginOptions___plugins" | "pluginOptions___name" | "pluginOptions___path" | "pluginOptions___trackingId" | "pluginOptions___head" | "pluginOptions___anonymize" | "pluginOptions___respectDNT" | "pluginOptions___maxWidth" | "pluginOptions___backgroundColor" | "pluginOptions___short_name" | "pluginOptions___start_url" | "pluginOptions___background_color" | "pluginOptions___theme_color" | "pluginOptions___display" | "pluginOptions___pathCheck" | "nodeAPIs" | "browserAPIs" | "ssrAPIs" | "pluginFilepath" | "packageJson___name" | "packageJson___description" | "packageJson___version" | "packageJson___main" | "packageJson___author" | "packageJson___license" | "packageJson___dependencies" | "packageJson___devDependencies" | "packageJson___peerDependencies" | "packageJson___keywords" | "parent" | "internal___contentDigest" | "internal___type" | "internal___owner";
+export type sitePluginGroupEnum =
+  | 'resolve'
+  | 'id'
+  | 'name'
+  | 'version'
+  | 'pluginOptions___plugins'
+  | 'pluginOptions___name'
+  | 'pluginOptions___path'
+  | 'pluginOptions___trackingId'
+  | 'pluginOptions___head'
+  | 'pluginOptions___anonymize'
+  | 'pluginOptions___respectDNT'
+  | 'pluginOptions___maxWidth'
+  | 'pluginOptions___backgroundColor'
+  | 'pluginOptions___short_name'
+  | 'pluginOptions___start_url'
+  | 'pluginOptions___background_color'
+  | 'pluginOptions___theme_color'
+  | 'pluginOptions___display'
+  | 'pluginOptions___pathCheck'
+  | 'nodeAPIs'
+  | 'browserAPIs'
+  | 'ssrAPIs'
+  | 'pluginFilepath'
+  | 'packageJson___name'
+  | 'packageJson___description'
+  | 'packageJson___version'
+  | 'packageJson___main'
+  | 'packageJson___author'
+  | 'packageJson___license'
+  | 'packageJson___dependencies'
+  | 'packageJson___devDependencies'
+  | 'packageJson___peerDependencies'
+  | 'packageJson___keywords'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___owner';
 
 export interface sitePluginGroupConnectionConnection {
   pageInfo: PageInfo;
@@ -1528,9 +1690,48 @@ export interface directoryConnectionSort {
   order: directoryConnectionSortOrderValues | null;
 }
 
-export type DirectoryConnectionSortByFieldsEnum = "id" | "parent" | "internal___contentDigest" | "internal___type" | "internal___description" | "internal___owner" | "sourceInstanceName" | "absolutePath" | "relativePath" | "extension" | "size" | "prettySize" | "modifiedTime" | "accessTime" | "changeTime" | "birthTime" | "root" | "dir" | "base" | "ext" | "name" | "relativeDirectory" | "dev" | "mode" | "nlink" | "uid" | "gid" | "rdev" | "blksize" | "ino" | "blocks" | "atimeMs" | "mtimeMs" | "ctimeMs" | "birthtimeMs" | "atime" | "mtime" | "ctime" | "birthtime";
+export type DirectoryConnectionSortByFieldsEnum =
+  | 'id'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___description'
+  | 'internal___owner'
+  | 'sourceInstanceName'
+  | 'absolutePath'
+  | 'relativePath'
+  | 'extension'
+  | 'size'
+  | 'prettySize'
+  | 'modifiedTime'
+  | 'accessTime'
+  | 'changeTime'
+  | 'birthTime'
+  | 'root'
+  | 'dir'
+  | 'base'
+  | 'ext'
+  | 'name'
+  | 'relativeDirectory'
+  | 'dev'
+  | 'mode'
+  | 'nlink'
+  | 'uid'
+  | 'gid'
+  | 'rdev'
+  | 'blksize'
+  | 'ino'
+  | 'blocks'
+  | 'atimeMs'
+  | 'mtimeMs'
+  | 'ctimeMs'
+  | 'birthtimeMs'
+  | 'atime'
+  | 'mtime'
+  | 'ctime'
+  | 'birthtime';
 
-export type directoryConnectionSortOrderValues = "ASC" | "DESC";
+export type directoryConnectionSortOrderValues = 'ASC' | 'DESC';
 
 export interface filterDirectory {
   id: directoryConnectionIdQueryString_2 | null;
@@ -2038,9 +2239,87 @@ export interface internal_11 {
 
 export type Date = any;
 
-export type directoryDistinctEnum = "id" | "parent" | "internal___contentDigest" | "internal___type" | "internal___description" | "internal___owner" | "sourceInstanceName" | "absolutePath" | "relativePath" | "extension" | "size" | "prettySize" | "modifiedTime" | "accessTime" | "changeTime" | "birthTime" | "root" | "dir" | "base" | "ext" | "name" | "relativeDirectory" | "dev" | "mode" | "nlink" | "uid" | "gid" | "rdev" | "blksize" | "ino" | "blocks" | "atimeMs" | "mtimeMs" | "ctimeMs" | "birthtimeMs" | "atime" | "mtime" | "ctime" | "birthtime";
+export type directoryDistinctEnum =
+  | 'id'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___description'
+  | 'internal___owner'
+  | 'sourceInstanceName'
+  | 'absolutePath'
+  | 'relativePath'
+  | 'extension'
+  | 'size'
+  | 'prettySize'
+  | 'modifiedTime'
+  | 'accessTime'
+  | 'changeTime'
+  | 'birthTime'
+  | 'root'
+  | 'dir'
+  | 'base'
+  | 'ext'
+  | 'name'
+  | 'relativeDirectory'
+  | 'dev'
+  | 'mode'
+  | 'nlink'
+  | 'uid'
+  | 'gid'
+  | 'rdev'
+  | 'blksize'
+  | 'ino'
+  | 'blocks'
+  | 'atimeMs'
+  | 'mtimeMs'
+  | 'ctimeMs'
+  | 'birthtimeMs'
+  | 'atime'
+  | 'mtime'
+  | 'ctime'
+  | 'birthtime';
 
-export type directoryGroupEnum = "id" | "parent" | "internal___contentDigest" | "internal___type" | "internal___description" | "internal___owner" | "sourceInstanceName" | "absolutePath" | "relativePath" | "extension" | "size" | "prettySize" | "modifiedTime" | "accessTime" | "changeTime" | "birthTime" | "root" | "dir" | "base" | "ext" | "name" | "relativeDirectory" | "dev" | "mode" | "nlink" | "uid" | "gid" | "rdev" | "blksize" | "ino" | "blocks" | "atimeMs" | "mtimeMs" | "ctimeMs" | "birthtimeMs" | "atime" | "mtime" | "ctime" | "birthtime";
+export type directoryGroupEnum =
+  | 'id'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___description'
+  | 'internal___owner'
+  | 'sourceInstanceName'
+  | 'absolutePath'
+  | 'relativePath'
+  | 'extension'
+  | 'size'
+  | 'prettySize'
+  | 'modifiedTime'
+  | 'accessTime'
+  | 'changeTime'
+  | 'birthTime'
+  | 'root'
+  | 'dir'
+  | 'base'
+  | 'ext'
+  | 'name'
+  | 'relativeDirectory'
+  | 'dev'
+  | 'mode'
+  | 'nlink'
+  | 'uid'
+  | 'gid'
+  | 'rdev'
+  | 'blksize'
+  | 'ino'
+  | 'blocks'
+  | 'atimeMs'
+  | 'mtimeMs'
+  | 'ctimeMs'
+  | 'birthtimeMs'
+  | 'atime'
+  | 'mtime'
+  | 'ctime'
+  | 'birthtime';
 
 export interface directoryGroupConnectionConnection {
   pageInfo: PageInfo;
@@ -2061,9 +2340,51 @@ export interface fileConnectionSort {
   order: fileConnectionSortOrderValues | null;
 }
 
-export type FileConnectionSortByFieldsEnum = "id" | "children" | "parent" | "internal___contentDigest" | "internal___type" | "internal___mediaType" | "internal___description" | "internal___owner" | "sourceInstanceName" | "absolutePath" | "relativePath" | "extension" | "size" | "prettySize" | "modifiedTime" | "accessTime" | "changeTime" | "birthTime" | "root" | "dir" | "base" | "ext" | "name" | "relativeDirectory" | "dev" | "mode" | "nlink" | "uid" | "gid" | "rdev" | "blksize" | "ino" | "blocks" | "atimeMs" | "mtimeMs" | "ctimeMs" | "birthtimeMs" | "atime" | "mtime" | "ctime" | "birthtime" | "publicURL";
+export type FileConnectionSortByFieldsEnum =
+  | 'id'
+  | 'children'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___mediaType'
+  | 'internal___description'
+  | 'internal___owner'
+  | 'sourceInstanceName'
+  | 'absolutePath'
+  | 'relativePath'
+  | 'extension'
+  | 'size'
+  | 'prettySize'
+  | 'modifiedTime'
+  | 'accessTime'
+  | 'changeTime'
+  | 'birthTime'
+  | 'root'
+  | 'dir'
+  | 'base'
+  | 'ext'
+  | 'name'
+  | 'relativeDirectory'
+  | 'dev'
+  | 'mode'
+  | 'nlink'
+  | 'uid'
+  | 'gid'
+  | 'rdev'
+  | 'blksize'
+  | 'ino'
+  | 'blocks'
+  | 'atimeMs'
+  | 'mtimeMs'
+  | 'ctimeMs'
+  | 'birthtimeMs'
+  | 'atime'
+  | 'mtime'
+  | 'ctime'
+  | 'birthtime'
+  | 'publicURL';
 
-export type fileConnectionSortOrderValues = "ASC" | "DESC";
+export type fileConnectionSortOrderValues = 'ASC' | 'DESC';
 
 export interface filterFile {
   id: fileConnectionIdQueryString_2 | null;
@@ -2705,11 +3026,28 @@ export interface Potrace {
   background: string | null;
 }
 
-export type PotraceTurnPolicy = "TURNPOLICY_BLACK" | "TURNPOLICY_WHITE" | "TURNPOLICY_LEFT" | "TURNPOLICY_RIGHT" | "TURNPOLICY_MINORITY" | "TURNPOLICY_MAJORITY";
+export type PotraceTurnPolicy =
+  | 'TURNPOLICY_BLACK'
+  | 'TURNPOLICY_WHITE'
+  | 'TURNPOLICY_LEFT'
+  | 'TURNPOLICY_RIGHT'
+  | 'TURNPOLICY_MINORITY'
+  | 'TURNPOLICY_MAJORITY';
 
-export type ImageFormat = "NO_CHANGE" | "JPG" | "PNG" | "WEBP";
+export type ImageFormat = 'NO_CHANGE' | 'JPG' | 'PNG' | 'WEBP';
 
-export type ImageCropFocus = "CENTER" | "NORTH" | "NORTHEAST" | "EAST" | "SOUTHEAST" | "SOUTH" | "SOUTHWEST" | "WEST" | "NORTHWEST" | "ENTROPY" | "ATTENTION";
+export type ImageCropFocus =
+  | 'CENTER'
+  | 'NORTH'
+  | 'NORTHEAST'
+  | 'EAST'
+  | 'SOUTHEAST'
+  | 'SOUTH'
+  | 'SOUTHWEST'
+  | 'WEST'
+  | 'NORTHWEST'
+  | 'ENTROPY'
+  | 'ATTENTION';
 
 export interface ImageSharpFixed {
   base64: string | null;
@@ -2848,7 +3186,7 @@ export interface fields_2 {
 
 export type JSON = any;
 
-export type HeadingLevels = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+export type HeadingLevels = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export interface MarkdownHeading {
   value: string | null;
@@ -2869,9 +3207,91 @@ export interface internal_12 {
   owner: string | null;
 }
 
-export type fileDistinctEnum = "id" | "children" | "parent" | "internal___contentDigest" | "internal___type" | "internal___mediaType" | "internal___description" | "internal___owner" | "sourceInstanceName" | "absolutePath" | "relativePath" | "extension" | "size" | "prettySize" | "modifiedTime" | "accessTime" | "changeTime" | "birthTime" | "root" | "dir" | "base" | "ext" | "name" | "relativeDirectory" | "dev" | "mode" | "nlink" | "uid" | "gid" | "rdev" | "blksize" | "ino" | "blocks" | "atimeMs" | "mtimeMs" | "ctimeMs" | "birthtimeMs" | "atime" | "mtime" | "ctime" | "birthtime";
+export type fileDistinctEnum =
+  | 'id'
+  | 'children'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___mediaType'
+  | 'internal___description'
+  | 'internal___owner'
+  | 'sourceInstanceName'
+  | 'absolutePath'
+  | 'relativePath'
+  | 'extension'
+  | 'size'
+  | 'prettySize'
+  | 'modifiedTime'
+  | 'accessTime'
+  | 'changeTime'
+  | 'birthTime'
+  | 'root'
+  | 'dir'
+  | 'base'
+  | 'ext'
+  | 'name'
+  | 'relativeDirectory'
+  | 'dev'
+  | 'mode'
+  | 'nlink'
+  | 'uid'
+  | 'gid'
+  | 'rdev'
+  | 'blksize'
+  | 'ino'
+  | 'blocks'
+  | 'atimeMs'
+  | 'mtimeMs'
+  | 'ctimeMs'
+  | 'birthtimeMs'
+  | 'atime'
+  | 'mtime'
+  | 'ctime'
+  | 'birthtime';
 
-export type fileGroupEnum = "id" | "children" | "parent" | "internal___contentDigest" | "internal___type" | "internal___mediaType" | "internal___description" | "internal___owner" | "sourceInstanceName" | "absolutePath" | "relativePath" | "extension" | "size" | "prettySize" | "modifiedTime" | "accessTime" | "changeTime" | "birthTime" | "root" | "dir" | "base" | "ext" | "name" | "relativeDirectory" | "dev" | "mode" | "nlink" | "uid" | "gid" | "rdev" | "blksize" | "ino" | "blocks" | "atimeMs" | "mtimeMs" | "ctimeMs" | "birthtimeMs" | "atime" | "mtime" | "ctime" | "birthtime";
+export type fileGroupEnum =
+  | 'id'
+  | 'children'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___mediaType'
+  | 'internal___description'
+  | 'internal___owner'
+  | 'sourceInstanceName'
+  | 'absolutePath'
+  | 'relativePath'
+  | 'extension'
+  | 'size'
+  | 'prettySize'
+  | 'modifiedTime'
+  | 'accessTime'
+  | 'changeTime'
+  | 'birthTime'
+  | 'root'
+  | 'dir'
+  | 'base'
+  | 'ext'
+  | 'name'
+  | 'relativeDirectory'
+  | 'dev'
+  | 'mode'
+  | 'nlink'
+  | 'uid'
+  | 'gid'
+  | 'rdev'
+  | 'blksize'
+  | 'ino'
+  | 'blocks'
+  | 'atimeMs'
+  | 'mtimeMs'
+  | 'ctimeMs'
+  | 'birthtimeMs'
+  | 'atime'
+  | 'mtime'
+  | 'ctime'
+  | 'birthtime';
 
 export interface fileGroupConnectionConnection {
   pageInfo: PageInfo;
@@ -2892,9 +3312,63 @@ export interface imageSharpConnectionSort {
   order: imageSharpConnectionSortOrderValues | null;
 }
 
-export type ImageSharpConnectionSortByFieldsEnum = "id" | "parent" | "internal___contentDigest" | "internal___type" | "internal___owner" | "fixed___base64" | "fixed___tracedSVG" | "fixed___aspectRatio" | "fixed___width" | "fixed___height" | "fixed___src" | "fixed___srcSet" | "fixed___srcWebp" | "fixed___srcSetWebp" | "fixed___originalName" | "resolutions___base64" | "resolutions___tracedSVG" | "resolutions___aspectRatio" | "resolutions___width" | "resolutions___height" | "resolutions___src" | "resolutions___srcSet" | "resolutions___srcWebp" | "resolutions___srcSetWebp" | "resolutions___originalName" | "fluid___base64" | "fluid___tracedSVG" | "fluid___aspectRatio" | "fluid___src" | "fluid___srcSet" | "fluid___srcWebp" | "fluid___srcSetWebp" | "fluid___sizes" | "fluid___originalImg" | "fluid___originalName" | "sizes___base64" | "sizes___tracedSVG" | "sizes___aspectRatio" | "sizes___src" | "sizes___srcSet" | "sizes___srcWebp" | "sizes___srcSetWebp" | "sizes___sizes" | "sizes___originalImg" | "sizes___originalName" | "original___width" | "original___height" | "original___src" | "resize___src" | "resize___tracedSVG" | "resize___width" | "resize___height" | "resize___aspectRatio" | "resize___originalName";
+export type ImageSharpConnectionSortByFieldsEnum =
+  | 'id'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___owner'
+  | 'fixed___base64'
+  | 'fixed___tracedSVG'
+  | 'fixed___aspectRatio'
+  | 'fixed___width'
+  | 'fixed___height'
+  | 'fixed___src'
+  | 'fixed___srcSet'
+  | 'fixed___srcWebp'
+  | 'fixed___srcSetWebp'
+  | 'fixed___originalName'
+  | 'resolutions___base64'
+  | 'resolutions___tracedSVG'
+  | 'resolutions___aspectRatio'
+  | 'resolutions___width'
+  | 'resolutions___height'
+  | 'resolutions___src'
+  | 'resolutions___srcSet'
+  | 'resolutions___srcWebp'
+  | 'resolutions___srcSetWebp'
+  | 'resolutions___originalName'
+  | 'fluid___base64'
+  | 'fluid___tracedSVG'
+  | 'fluid___aspectRatio'
+  | 'fluid___src'
+  | 'fluid___srcSet'
+  | 'fluid___srcWebp'
+  | 'fluid___srcSetWebp'
+  | 'fluid___sizes'
+  | 'fluid___originalImg'
+  | 'fluid___originalName'
+  | 'sizes___base64'
+  | 'sizes___tracedSVG'
+  | 'sizes___aspectRatio'
+  | 'sizes___src'
+  | 'sizes___srcSet'
+  | 'sizes___srcWebp'
+  | 'sizes___srcSetWebp'
+  | 'sizes___sizes'
+  | 'sizes___originalImg'
+  | 'sizes___originalName'
+  | 'original___width'
+  | 'original___height'
+  | 'original___src'
+  | 'resize___src'
+  | 'resize___tracedSVG'
+  | 'resize___width'
+  | 'resize___height'
+  | 'resize___aspectRatio'
+  | 'resize___originalName';
 
-export type imageSharpConnectionSortOrderValues = "ASC" | "DESC";
+export type imageSharpConnectionSortOrderValues = 'ASC' | 'DESC';
 
 export interface filterImageSharp {
   id: imageSharpConnectionIdQueryString_2 | null;
@@ -3454,9 +3928,19 @@ export interface ImageSharpEdge {
   previous: ImageSharp | null;
 }
 
-export type imageSharpDistinctEnum = "id" | "parent" | "internal___contentDigest" | "internal___type" | "internal___owner";
+export type imageSharpDistinctEnum =
+  | 'id'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___owner';
 
-export type imageSharpGroupEnum = "id" | "parent" | "internal___contentDigest" | "internal___type" | "internal___owner";
+export type imageSharpGroupEnum =
+  | 'id'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___owner';
 
 export interface imageSharpGroupConnectionConnection {
   pageInfo: PageInfo;
@@ -3477,9 +3961,35 @@ export interface markdownRemarkConnectionSort {
   order: markdownRemarkConnectionSortOrderValues | null;
 }
 
-export type MarkdownRemarkConnectionSortByFieldsEnum = "id" | "parent" | "internal___content" | "internal___type" | "internal___contentDigest" | "internal___owner" | "internal___fieldOwners___slug" | "frontmatter___title" | "frontmatter___createdDate" | "frontmatter___updatedDate" | "frontmatter___author" | "frontmatter___tags" | "frontmatter___image" | "frontmatter___draft" | "frontmatter____PARENT" | "excerpt" | "rawMarkdownBody" | "fileAbsolutePath" | "fields___slug" | "html" | "headings" | "timeToRead" | "tableOfContents" | "wordCount___paragraphs" | "wordCount___sentences" | "wordCount___words";
+export type MarkdownRemarkConnectionSortByFieldsEnum =
+  | 'id'
+  | 'parent'
+  | 'internal___content'
+  | 'internal___type'
+  | 'internal___contentDigest'
+  | 'internal___owner'
+  | 'internal___fieldOwners___slug'
+  | 'frontmatter___title'
+  | 'frontmatter___createdDate'
+  | 'frontmatter___updatedDate'
+  | 'frontmatter___author'
+  | 'frontmatter___tags'
+  | 'frontmatter___image'
+  | 'frontmatter___draft'
+  | 'frontmatter____PARENT'
+  | 'excerpt'
+  | 'rawMarkdownBody'
+  | 'fileAbsolutePath'
+  | 'fields___slug'
+  | 'html'
+  | 'headings'
+  | 'timeToRead'
+  | 'tableOfContents'
+  | 'wordCount___paragraphs'
+  | 'wordCount___sentences'
+  | 'wordCount___words';
 
-export type markdownRemarkConnectionSortOrderValues = "ASC" | "DESC";
+export type markdownRemarkConnectionSortOrderValues = 'ASC' | 'DESC';
 
 export interface filterMarkdownRemark {
   id: markdownRemarkConnectionIdQueryString_2 | null;
@@ -3778,9 +4288,47 @@ export interface MarkdownRemarkEdge {
   previous: MarkdownRemark | null;
 }
 
-export type markdownRemarkDistinctEnum = "id" | "parent" | "internal___content" | "internal___type" | "internal___contentDigest" | "internal___owner" | "internal___fieldOwners___slug" | "frontmatter___title" | "frontmatter___createdDate" | "frontmatter___updatedDate" | "frontmatter___author" | "frontmatter___tags" | "frontmatter___image" | "frontmatter___draft" | "frontmatter____PARENT" | "excerpt" | "rawMarkdownBody" | "fileAbsolutePath" | "fields___slug";
+export type markdownRemarkDistinctEnum =
+  | 'id'
+  | 'parent'
+  | 'internal___content'
+  | 'internal___type'
+  | 'internal___contentDigest'
+  | 'internal___owner'
+  | 'internal___fieldOwners___slug'
+  | 'frontmatter___title'
+  | 'frontmatter___createdDate'
+  | 'frontmatter___updatedDate'
+  | 'frontmatter___author'
+  | 'frontmatter___tags'
+  | 'frontmatter___image'
+  | 'frontmatter___draft'
+  | 'frontmatter____PARENT'
+  | 'excerpt'
+  | 'rawMarkdownBody'
+  | 'fileAbsolutePath'
+  | 'fields___slug';
 
-export type markdownRemarkGroupEnum = "id" | "parent" | "internal___content" | "internal___type" | "internal___contentDigest" | "internal___owner" | "internal___fieldOwners___slug" | "frontmatter___title" | "frontmatter___createdDate" | "frontmatter___updatedDate" | "frontmatter___author" | "frontmatter___tags" | "frontmatter___image" | "frontmatter___draft" | "frontmatter____PARENT" | "excerpt" | "rawMarkdownBody" | "fileAbsolutePath" | "fields___slug";
+export type markdownRemarkGroupEnum =
+  | 'id'
+  | 'parent'
+  | 'internal___content'
+  | 'internal___type'
+  | 'internal___contentDigest'
+  | 'internal___owner'
+  | 'internal___fieldOwners___slug'
+  | 'frontmatter___title'
+  | 'frontmatter___createdDate'
+  | 'frontmatter___updatedDate'
+  | 'frontmatter___author'
+  | 'frontmatter___tags'
+  | 'frontmatter___image'
+  | 'frontmatter___draft'
+  | 'frontmatter____PARENT'
+  | 'excerpt'
+  | 'rawMarkdownBody'
+  | 'fileAbsolutePath'
+  | 'fields___slug';
 
 export interface markdownRemarkGroupConnectionConnection {
   pageInfo: PageInfo;
@@ -3801,9 +4349,18 @@ export interface authorJsonConnectionSort {
   order: authorJsonConnectionSortOrderValues | null;
 }
 
-export type AuthorJsonConnectionSortByFieldsEnum = "id" | "bio" | "avatar" | "twitter" | "github" | "parent" | "internal___contentDigest" | "internal___type" | "internal___owner";
+export type AuthorJsonConnectionSortByFieldsEnum =
+  | 'id'
+  | 'bio'
+  | 'avatar'
+  | 'twitter'
+  | 'github'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___owner';
 
-export type authorJsonConnectionSortOrderValues = "ASC" | "DESC";
+export type authorJsonConnectionSortOrderValues = 'ASC' | 'DESC';
 
 export interface filterAuthorJson {
   id: authorJsonConnectionIdQueryString_2 | null;
@@ -3908,9 +4465,27 @@ export interface AuthorJsonEdge {
   previous: AuthorJson | null;
 }
 
-export type authorJsonDistinctEnum = "id" | "bio" | "avatar" | "twitter" | "github" | "parent" | "internal___contentDigest" | "internal___type" | "internal___owner";
+export type authorJsonDistinctEnum =
+  | 'id'
+  | 'bio'
+  | 'avatar'
+  | 'twitter'
+  | 'github'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___owner';
 
-export type authorJsonGroupEnum = "id" | "bio" | "avatar" | "twitter" | "github" | "parent" | "internal___contentDigest" | "internal___type" | "internal___owner";
+export type authorJsonGroupEnum =
+  | 'id'
+  | 'bio'
+  | 'avatar'
+  | 'twitter'
+  | 'github'
+  | 'parent'
+  | 'internal___contentDigest'
+  | 'internal___type'
+  | 'internal___owner';
 
 export interface authorJsonGroupConnectionConnection {
   pageInfo: PageInfo;

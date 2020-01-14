@@ -20,11 +20,11 @@ process.argv.slice(3).forEach(dirtyPath => {
 
   // Get current date and update `updatedDate` data
   const updatedDate = new Date().toISOString().split('T')[0];
-  const updatedData = Object.assign({}, parsedFile.data, {updatedDate});
+  const updatedData = Object.assign({}, parsedFile.data, { updatedDate });
 
   // Recompose content and updated data
   const updatedContent = matter.stringify(parsedFile.content, updatedData);
 
   // Update file
-  fs.writeFileSync(path, updatedContent, {encoding: 'utf-8'});
+  fs.writeFileSync(path, updatedContent, { encoding: 'utf-8' });
 });

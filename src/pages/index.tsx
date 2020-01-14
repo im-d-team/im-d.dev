@@ -1,14 +1,23 @@
-import * as React from "react";
-import { Link } from "gatsby";
-import { get } from "lodash";
+import * as React from 'react';
+import { Link } from 'gatsby';
+import { get } from 'lodash';
 
-import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
-import { MarkdownRemark } from "../graphql-types";
+import { MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
+import { MarkdownRemark } from '../graphql-types';
 
-import HeaderMenu from "../components/HeaderMenu/HeaderMenu";
-import { withLayout, LayoutProps, menuItems } from "../components/Layout";
-import { Button, Segment, Container, Grid, Header, Icon, Card, Comment } from "semantic-ui-react";
-import { graphql } from "gatsby";
+import HeaderMenu from '../components/HeaderMenu/HeaderMenu';
+import { withLayout, LayoutProps, menuItems } from '../components/Layout';
+import {
+  Button,
+  Segment,
+  Container,
+  Grid,
+  Header,
+  Icon,
+  Card,
+  Comment,
+} from 'semantic-ui-react';
+import { graphql } from 'gatsby';
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -33,15 +42,22 @@ const IndexPage = (props: BlogProps) => {
           excerpt,
         } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
-        const cover = get(frontmatter, "image.children.0.fixed", {});
+        const cover = get(frontmatter, 'image.children.0.fixed', {});
 
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar src={avatar.fixed.src} srcSet={avatar.fixed.srcSet} />
+              <Comment.Avatar
+                src={avatar.fixed.src}
+                srcSet={avatar.fixed.srcSet}
+              />
               <Comment.Content>
-                <Comment.Author style={{ fontWeight: 400 }}>{frontmatter.author.id}</Comment.Author>
-                <Comment.Metadata style={{ margin: 0 }}>{frontmatter.createdDate}</Comment.Metadata>
+                <Comment.Author style={{ fontWeight: 400 }}>
+                  {frontmatter.author.id}
+                </Comment.Author>
+                <Comment.Metadata style={{ margin: 0 }}>
+                  {frontmatter.createdDate}
+                </Comment.Metadata>
               </Comment.Content>
             </Comment>
           </Comment.Group>
@@ -73,7 +89,12 @@ const IndexPage = (props: BlogProps) => {
     <div>
       {/* Master head */}
       <Segment vertical inverted textAlign="center" className="masthead">
-        <HeaderMenu Link={Link} pathname={props.location.pathname} items={menuItems} inverted />
+        <HeaderMenu
+          Link={Link}
+          pathname={props.location.pathname}
+          items={menuItems}
+          inverted
+        />
         <Container text>
           <Header inverted as="h1">
             Gatsby 2.0 - Starter kit
@@ -113,7 +134,10 @@ export const pageQuery = graphql`
     # Get posts
     posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___createdDate] }
-      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: { regex: "/blog/" } }
+      filter: {
+        frontmatter: { draft: { ne: true } }
+        fileAbsolutePath: { regex: "/blog/" }
+      }
       limit: 10
     ) {
       totalCount

@@ -1,23 +1,23 @@
-import { shallow, configure } from "enzyme";
-import "jest";
-import * as React from "react";
-import { HeaderMenu } from "./HeaderMenu";
+import { shallow, configure } from 'enzyme';
+import 'jest';
+import * as React from 'react';
+import { HeaderMenu } from './HeaderMenu';
 
 // Configure enzyme with react 16 adapter
-const Adapter: any = require("enzyme-adapter-react-16");
+const Adapter: any = require('enzyme-adapter-react-16');
 configure({ adapter: new Adapter() });
 
 const items = [
-  { name: "Home", path: "/", exact: true },
-  { name: "About", path: "/about/", exact: true },
-  { name: "Blog", path: "/blog/", exact: false },
+  { name: 'Home', path: '/', exact: true },
+  { name: 'About', path: '/about/', exact: true },
+  { name: 'Blog', path: '/blog/', exact: false },
 ];
 
 const LinkStub = (props: any) => <div {...props} />;
 const dispatchStub = (a: any) => a;
 
-describe("HeaderMenu component", () => {
-  it("should nothing active", () => {
+describe('HeaderMenu component', () => {
+  it('should nothing active', () => {
     const wrapper = shallow(
       <HeaderMenu
         Link={LinkStub}
@@ -29,18 +29,19 @@ describe("HeaderMenu component", () => {
     expect(wrapper.find({ active: true }).length).toBe(0);
   });
 
-  it("should have about as active (match exact)", () => {
+  it('should have about as active (match exact)', () => {
     const wrapper = shallow(
       <HeaderMenu
         Link={LinkStub}
         items={items}
         pathname="/about/"
-        dispatch={dispatchStub} />,
+        dispatch={dispatchStub}
+      />,
     );
-    expect(wrapper.find({ name: "About" }).prop("active")).toBeTruthy();
+    expect(wrapper.find({ name: 'About' }).prop('active')).toBeTruthy();
   });
 
-  it("should have blog as active (match not exact)", () => {
+  it('should have blog as active (match not exact)', () => {
     const wrapper = shallow(
       <HeaderMenu
         Link={LinkStub}
@@ -49,10 +50,10 @@ describe("HeaderMenu component", () => {
         dispatch={dispatchStub}
       />,
     );
-    expect(wrapper.find({ name: "Blog" }).prop("active")).toBeTruthy();
+    expect(wrapper.find({ name: 'Blog' }).prop('active')).toBeTruthy();
   });
 
-  it("should have inverted style", () => {
+  it('should have inverted style', () => {
     const wrapper = shallow(
       <HeaderMenu
         Link={LinkStub}
@@ -65,17 +66,17 @@ describe("HeaderMenu component", () => {
     expect(wrapper.find({ inverted: true }).length).toBe(1);
   });
 
-  it("should dispatch the correct message on burger click", () => {
+  it('should dispatch the correct message on burger click', () => {
     const dispatchMock: any = jest.fn();
     const wrapper = shallow(
       <HeaderMenu
         Link={LinkStub}
         items={items}
         pathname=""
-        dispatch={dispatchMock} />,
+        dispatch={dispatchMock}
+      />,
     );
-    wrapper.find(".mobile .only").simulate("click");
+    wrapper.find('.mobile .only').simulate('click');
     expect(dispatchMock.mock.calls.length).toBe(1);
   });
-
 });

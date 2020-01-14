@@ -1,6 +1,6 @@
 {
   "bracketSpacing": true,
-  "endOfLine": "lf",
+  "endOfLine": "crlf",
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,

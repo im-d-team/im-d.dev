@@ -1,10 +1,10 @@
 /* tslint:disable no-var-requires */
 /* tslint:disable no-console */
 
-import * as React from "react";
-import Helmet from "react-helmet";
+import * as React from 'react';
+import Helmet from 'react-helmet';
 
-const config = require("../gatsby-config.js");
+const config = require('../gatsby-config.js');
 
 interface HtmlProps {
   body: any;
@@ -15,9 +15,13 @@ interface HtmlProps {
 export default (props: HtmlProps) => {
   const head = Helmet.rewind();
 
-  const verification = config.siteMetadata && config.siteMetadata.googleVerification ? <meta
-    name="google-site-verification"
-    content={config.siteMetadata.googleVerification} /> : null;
+  const verification =
+    config.siteMetadata && config.siteMetadata.googleVerification ? (
+      <meta
+        name="google-site-verification"
+        content={config.siteMetadata.googleVerification}
+      />
+    ) : null;
 
   return (
     <html lang="en">
@@ -36,10 +40,7 @@ export default (props: HtmlProps) => {
         {verification}
       </head>
       <body>
-        <div
-          id="___gatsby"
-          dangerouslySetInnerHTML={{ __html: props.body }}
-        />
+        <div id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.postBodyComponents}
       </body>
     </html>

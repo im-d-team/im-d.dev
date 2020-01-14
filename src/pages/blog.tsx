@@ -1,14 +1,23 @@
-import * as React from "react";
-import { Link } from "gatsby";
-import { StaticQuery, graphql } from "gatsby";
-import { Header, Grid, Card, List, Container, Feed, Segment, Comment } from "semantic-ui-react";
-import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
-import BlogTitle from "../components/BlogTitle";
-import TagsCard from "../components/TagsCard/TagsCard";
-import BlogPagination from "../components/BlogPagination/BlogPagination";
-import { get } from "lodash";
-import { withLayout, LayoutProps } from "../components/Layout";
-import { MarkdownRemark } from "../graphql-types";
+import * as React from 'react';
+import { Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
+import {
+  Header,
+  Grid,
+  Card,
+  List,
+  Container,
+  Feed,
+  Segment,
+  Comment,
+} from 'semantic-ui-react';
+import { MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
+import BlogTitle from '../components/BlogTitle';
+import TagsCard from '../components/TagsCard/TagsCard';
+import BlogPagination from '../components/BlogPagination/BlogPagination';
+import { get } from 'lodash';
+import { withLayout, LayoutProps } from '../components/Layout';
+import { MarkdownRemark } from '../graphql-types';
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -37,15 +46,22 @@ const BlogPage = (props: BlogProps) => {
           excerpt,
         } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
-        const cover = get(frontmatter, "image.children.0.fixed", {});
+        const cover = get(frontmatter, 'image.children.0.fixed', {});
 
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar src={avatar.fixed.src} srcSet={avatar.fixed.srcSet} />
+              <Comment.Avatar
+                src={avatar.fixed.src}
+                srcSet={avatar.fixed.srcSet}
+              />
               <Comment.Content>
-                <Comment.Author style={{ fontWeight: 400 }}>{frontmatter.author.id}</Comment.Author>
-                <Comment.Metadata style={{ margin: 0 }}>{frontmatter.createdDate}</Comment.Metadata>
+                <Comment.Author style={{ fontWeight: 400 }}>
+                  {frontmatter.author.id}
+                </Comment.Author>
+                <Comment.Metadata style={{ margin: 0 }}>
+                  {frontmatter.createdDate}
+                </Comment.Metadata>
               </Comment.Content>
             </Comment>
           </Comment.Group>
@@ -80,11 +96,15 @@ const BlogPage = (props: BlogProps) => {
 
       {/* Content */}
       <Segment vertical>
-        <Grid padded style={{ justifyContent: "space-around" }}>
+        <Grid padded style={{ justifyContent: 'space-around' }}>
           <div style={{ maxWidth: 600 }}>
             {Posts}
             <Segment vertical textAlign="center">
-              <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
+              <BlogPagination
+                Link={Link}
+                pathname={pathname}
+                pageCount={pageCount}
+              />
             </Segment>
           </div>
           <div>
@@ -111,7 +131,10 @@ export const pageQuery = graphql`
     # Get posts
     posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___createdDate] }
-      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: { regex: "/blog/" } }
+      filter: {
+        frontmatter: { draft: { ne: true } }
+        fileAbsolutePath: { regex: "/blog/" }
+      }
       limit: 10
     ) {
       totalCount

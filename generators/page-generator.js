@@ -1,4 +1,4 @@
-const {inputRequired} = require('./utils');
+const { inputRequired } = require('./utils');
 
 module.exports = plop => {
   plop.setGenerator('page', {
@@ -7,15 +7,15 @@ module.exports = plop => {
         type: 'input',
         name: 'name',
         message: 'Page name?',
-        validate: inputRequired('name')
-      }
+        validate: inputRequired('name'),
+      },
     ],
     actions: [
       {
         type: 'add',
         path: '../src/pages/{{camelCase name}}.tsx',
-        templateFile: 'templates/page-tsx.template'
-      }
-    ]
+        templateFile: 'templates/page-tsx.template',
+      },
+    ],
   });
 };

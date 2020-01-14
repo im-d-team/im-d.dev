@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {inputRequired} = require('./utils');
+const { inputRequired } = require('./utils');
 
 const authors = JSON.parse(fs.readFileSync('./data/author.json'));
 
@@ -10,24 +10,24 @@ module.exports = plop => {
         type: 'input',
         name: 'title',
         message: 'Blog post title?',
-        validate: inputRequired('title')
+        validate: inputRequired('title'),
       },
       {
         type: 'list',
         name: 'author',
         message: 'The author of blog post?',
-        choices: authors.map(author => ({name: author.id, value: author.id}))
+        choices: authors.map(author => ({ name: author.id, value: author.id })),
       },
       {
         type: 'input',
         name: 'tags',
-        message: 'tags? (separate with coma)'
+        message: 'tags? (separate with coma)',
       },
       {
         type: 'confirm',
         name: 'draft',
-        message: 'It\'s a draft?'
-      }
+        message: "It's a draft?",
+      },
     ],
     actions: data => {
       // Get current date
@@ -42,9 +42,9 @@ module.exports = plop => {
         {
           type: 'add',
           path: '../data/blog/{{createdDate}}--{{dashCase title}}/index.md',
-          templateFile: 'templates/blog-post-md.template'
-        }
+          templateFile: 'templates/blog-post-md.template',
+        },
       ];
-    }
+    },
   });
 };

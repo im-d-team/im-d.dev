@@ -9,16 +9,17 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "lint": "npm run lint:ts && npm run lint:md && npm run lint:js && npm run lint:css",
-    "lint:ts": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\"",
-    "lint:js": "xo",
+    "lint:ts": "eslint . --ext .ts,.tsx",
+    "lint:js": "eslint . --ext .js,.jsx",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:md": "remark .",
+    "lint:mdtest": "node tools/update-post-date.js && remark -o",
     "lint:scss": "stylelint src/**/*.scss --syntax scss",
+    "lint:fix": "eslint . --fix",
     "test": "npm run lint && jest",
     "test:watch": "jest --watch",
     "generate": "plop --plopfile ./generators/plopfile.js",
     "graphql-types": "gql-gen --url http://localhost:8000/___graphql --template typescript --out ./src/graphql-types.d.ts",
-    "precommit": "lint-staged",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o public/docs",
     "codeclimate": "codeclimate-test-reporter < coverage/lcov.info"
@@ -78,7 +79,6 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-config-react-app": "^5.1.0",
-    "eslint-config-xo-react": "^0.22.0",
     "eslint-plugin-flowtype": "^4.6.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -95,30 +95,27 @@
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.12.0",
     "remark-cli": "^7.0.1",
+    "remark-frontmatter": "^1.3.2",
     "remark-preset-lint-recommended": "^3.0.3",
     "storybook-readme": "^5.0.8",
     "stylelint": "^13.0.0",
     "stylelint-config-standard": "^19.0.0",
     "ts-jest": "^24.3.0",
-    "ts-lint": "^4.5.1",
-    "xo": "^0.25.3"
+    "ts-lint": "^4.5.1"
   },
   "keywords": [
     "gatsby",
     "starter"
   ],
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{js,jsx}": [
-      "xo --fix",
+    "*.{ts,tsx,js,jsx}": [
+      "eslint . --ext .ts,.tsx --fix",
+      "eslint . --ext .js,.jsx --fix",
       "git add"
     ],
     "*.md": [
-      "node tools/update-post-date.js",
       "remark -o",
+      "node tools/update-post-date.js",
       "git add"
     ],
     "*.css": [
@@ -127,10 +124,16 @@
   },
   "remarkConfig": {
     "plugins": [
-      "remark-preset-lint-recommended"
+      "remark-preset-lint-recommended",
+      "remark-frontmatter"
     ]
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Header, Segment, Icon } from "semantic-ui-react";
+import * as React from 'react';
+import { Header, Segment, Icon } from 'semantic-ui-react';
 
 export default () => {
   return (
@@ -8,9 +8,7 @@ export default () => {
         <Icon name="newspaper" />
         <Header.Content>
           Blog
-            <Header.Subheader>
-            All about this starter kit
-            </Header.Subheader>
+          <Header.Subheader>All about this starter kit</Header.Subheader>
         </Header.Content>
       </Header>
     </Segment>
