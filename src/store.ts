@@ -1,6 +1,5 @@
 import { createStore } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
-import { get } from 'lodash';
 
 export interface StoreState {
   isSidebarVisible: boolean;
@@ -31,7 +30,7 @@ export const reducer = (
 
 // Store
 export const initialState: StoreState = { isSidebarVisible: false };
-export const store = createStore<StoreState>(
+export const store = createStore<StoreState, any, any, any>(
   reducer,
   initialState,
   devToolsEnhancer({}),
