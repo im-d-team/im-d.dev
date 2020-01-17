@@ -10,11 +10,6 @@ import 'prismjs/themes/prism-okaidia.css';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 
-export const menuItems = [
-  { name: 'Home', path: '/', exact: true, icon: 'home', inverted: true },
-  { name: 'Blog', path: '/blog/', exact: false, icon: 'newspaper' },
-];
-
 export interface LayoutProps {
   location: {
     pathname: string;
@@ -28,19 +23,17 @@ const Layout = (props: LayoutProps) => {
 
   return (
     <Provider store={store}>
-      <Sidebar.Pushable as={Segment}>
-        <SidebarMenu
-          Link={Link}
-          pathname={pathname}
-          items={menuItems}
-          visible={false}
-        />
+      <Sidebar.Pushable
+        as={Segment}
+        style={{
+          border: '0px',
+        }}
+      >
+        <SidebarMenu Link={Link} pathname={pathname} visible={false} />
 
         <Sidebar.Pusher style={{ minHeight: '100vh' }}>
           {/* Header */}
-          {isHome ? null : (
-            <HeaderMenu Link={Link} pathname={pathname} items={menuItems} />
-          )}
+          {isHome ? null : <HeaderMenu Link={Link} pathname={pathname} />}
 
           {/* Render children pages */}
           <div style={{ paddingBottom: 60 }}>{props.children}</div>

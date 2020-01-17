@@ -92,7 +92,7 @@ const BlogPage = (props: BlogProps) => {
   return (
     <Container>
       {/* Title */}
-      <BlogTitle />
+      {/* <BlogTitle /> */}
 
       {/* Content */}
       <Segment vertical>

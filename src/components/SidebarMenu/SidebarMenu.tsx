@@ -13,27 +13,23 @@ interface SidebarMenuProps extends MenuProps {
   Link: React.ComponentClass<GatsbyLinkProps<any>>;
 }
 
-export const SidebarMenu = ({
-  items,
-  pathname,
-  Link,
-  visible,
-}: SidebarMenuProps) => {
-  const isActive = (item: MenuItem) =>
-    item.exact ? pathname === item.path : pathname.startsWith(item.path);
-  const activeItem =
-    items.find((item: MenuItem) => isActive(item)) || ({} as MenuItem);
+export const SidebarMenu = ({ pathname, Link, visible }: SidebarMenuProps) => {
+  // const isActive = (item: MenuItem) =>
+  //   item.exact ? pathname === item.path : pathname.startsWith(item.path);
+  // const activeItem =
+  //   items.find((item: MenuItem) => isActive(item)) || ({} as MenuItem);
   return (
     <Sidebar
       as={Menu}
       animation="slide along"
+      direction="right"
       width="thin"
       visible={visible}
       icon="labeled"
       vertical
-      inverted={activeItem.inverted}
+      // inverted={activeItem.inverted}
     >
-      {items.map(item => {
+      {/* {items.map(item => {
         const active = isActive(item);
         return (
           <Menu.Item as={Link} to={item.path} active={active} key={item.path}>
@@ -41,7 +37,7 @@ export const SidebarMenu = ({
             {item.name}
           </Menu.Item>
         );
-      })}
+      })} */}
     </Sidebar>
   );
 };

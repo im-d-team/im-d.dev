@@ -92,30 +92,21 @@ const IndexPage = (props: BlogProps) => {
 
   return (
     <div>
+      <HeaderMenu Link={Link} pathname={props.location.pathname} inverted />
       {/* Master head */}
       <Segment vertical inverted textAlign="center" className="masthead">
-        <HeaderMenu
-          Link={Link}
-          pathname={props.location.pathname}
-          items={menuItems}
-          inverted
-        />
         <Container text>
-          <Header inverted as="h1">
-            Im-d - Blog
-          </Header>
-          <Header inverted as="h2">
-            {/* Typescript - Jest - Semantic UI */}
-          </Header>
-          <Button primary size="huge">
-            지원하기
+          <Header inverted as="h1"></Header>
+          <Header inverted as="h2"></Header>
+          <Button primary size="medium">
+            테스트 진행 중
           </Button>
         </Container>
       </Segment>
 
       {/* About this starter */}
-      <Segment vertical className="stripe">
-        <Grid padded style={{ justifyContent: 'space-evenly' }}>
+      <Segment vertical className="">
+        <Grid padded style={{ justifyContent: 'center' }}>
           <div style={{ maxWidth: 600 }}>
             {Posts}
             <Segment vertical textAlign="center">
@@ -126,14 +117,14 @@ const IndexPage = (props: BlogProps) => {
               />
             </Segment>
           </div>
-          <div>
+          <div style={{ maxWidth: 250 }}>
             <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
           </div>
         </Grid>
       </Segment>
 
       {/* Key features */}
-      <Segment vertical className="stripe alternate feature" />
+      {/* <Segment vertical className="stripe alternate feature" /> */}
     </div>
   );
 };
