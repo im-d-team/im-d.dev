@@ -96,7 +96,7 @@ const BlogPage = (props: BlogProps) => {
 
       {/* Content */}
       <Segment vertical>
-        <Grid padded style={{ justifyContent: 'space-around' }}>
+        <Grid padded style={{ justifyContent: 'center' }}>
           <div style={{ maxWidth: 600 }}>
             {Posts}
             <Segment vertical textAlign="center">
@@ -107,7 +107,7 @@ const BlogPage = (props: BlogProps) => {
               />
             </Segment>
           </div>
-          <div>
+          <div style={{ maxWidth: 250 }}>
             <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
           </div>
         </Grid>

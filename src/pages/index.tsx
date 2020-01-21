@@ -18,6 +18,7 @@ import {
   Icon,
   Card,
   Comment,
+  Responsive,
 } from 'semantic-ui-react';
 import { graphql } from 'gatsby';
 
@@ -117,9 +118,11 @@ const IndexPage = (props: BlogProps) => {
               />
             </Segment>
           </div>
-          <div style={{ maxWidth: 250 }}>
-            <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
-          </div>
+          <Responsive minWidth={Responsive.onlyComputer.minWidth}>
+            <div style={{ maxWidth: 250 }}>
+              <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+            </div>
+          </Responsive>
         </Grid>
       </Segment>
 

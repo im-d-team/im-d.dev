@@ -1,23 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { GatsbyLinkProps } from 'gatsby-link';
 import { StoreState } from '../../store';
-import { MenuProps, MenuItem } from '../Menu';
-import { Menu, Icon, Sidebar } from 'semantic-ui-react';
-import { SemanticICONS } from 'semantic-ui-react';
+import { MenuProps } from '../Menu';
+import { Menu, Sidebar } from 'semantic-ui-react';
 
 interface SidebarMenuProps extends MenuProps {
   visible?: boolean;
-  dispatch?: Dispatch<any>;
-  Link: React.ComponentClass<GatsbyLinkProps<any>>;
 }
 
-export const SidebarMenu = ({ pathname, Link, visible }: SidebarMenuProps) => {
-  // const isActive = (item: MenuItem) =>
-  //   item.exact ? pathname === item.path : pathname.startsWith(item.path);
-  // const activeItem =
-  //   items.find((item: MenuItem) => isActive(item)) || ({} as MenuItem);
+export const SidebarMenu = ({ visible }: SidebarMenuProps) => {
   return (
     <Sidebar
       as={Menu}
@@ -27,7 +18,6 @@ export const SidebarMenu = ({ pathname, Link, visible }: SidebarMenuProps) => {
       visible={visible}
       icon="labeled"
       vertical
-      // inverted={activeItem.inverted}
     >
       {/* {items.map(item => {
         const active = isActive(item);

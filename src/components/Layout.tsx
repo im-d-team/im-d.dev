@@ -23,13 +23,8 @@ const Layout = (props: LayoutProps) => {
 
   return (
     <Provider store={store}>
-      <Sidebar.Pushable
-        as={Segment}
-        style={{
-          border: '0px',
-        }}
-      >
-        <SidebarMenu Link={Link} pathname={pathname} visible={false} />
+      <Sidebar.Pushable as={Segment}>
+        <SidebarMenu Link={Link} pathname={pathname} visible={true} />
 
         <Sidebar.Pusher style={{ minHeight: '100vh' }}>
           {/* Header */}

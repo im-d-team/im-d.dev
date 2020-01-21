@@ -6,9 +6,10 @@
   "license": "MIT",
   "scripts": {
     "start": "gatsby develop",
-    "develop": "gatsby develop",
+    "dev": "npm run clean & gatsby develop",
     "deploy": "gh-pages -d public",
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "lint": "npm run lint:ts && npm run lint:md && npm run lint:js && npm run lint:css",
     "lint:ts": "eslint . --ext .ts,.tsx",
     "lint:js": "eslint . --ext .js,.jsx",
