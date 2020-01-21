@@ -24,7 +24,8 @@
     "./node_modules/",
     "./*.config.js",
     "./*-lock.json",
-    "**/*.stories.tsx"
+    "**/*.stories.tsx",
+    "./data"
   ],
   "rules": {
     "prettier/prettier": "error",

@@ -117,7 +117,7 @@
       "git add"
     ],
     "*.md": [
-      "remark -o",
+      "remark . -o",
       "node tools/update-post-date.js",
       "git add"
     ],
