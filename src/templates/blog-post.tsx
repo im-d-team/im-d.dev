@@ -80,7 +80,7 @@ const BlogPostPage = (props: BlogPostProps) => {
 
   const cover = get(frontmatter, 'image.children.0.fixed', {});
   return (
-    <Container>
+    <Container className="ui text container">
       {/* <BlogTitle /> */}
       <Segment vertical style={{ border: 'none' }}>
         <Item.Group>
