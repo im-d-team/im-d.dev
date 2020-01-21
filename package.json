@@ -125,12 +125,6 @@
       "stylelint"
     ]
   },
-  "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-recommended",
-      "remark-frontmatter"
-    ]
-  },
   "stylelint": {
     "extends": "stylelint-config-standard"
   },

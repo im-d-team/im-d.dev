@@ -1,15 +1,21 @@
 [
   {
-    "id": "Fabien BERNARD",
-    "bio": "JavaScript Developer with ♥ #Craftman #Lean #JS #FRP. Member at @GatsbyJS.",
-    "avatar": "avatars/fabien0102.jpg",
+    "id": "BKJang",
+    "bio": "Frontend Engineer",
+    "avatar": "avatars/bkjang.png",
     "twitter": "@fabien0102",
-    "github": "@fabien0102"
+    "github": "@BKJang"
   },
   {
     "id": "Jinseong",
-    "bio": "Wanna being a JavaScript Developer. Member at ImD",
-    "avatar": "avatars/test.jpg",
+    "bio": "🖥",
+    "avatar": "avatars/jinseong.png",
     "github": "@eugene94"
+  },
+  {
+    "id": "sNyung",
+    "bio": "💻 Front-end 📝Javascript, CleanCode 💚[JS, TS], New:[K8S, Rust, Flutter]",
+    "avatar": "avatars/snyung.png",
+    "github": "@SeonHyungJo"
   }
 ]
