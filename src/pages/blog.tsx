@@ -1,16 +1,8 @@
 import * as React from 'react';
+
 import { Link } from 'gatsby';
 import { StaticQuery, graphql } from 'gatsby';
-import {
-  Header,
-  Grid,
-  Card,
-  List,
-  Container,
-  Feed,
-  Segment,
-  Comment,
-} from 'semantic-ui-react';
+import { Header, Grid, Card, List, Container, Feed, Segment, Comment } from 'semantic-ui-react';
 import { MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
 import BlogTitle from '../components/BlogTitle';
 import TagsCard from '../components/TagsCard/TagsCard';
@@ -24,6 +16,7 @@ interface BlogProps extends LayoutProps {
     tags: MarkdownRemarkConnection;
     posts: MarkdownRemarkConnection;
   };
+
   pageContext: {
     tag?: string; // only set into `templates/tags-pages.tsx`
   };
@@ -45,23 +38,16 @@ const BlogPage = (props: BlogProps) => {
           fields: { slug },
           excerpt,
         } = node;
+
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
         const cover = get(frontmatter, 'image.children.0.fixed', {});
-
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar
-                src={avatar.fixed.src}
-                srcSet={avatar.fixed.srcSet}
-              />
+              <Comment.Avatar src={avatar.fixed.src} srcSet={avatar.fixed.srcSet} />
               <Comment.Content>
-                <Comment.Author style={{ fontWeight: 400 }}>
-                  {frontmatter.author.id}
-                </Comment.Author>
-                <Comment.Metadata style={{ margin: 0 }}>
-                  {frontmatter.createdDate}
-                </Comment.Metadata>
+                <Comment.Author style={{ fontWeight: 400 }}>{frontmatter.author.id}</Comment.Author>
+                <Comment.Metadata style={{ margin: 0 }}>{frontmatter.createdDate}</Comment.Metadata>
               </Comment.Content>
             </Comment>
           </Comment.Group>
@@ -74,16 +60,8 @@ const BlogPage = (props: BlogProps) => {
             <Link to={slug}>Read more…</Link>
           </Card.Description>
         );
-
         return (
-          <Card
-            key={slug}
-            fluid
-            image={cover}
-            header={frontmatter.title}
-            extra={extra}
-            description={description}
-          />
+          <Card key={slug} fluid image={cover} header={frontmatter.title} extra={extra} description={description} />
         );
       })}
     </Container>
@@ -93,18 +71,14 @@ const BlogPage = (props: BlogProps) => {
     <Container>
       {/* Title */}
       {/* <BlogTitle /> */}
-
       {/* Content */}
+
       <Segment vertical>
         <Grid padded style={{ justifyContent: 'center' }}>
           <div style={{ maxWidth: 600 }}>
             {Posts}
             <Segment vertical textAlign="center">
-              <BlogPagination
-                Link={Link}
-                pathname={pathname}
-                pageCount={pageCount}
-              />
+              <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
             </Segment>
           </div>
           <div style={{ maxWidth: 250 }}>
@@ -131,10 +105,7 @@ export const pageQuery = graphql`
     # Get posts
     posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___createdDate] }
-      filter: {
-        frontmatter: { draft: { ne: true } }
-        fileAbsolutePath: { regex: "/blog/" }
-      }
+      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: { regex: "/blog/" } }
       limit: 10
     ) {
       totalCount

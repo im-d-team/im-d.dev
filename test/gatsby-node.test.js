@@ -1,5 +1,7 @@
 /* eslint-disable no-undef, max-nested-callbacks */
+
 jest.mock('path');
+
 const { createPages, onCreateNode } = require('../gatsby-node');
 
 describe('gatsby-node', () => {
@@ -10,6 +12,7 @@ describe('gatsby-node', () => {
 
     beforeEach(() => {
       actions.createPage = jest.fn();
+
       graphql = jest.fn();
     });
 
@@ -26,6 +29,7 @@ describe('gatsby-node', () => {
                     },
                   },
                 },
+
                 {
                   node: {
                     fields: {
@@ -33,6 +37,7 @@ describe('gatsby-node', () => {
                     },
                   },
                 },
+
                 {
                   node: {
                     fields: {
@@ -40,6 +45,7 @@ describe('gatsby-node', () => {
                     },
                   },
                 },
+
                 {
                   node: {
                     fields: {
@@ -59,9 +65,7 @@ describe('gatsby-node', () => {
     });
 
     it('should throw an error on graphql error', () => {
-      graphql.mockReturnValueOnce(
-        Promise.resolve({ errors: 'something wrong!' }),
-      );
+      graphql.mockReturnValueOnce(Promise.resolve({ errors: 'something wrong!' }));
 
       expect(createPages({ graphql, actions })).toThrow();
     });
@@ -77,36 +81,43 @@ describe('gatsby-node', () => {
                     fields: {
                       slug: '/blog/2017-04-18--welcoming/',
                     },
+
                     frontmatter: {
                       tags: ['starter', 'gatsby'],
                     },
                   },
                 },
+
                 {
                   node: {
                     fields: {
                       slug: '/blog/2017-05-02--article-2/',
                     },
+
                     frontmatter: {
                       tags: ['test'],
                     },
                   },
                 },
+
                 {
                   node: {
                     fields: {
                       slug: '/blog/2017-05-02--article-1/',
                     },
+
                     frontmatter: {
                       tags: ['test'],
                     },
                   },
                 },
+
                 {
                   node: {
                     fields: {
                       slug: '/blog/2017-05-02--article-0/',
                     },
+
                     frontmatter: {
                       tags: null,
                     },
@@ -124,7 +135,7 @@ describe('gatsby-node', () => {
     });
 
     describe('pagination', () => {
-      const generateData = n => {
+      const generateData = (n) => {
         const edges = [...Array(n)].map((val, i) => ({
           node: {
             fields: {
@@ -138,30 +149,30 @@ describe('gatsby-node', () => {
 
       it('should create 1 page with 5 posts', () => {
         graphql.mockReturnValueOnce(Promise.resolve(generateData(5)));
+
         return createPages({ graphql, actions }).then(() => {
-          const pages = actions.createPage.mock.calls.filter(
-            d => d[0].path && d[0].path.startsWith('/blog/page/'),
-          );
+          const pages = actions.createPage.mock.calls.filter((d) => d[0].path && d[0].path.startsWith('/blog/page/'));
+
           expect(pages).toMatchSnapshot();
         });
       });
 
       it('should create 2 pages with 15 posts', () => {
         graphql.mockReturnValueOnce(Promise.resolve(generateData(15)));
+
         return createPages({ graphql, actions }).then(() => {
-          const pages = actions.createPage.mock.calls.filter(
-            d => d[0].path && d[0].path.startsWith('/blog/page/'),
-          );
+          const pages = actions.createPage.mock.calls.filter((d) => d[0].path && d[0].path.startsWith('/blog/page/'));
+
           expect(pages).toMatchSnapshot();
         });
       });
 
       it('should create 3 pages with 30 posts', () => {
         graphql.mockReturnValueOnce(Promise.resolve(generateData(30)));
+
         return createPages({ graphql, actions }).then(() => {
-          const pages = actions.createPage.mock.calls.filter(
-            d => d[0].path && d[0].path.startsWith('/blog/page/'),
-          );
+          const pages = actions.createPage.mock.calls.filter((d) => d[0].path && d[0].path.startsWith('/blog/page/'));
+
           expect(pages).toMatchSnapshot();
         });
       });
@@ -173,6 +184,7 @@ describe('gatsby-node', () => {
 
     beforeEach(() => {
       actions.createNodeField = jest.fn();
+
       getNode = jest.fn();
     });
 
@@ -180,12 +192,15 @@ describe('gatsby-node', () => {
       getNode.mockReturnValue({
         relativePath: 'blog/2017-04-18--welcoming/index.md',
       });
+
       const node = {
         internal: {
           type: 'MarkdownRemark',
         },
+
         parent: 'parent',
       };
+
       onCreateNode({ node, actions, getNode });
 
       expect(actions.createNodeField.mock.calls).toMatchSnapshot();
@@ -195,12 +210,15 @@ describe('gatsby-node', () => {
       getNode.mockReturnValue({
         relativePath: 'blog/2017-04-18--welcoming/index.md',
       });
+
       const node = {
         internal: {
           type: 'unknown',
         },
+
         parent: 'parent',
       };
+
       onCreateNode({ node, actions, getNode });
 
       expect(actions.createNodeField.mock.calls.length).toBe(0);

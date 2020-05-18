@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-
 const fs = require('fs');
 const slash = require('slash');
 const matter = require('gray-matter');
 
 // Get files given by lint-staged (*.md files into staged)
-process.argv.slice(3).forEach(dirtyPath => {
+
+process.argv.slice(3).forEach((dirtyPath) => {
   // Make sure it will works on windows
   const path = slash(dirtyPath);
 

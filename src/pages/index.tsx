@@ -9,17 +9,7 @@ import HeaderMenu from '../components/HeaderMenu/HeaderMenu';
 import { withLayout, LayoutProps, menuItems } from '../components/Layout';
 import TagsCard from '../components/TagsCard/TagsCard';
 import BlogPagination from '../components/BlogPagination/BlogPagination';
-import {
-  Button,
-  Segment,
-  Container,
-  Grid,
-  Header,
-  Icon,
-  Card,
-  Comment,
-  Responsive,
-} from 'semantic-ui-react';
+import { Button, Segment, Container, Grid, Header, Icon, Card, Comment, Responsive } from 'semantic-ui-react';
 import { graphql } from 'gatsby';
 
 interface BlogProps extends LayoutProps {
@@ -53,17 +43,10 @@ const IndexPage = (props: BlogProps) => {
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar
-                src={avatar.fixed.src}
-                srcSet={avatar.fixed.srcSet}
-              />
+              <Comment.Avatar src={avatar.fixed.src} srcSet={avatar.fixed.srcSet} />
               <Comment.Content>
-                <Comment.Author style={{ fontWeight: 400 }}>
-                  {frontmatter.author.id}
-                </Comment.Author>
-                <Comment.Metadata style={{ margin: 0 }}>
-                  {frontmatter.createdDate}
-                </Comment.Metadata>
+                <Comment.Author style={{ fontWeight: 400 }}>{frontmatter.author.id}</Comment.Author>
+                <Comment.Metadata style={{ margin: 0 }}>{frontmatter.createdDate}</Comment.Metadata>
               </Comment.Content>
             </Comment>
           </Comment.Group>
@@ -78,14 +61,7 @@ const IndexPage = (props: BlogProps) => {
         );
 
         return (
-          <Card
-            key={slug}
-            fluid
-            image={cover}
-            header={frontmatter.title}
-            extra={extra}
-            description={description}
-          />
+          <Card key={slug} fluid image={cover} header={frontmatter.title} extra={extra} description={description} />
         );
       })}
     </Container>
@@ -111,11 +87,7 @@ const IndexPage = (props: BlogProps) => {
           <div style={{ maxWidth: 600 }}>
             {Posts}
             <Segment vertical textAlign="center">
-              <BlogPagination
-                Link={Link}
-                pathname={pathname}
-                pageCount={pageCount}
-              />
+              <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
             </Segment>
           </div>
           <Responsive minWidth={Responsive.onlyComputer.minWidth}>
@@ -147,10 +119,7 @@ export const pageQuery = graphql`
     # Get posts
     posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___createdDate] }
-      filter: {
-        frontmatter: { draft: { ne: true } }
-        fileAbsolutePath: { regex: "/blog/" }
-      }
+      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: { regex: "/blog/" } }
       limit: 10
     ) {
       totalCount
