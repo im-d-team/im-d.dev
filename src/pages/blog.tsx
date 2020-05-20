@@ -39,12 +39,12 @@ const BlogPage = (props: BlogProps) => {
           excerpt,
         } = node;
 
-        const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
+        const avatar = frontmatter.author.avatar;
         const cover = get(frontmatter, 'image.children.0.fixed', {});
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar src={avatar.fixed.src} srcSet={avatar.fixed.srcSet} />
+              <Comment.Avatar src={avatar.childImageSharp.fixed.src} srcSet={avatar.childImageSharp.fixed.srcSet} />
               <Comment.Content>
                 <Comment.Author style={{ fontWeight: 400 }}>{frontmatter.author.id}</Comment.Author>
                 <Comment.Metadata style={{ margin: 0 }}>{frontmatter.createdDate}</Comment.Metadata>
@@ -120,25 +120,14 @@ export const pageQuery = graphql`
             title
             updatedDate(formatString: "DD MMMM, YYYY")
             createdDate(formatString: "DD MMMM, YYYY")
-            image {
-              children {
-                ... on ImageSharp {
-                  fixed(width: 700, height: 100) {
-                    src
-                    srcSet
-                  }
-                }
-              }
-            }
+            image
             author {
               id
               avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(width: 35, height: 35) {
-                      src
-                      srcSet
-                    }
+                childImageSharp {
+                  fixed(width: 35, height: 35) {
+                    src
+                    srcSet
                   }
                 }
               }

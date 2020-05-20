@@ -17,7 +17,7 @@ interface BlogPostProps extends LayoutProps {
 
 const BlogPostPage = (props: BlogPostProps) => {
   const { frontmatter, html, timeToRead } = props.data.post;
-  const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
+  const avatar = frontmatter.author.avatar;
   const tags = props.data.post.frontmatter.tags.map((tag) => (
     <Label key={tag}>
       <Link to={`/blog/tags/${tag}/`}>{tag}</Link>
@@ -25,12 +25,15 @@ const BlogPostPage = (props: BlogPostProps) => {
   ));
 
   const recents = props.data.recents.edges.map(({ node }) => {
-    const recentAvatar = node.frontmatter.author.avatar.children[0] as ImageSharp;
+    const recentAvatar = node.frontmatter.author.avatar;
     const recentCover = get(node, 'frontmatter.image.children.0.fixed', {});
     const extra = (
       <Comment.Group>
         <Comment>
-          <Comment.Avatar src={recentAvatar.fixed.src} srcSet={recentAvatar.fixed.srcSet} />
+          <Comment.Avatar
+            src={recentAvatar.childImageSharp.fixed.src}
+            srcSet={recentAvatar.childImageSharp.fixed.srcSet}
+          />
 
           <Comment.Content>
             <Comment.Author style={{ fontWeight: 400 }}>{node.frontmatter.author.id}</Comment.Author>
@@ -56,7 +59,12 @@ const BlogPostPage = (props: BlogPostProps) => {
       <Segment vertical style={{ border: 'none' }}>
         <Item.Group>
           <Item>
-            <Item.Image size="tiny" src={avatar.fixed.src} srcSet={avatar.fixed.srcSet} circular />
+            <Item.Image
+              size="tiny"
+              src={avatar.childImageSharp.fixed.src}
+              srcSet={avatar.childImageSharp.fixed.srcSet}
+              circular
+            />
             <Item.Content>
               <Item.Description>{frontmatter.author.id}</Item.Description>
               <Item.Meta>{frontmatter.author.bio}</Item.Meta>
@@ -112,28 +120,17 @@ export const pageQuery = graphql`
           bio
           twitter
           avatar {
-            children {
-              ... on ImageSharp {
-                fixed(width: 80, height: 80, quality: 100) {
-                  src
-                  srcSet
-                }
-              }
-            }
-          }
-        }
-        title
-        updatedDate(formatString: "MMM D, YYYY")
-        image {
-          children {
-            ... on ImageSharp {
-              fixed(width: 900, height: 300, quality: 100) {
+            childImageSharp {
+              fixed(width: 80, height: 80, quality: 100) {
                 src
                 srcSet
               }
             }
           }
         }
+        title
+        updatedDate(formatString: "MMM D, YYYY")
+        image
       }
     }
 
@@ -154,25 +151,14 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             title
-            image {
-              children {
-                ... on ImageSharp {
-                  fixed(width: 300, height: 100) {
-                    src
-                    srcSet
-                  }
-                }
-              }
-            }
+            image
             author {
               id
               avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(width: 36, height: 36) {
-                      src
-                      srcSet
-                    }
+                childImageSharp {
+                  fixed(width: 36, height: 36) {
+                    src
+                    srcSet
                   }
                 }
               }

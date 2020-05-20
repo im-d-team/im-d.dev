@@ -1,16 +1,14 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import { get } from 'lodash';
+import { Button, Segment, Container, Grid, Header, Card, Comment, Responsive } from 'semantic-ui-react';
 
-import { MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
-import { MarkdownRemark } from '../graphql-types';
-
-import HeaderMenu from '../components/HeaderMenu/HeaderMenu';
-import { withLayout, LayoutProps, menuItems } from '../components/Layout';
-import TagsCard from '../components/TagsCard/TagsCard';
-import BlogPagination from '../components/BlogPagination/BlogPagination';
-import { Button, Segment, Container, Grid, Header, Icon, Card, Comment, Responsive } from 'semantic-ui-react';
-import { graphql } from 'gatsby';
+import { MarkdownRemarkConnection } from '@/graphql-types';
+import { MarkdownRemark } from '@/graphql-types';
+import HeaderMenu from '@/components/HeaderMenu/HeaderMenu';
+import { withLayout, LayoutProps } from '@/components/Layout';
+import TagsCard from '@/components/TagsCard/TagsCard';
+import BlogPagination from '@/components/BlogPagination/BlogPagination';
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -18,15 +16,17 @@ interface BlogProps extends LayoutProps {
     posts: MarkdownRemarkConnection;
   };
   pageContext: {
-    tag?: string; // only set into `templates/tags-pages.tsx`
+    tag?: string;
   };
 }
 
 const IndexPage = (props: BlogProps) => {
-  const posts = props.data.posts.edges;
-  const { pathname } = props.location;
-  const tags = props.data.tags.group;
-  const pageCount = Math.ceil(props.data.posts.totalCount / 10);
+  const { data, location } = props;
+  const { pathname } = location;
+
+  const posts = data.posts.edges;
+  const tags = data.tags.group;
+  const pageCount = Math.ceil(data.posts.totalCount / 10);
 
   const Posts = (
     <Container>
@@ -37,13 +37,13 @@ const IndexPage = (props: BlogProps) => {
           fields: { slug },
           excerpt,
         } = node;
-        const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
+        const avatar = frontmatter.author.avatar;
         const cover = get(frontmatter, 'image.children.0.fixed', {});
 
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar src={avatar.fixed.src} srcSet={avatar.fixed.srcSet} />
+              <Comment.Avatar src={avatar.childImageSharp.fixed.src} srcSet={avatar.childImageSharp.fixed.srcSet} />
               <Comment.Content>
                 <Comment.Author style={{ fontWeight: 400 }}>{frontmatter.author.id}</Comment.Author>
                 <Comment.Metadata style={{ margin: 0 }}>{frontmatter.createdDate}</Comment.Metadata>
@@ -70,13 +70,16 @@ const IndexPage = (props: BlogProps) => {
   return (
     <div>
       <HeaderMenu Link={Link} pathname={props.location.pathname} inverted />
-      {/* Master head */}
       <Segment vertical inverted textAlign="center" className="masthead">
         <Container text>
-          <Header inverted as="h1"></Header>
-          <Header inverted as="h2"></Header>
+          <Header inverted as="h1">
+            제목
+          </Header>
+          <Header inverted as="h2">
+            부제목
+          </Header>
           <Button primary size="medium">
-            테스트 진행 중
+            Dev-Docs 방문하기
           </Button>
         </Container>
       </Segment>
@@ -134,25 +137,14 @@ export const pageQuery = graphql`
             title
             updatedDate(formatString: "DD MMMM, YYYY")
             createdDate(formatString: "DD MMMM, YYYY")
-            image {
-              children {
-                ... on ImageSharp {
-                  fixed(width: 700, height: 100) {
-                    src
-                    srcSet
-                  }
-                }
-              }
-            }
+            image
             author {
               id
               avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(width: 35, height: 35) {
-                      src
-                      srcSet
-                    }
+                childImageSharp {
+                  fixed(width: 35, height: 35) {
+                    src
+                    srcSet
                   }
                 }
               }

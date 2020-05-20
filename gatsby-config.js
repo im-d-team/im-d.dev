@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `My website`,
@@ -8,6 +10,16 @@ module.exports = {
     'MarkdownRemark.frontmatter.author': `AuthorJson`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@': 'src',
+        },
+        extensions: ['ts', 'tsx', 'js', 'css'],
+      },
+    },
+
     // Expose `/data` to graphQL layer
     {
       resolve: `gatsby-source-filesystem`,
@@ -16,7 +28,6 @@ module.exports = {
         path: `${__dirname}/data`,
       },
     },
-
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -29,7 +40,6 @@ module.exports = {
         respectDNT: true,
       },
     },
-
     // Parse all markdown files (each plugin add/parse some data into graphQL layer)
     {
       resolve: `gatsby-transformer-remark`,

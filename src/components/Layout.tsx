@@ -1,24 +1,17 @@
-import { Link } from 'gatsby';
-
 import * as React from 'react';
+import { Provider } from 'react-redux';
+import { Link } from 'gatsby';
+import { Segment, Sidebar } from 'semantic-ui-react';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
-
 import SidebarMenu from './SidebarMenu/SidebarMenu';
 
-import { Segment, Icon, Container, Sidebar } from 'semantic-ui-react';
+import { store } from '../store';
 
 import '../css/styles.css';
-
 import '../css/responsive.css';
-
 import '../css/semantic.min.css';
-
 import 'prismjs/themes/prism-okaidia.css';
-
-import { Provider } from 'react-redux';
-
-import { store } from '../store';
 
 export interface LayoutProps {
   location: {
@@ -40,22 +33,10 @@ const Layout = (props: LayoutProps) => {
 
         <Sidebar.Pusher style={{ minHeight: '100vh' }}>
           {/* Header */}
-
           {isHome ? null : <HeaderMenu Link={Link} pathname={pathname} />}
 
           {/* Render children pages */}
-
           <div style={{ paddingBottom: 60 }}>{props.children}</div>
-
-          {/* Footer */}
-
-          <Segment inverted vertical style={{ position: 'absolute', bottom: 0, width: '100%' }}>
-            <Container textAlign="center">
-              <p>
-                ©Im-D, <Icon name="heart" />
-              </p>
-            </Container>
-          </Segment>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
     </Provider>

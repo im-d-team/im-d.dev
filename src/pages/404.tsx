@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { Header, Icon, Grid } from 'semantic-ui-react';
-
 import { withLayout } from '../components/Layout';
 
 const NotFoundPage = () => (
