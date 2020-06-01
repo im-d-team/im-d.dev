@@ -130,7 +130,9 @@ export const pageQuery = graphql`
         }
         title
         updatedDate(formatString: "MMM D, YYYY")
-        image
+        image {
+          id
+        }
       }
     }
 
@@ -151,7 +153,9 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             title
-            image
+            image {
+              id
+            }
             author {
               id
               avatar {

@@ -1,7 +1,5 @@
 # Im-D Blog
 
-지식을 공유합니다.
-
 ## 🔒 Rule
 
 - 새로운 포스트는 `data/blog/` 하위에 YYYY-MM-DD--Title의 형태의 디렉토리를 만들어 작성한다.

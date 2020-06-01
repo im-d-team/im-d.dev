@@ -120,7 +120,9 @@ export const pageQuery = graphql`
             title
             updatedDate(formatString: "DD MMMM, YYYY")
             createdDate(formatString: "DD MMMM, YYYY")
-            image
+            image {
+              id
+            }
             author {
               id
               avatar {
