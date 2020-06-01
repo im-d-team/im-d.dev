@@ -2,7 +2,16 @@ import * as React from 'react';
 
 import { Link } from 'gatsby';
 import { StaticQuery, graphql } from 'gatsby';
-import { Header, Grid, Card, List, Container, Feed, Segment, Comment } from 'semantic-ui-react';
+import {
+  Header,
+  Grid,
+  Card,
+  List,
+  Container,
+  Feed,
+  Segment,
+  Comment,
+} from 'semantic-ui-react';
 import { MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
 import BlogTitle from '../components/BlogTitle';
 import TagsCard from '../components/TagsCard/TagsCard';
@@ -44,10 +53,17 @@ const BlogPage = (props: BlogProps) => {
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar src={avatar.childImageSharp.fixed.src} srcSet={avatar.childImageSharp.fixed.srcSet} />
+              <Comment.Avatar
+                src={avatar.childImageSharp.fixed.src}
+                srcSet={avatar.childImageSharp.fixed.srcSet}
+              />
               <Comment.Content>
-                <Comment.Author style={{ fontWeight: 400 }}>{frontmatter.author.id}</Comment.Author>
-                <Comment.Metadata style={{ margin: 0 }}>{frontmatter.createdDate}</Comment.Metadata>
+                <Comment.Author style={{ fontWeight: 400 }}>
+                  {frontmatter.author.id}
+                </Comment.Author>
+                <Comment.Metadata style={{ margin: 0 }}>
+                  {frontmatter.createdDate}
+                </Comment.Metadata>
               </Comment.Content>
             </Comment>
           </Comment.Group>
@@ -61,7 +77,14 @@ const BlogPage = (props: BlogProps) => {
           </Card.Description>
         );
         return (
-          <Card key={slug} fluid image={cover} header={frontmatter.title} extra={extra} description={description} />
+          <Card
+            key={slug}
+            fluid
+            image={cover}
+            header={frontmatter.title}
+            extra={extra}
+            description={description}
+          />
         );
       })}
     </Container>
@@ -78,7 +101,11 @@ const BlogPage = (props: BlogProps) => {
           <div style={{ maxWidth: 600 }}>
             {Posts}
             <Segment vertical textAlign="center">
-              <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
+              <BlogPagination
+                Link={Link}
+                pathname={pathname}
+                pageCount={pageCount}
+              />
             </Segment>
           </div>
           <div style={{ maxWidth: 250 }}>
@@ -105,7 +132,10 @@ export const pageQuery = graphql`
     # Get posts
     posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___createdDate] }
-      filter: { frontmatter: { draft: { ne: true } }, fileAbsolutePath: { regex: "/blog/" } }
+      filter: {
+        frontmatter: { draft: { ne: true } }
+        fileAbsolutePath: { regex: "/blog/" }
+      }
       limit: 10
     ) {
       totalCount
@@ -120,9 +150,6 @@ export const pageQuery = graphql`
             title
             updatedDate(formatString: "DD MMMM, YYYY")
             createdDate(formatString: "DD MMMM, YYYY")
-            image {
-              id
-            }
             author {
               id
               avatar {

@@ -2,36 +2,41 @@ const path = require('path');
 const slash = require('slash');
 const { kebabCase, uniq, get, compact, times } = require('lodash');
 
-// Don't forget to update hard code values into:
-// - `templates/blog-page.tsx:23`
-// - `pages/blog.tsx:26`
-// - `pages/blog.tsx:121`
 const POSTS_PER_PAGE = 10;
-const cleanArray = arr => compact(uniq(arr));
+const cleanArray = (arr) => compact(uniq(arr));
 
-// Create slugs for files.
-// Slug will used for blog page path.
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
+  });
+};
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
+
   let slug;
+
   switch (node.internal.type) {
     case `MarkdownRemark`:
       // eslint-disable-next-line no-case-declarations
       const fileNode = getNode(node.parent);
+
       // eslint-disable-next-line no-case-declarations
       const [basePath, name] = fileNode.relativePath.split('/');
+
       slug = `/${basePath}/${name}/`;
       break;
   }
+
   if (slug) {
     createNodeField({ node, name: `slug`, value: slug });
   }
 };
 
-// Implement the Gatsby API `createPages`.
-// This is called after the Gatsby bootstrap is finished
-// so you have access to any information necessary to
-// programatically create pages.
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -64,16 +69,17 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       `,
-    ).then(result => {
+    ).then((result) => {
       if (result.errors) {
         return reject(result.errors);
       }
-      const posts = result.data.posts.edges.map(p => p.node);
+
+      const posts = result.data.posts.edges.map((p) => p.node);
 
       // Create blog pages
       posts
-        .filter(post => post.fields.slug.startsWith('/blog/'))
-        .forEach(post => {
+        .filter((post) => post.fields.slug.startsWith('/blog/'))
+        .forEach((post) => {
           createPage({
             path: post.fields.slug,
             component: slash(templates.blogPost),
@@ -89,7 +95,7 @@ exports.createPages = ({ graphql, actions }) => {
           (mem, post) => cleanArray(mem.concat(get(post, 'frontmatter.tags'))),
           [],
         )
-        .forEach(tag => {
+        .forEach((tag) => {
           createPage({
             path: `/blog/tags/${kebabCase(tag)}/`,
             component: slash(templates.tagsPage),
@@ -101,7 +107,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create blog pagination
       const pageCount = Math.ceil(posts.length / POSTS_PER_PAGE);
-      times(pageCount, index => {
+      times(pageCount, (index) => {
         createPage({
           path: `/blog/page/${index + 1}/`,
           component: slash(templates.blogPage),
@@ -110,7 +116,6 @@ exports.createPages = ({ graphql, actions }) => {
           },
         });
       });
-
       resolve();
     });
   });

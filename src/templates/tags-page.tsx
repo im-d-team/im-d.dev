@@ -30,9 +30,6 @@ export const pageQuery = graphql`
           frontmatter {
             title
             updatedDate(formatString: "DD MMMM, YYYY")
-            image {
-              id
-            }
             author {
               id
               avatar {

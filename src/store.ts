@@ -16,7 +16,10 @@ export interface ToggleSidebar {
 export const toggleSidebar = () => ({ type: TOGGLE_SIDEBAR });
 
 // Reducer
-export const reducer = (state: StoreState, action: ToggleSidebar): StoreState => {
+export const reducer = (
+  state: StoreState,
+  action: ToggleSidebar,
+): StoreState => {
   switch (action.type) {
     case TOGGLE_SIDEBAR:
       return Object.assign({}, state, {
@@ -29,4 +32,8 @@ export const reducer = (state: StoreState, action: ToggleSidebar): StoreState =>
 
 // Store
 export const initialState: StoreState = { isSidebarVisible: false };
-export const store = createStore<StoreState, any, any, any>(reducer, initialState, devToolsEnhancer({}));
+export const store = createStore<StoreState, any, any, any>(
+  reducer,
+  initialState,
+  devToolsEnhancer({}),
+);

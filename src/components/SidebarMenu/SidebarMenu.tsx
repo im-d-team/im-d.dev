@@ -1,12 +1,9 @@
 import * as React from 'react';
-
 import { connect } from 'react-redux';
-
-import { StoreState } from '../../store';
-
-import { MenuProps } from '../Menu';
-
 import { Menu, Sidebar } from 'semantic-ui-react';
+
+import { StoreState } from '@/store';
+import { MenuProps } from '@/components/Menu';
 
 interface SidebarMenuProps extends MenuProps {
   visible?: boolean;
@@ -14,23 +11,24 @@ interface SidebarMenuProps extends MenuProps {
 
 export const SidebarMenu = ({ visible }: SidebarMenuProps) => {
   return (
-    <Sidebar as={Menu} animation="slide along" direction="right" width="thin" visible={visible} icon="labeled" vertical>
+    <Sidebar
+      as={Menu}
+      animation="slide along"
+      direction="right"
+      width="thin"
+      visible={visible}
+      icon="labeled"
+      vertical
+    >
       {/* {items.map(item => {
-
         const active = isActive(item);
 
         return (
-
           <Menu.Item as={Link} to={item.path} active={active} key={item.path}>
-
             <Icon name={item.icon as SemanticICONS} />
-
             {item.name}
-
           </Menu.Item>
-
         );
-
       })} */}
     </Sidebar>
   );
@@ -40,4 +38,6 @@ const mapStateToProps = (state: StoreState) => ({
   visible: state.isSidebarVisible,
 });
 
-export default connect<any, void, SidebarMenuProps>(mapStateToProps)(SidebarMenu);
+export default connect<any, void, SidebarMenuProps>(mapStateToProps)(
+  SidebarMenu,
+);

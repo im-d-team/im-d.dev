@@ -3,21 +3,21 @@ import { Provider } from 'react-redux';
 import { Link } from 'gatsby';
 import { Segment, Sidebar } from 'semantic-ui-react';
 
-import HeaderMenu from './HeaderMenu/HeaderMenu';
-import SidebarMenu from './SidebarMenu/SidebarMenu';
+import HeaderMenu from '@/components/HeaderMenu';
+import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
+import { store } from '@/store';
 
-import { store } from '../store';
-
-import '../css/styles.css';
-import '../css/responsive.css';
-import '../css/semantic.min.css';
 import 'prismjs/themes/prism-okaidia.css';
+
+import '@/css/reset.css';
+import '@/css/styles.css';
+import '@/css/responsive.css';
+import '@/css/semantic.min.css';
 
 export interface LayoutProps {
   location: {
     pathname: string;
   };
-
   children: any;
 }
 
@@ -30,10 +30,9 @@ const Layout = (props: LayoutProps) => {
     <Provider store={store}>
       <Sidebar.Pushable as={Segment}>
         <SidebarMenu Link={Link} pathname={pathname} visible={true} />
-
         <Sidebar.Pusher style={{ minHeight: '100vh' }}>
           {/* Header */}
-          {isHome ? null : <HeaderMenu Link={Link} pathname={pathname} />}
+          {isHome ? null : <HeaderMenu pathname={pathname} />}
 
           {/* Render children pages */}
           <div style={{ paddingBottom: 60 }}>{props.children}</div>
@@ -45,7 +44,9 @@ const Layout = (props: LayoutProps) => {
 
 export default Layout;
 
-export const withLayout = <P extends object>(WrappedComponent: React.ComponentType<P>) =>
+export const withLayout = <P extends object>(
+  WrappedComponent: React.ComponentType<P>,
+) =>
   class WithLayout extends React.Component<P & LayoutProps> {
     render() {
       return (
