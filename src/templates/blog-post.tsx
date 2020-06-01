@@ -20,7 +20,7 @@ import {
   MarkdownRemarkConnection,
   Site,
 } from '@/graphql-types';
-import BlogTitle from '@/components/BlogTitle';
+import BlogTitle from '@/components/BlogTitle/BlogTitle';
 import { withLayout, LayoutProps } from '@/components/Layout';
 import { graphql } from 'gatsby';
 

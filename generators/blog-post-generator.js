@@ -1,9 +1,8 @@
 const fs = require('fs');
 const { inputRequired } = require('./utils');
-
 const authors = JSON.parse(fs.readFileSync('./data/author.json'));
 
-module.exports = plop => {
+module.exports = (plop) => {
   plop.setGenerator('blog post', {
     prompts: [
       {
@@ -12,11 +11,15 @@ module.exports = plop => {
         message: 'Blog post title?',
         validate: inputRequired('title'),
       },
+
       {
         type: 'list',
         name: 'author',
         message: 'The author of blog post?',
-        choices: authors.map(author => ({ name: author.id, value: author.id })),
+        choices: authors.map((author) => ({
+          name: author.id,
+          value: author.id,
+        })),
       },
       {
         type: 'input',
@@ -29,7 +32,8 @@ module.exports = plop => {
         message: "It's a draft?",
       },
     ],
-    actions: data => {
+
+    actions: (data) => {
       // Get current date
       data.createdDate = new Date().toISOString().split('T')[0];
 

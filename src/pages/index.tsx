@@ -19,8 +19,8 @@ import {
 } from '@/graphql-types';
 import HeaderMenu from '@/components/HeaderMenu';
 import { withLayout, LayoutProps } from '@/components/Layout';
-import TagsCard from '@/components/TagsCard/TagsCard';
-import BlogPagination from '@/components/BlogPagination/BlogPagination';
+import TagsCard from '@/components/TagsCard';
+import BlogPagination from '@/components/Pagination';
 
 interface BlogProps extends LayoutProps {
   data: {

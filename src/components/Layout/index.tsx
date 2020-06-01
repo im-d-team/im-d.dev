@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { Link } from 'gatsby';
 import { Segment, Sidebar } from 'semantic-ui-react';
 
 import HeaderMenu from '@/components/HeaderMenu';
@@ -9,10 +8,10 @@ import { store } from '@/store';
 
 import 'prismjs/themes/prism-okaidia.css';
 
-import '@/css/reset.css';
 import '@/css/styles.css';
 import '@/css/responsive.css';
 import '@/css/semantic.min.css';
+import '@/css/reset.css';
 
 export interface LayoutProps {
   location: {
@@ -23,13 +22,12 @@ export interface LayoutProps {
 
 const Layout = (props: LayoutProps) => {
   const { pathname } = props.location;
-
   const isHome = pathname === '/';
 
   return (
     <Provider store={store}>
       <Sidebar.Pushable as={Segment}>
-        <SidebarMenu Link={Link} pathname={pathname} visible={true} />
+        <SidebarMenu pathname={pathname} visible={true} />
         <Sidebar.Pusher style={{ minHeight: '100vh' }}>
           {/* Header */}
           {isHome ? null : <HeaderMenu pathname={pathname} />}

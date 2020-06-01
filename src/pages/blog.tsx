@@ -13,9 +13,9 @@ import {
   Comment,
 } from 'semantic-ui-react';
 import { MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
-import BlogTitle from '../components/BlogTitle';
-import TagsCard from '../components/TagsCard/TagsCard';
-import BlogPagination from '../components/BlogPagination/BlogPagination';
+import BlogTitle from '../components/BlogTitle/BlogTitle';
+import TagsCard from '../components/TagsCard';
+import BlogPagination from '../components/Pagination';
 import { get } from 'lodash';
 import { withLayout, LayoutProps } from '../components/Layout';
 import { MarkdownRemark } from '../graphql-types';

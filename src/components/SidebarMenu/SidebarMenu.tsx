@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Menu, Sidebar } from 'semantic-ui-react';
 
 import { StoreState } from '@/store';
-import { MenuProps } from '@/components/Menu';
+import { MenuProps } from '@/components/Menu/ㅑㅜㅇㄷㅌ';
 
 interface SidebarMenuProps extends MenuProps {
   visible?: boolean;
