@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import { get } from 'lodash';
 import {
   Button,
@@ -17,6 +17,7 @@ import {
   MarkdownRemarkEdge,
   markdownRemarkGroupConnectionConnection,
 } from '@/graphql-types';
+
 import HeaderMenu from '@/components/HeaderMenu';
 import { withLayout, LayoutProps } from '@/components/Layout';
 import TagsCard from '@/components/TagsCard';
@@ -94,7 +95,7 @@ const IndexPage = (props: BlogProps) => {
 
   return (
     <>
-      <HeaderMenu pathname={props.location.pathname} />
+      <HeaderMenu Link={Link} pathname={props.location.pathname} inverted />
       <Segment vertical inverted textAlign="center" className="masthead">
         <Button primary size="medium">
           Im-D DevDocs

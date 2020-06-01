@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { get } from 'lodash';
 import {
   Header,
   Container,
   Segment,
-  Icon,
   Label,
-  Button,
   Grid,
   Card,
   Image,
@@ -16,13 +14,10 @@ import {
 } from 'semantic-ui-react';
 import {
   MarkdownRemark,
-  ImageSharp,
   MarkdownRemarkConnection,
   Site,
 } from '@/graphql-types';
-import BlogTitle from '@/components/BlogTitle/BlogTitle';
 import { withLayout, LayoutProps } from '@/components/Layout';
-import { graphql } from 'gatsby';
 
 interface BlogPostProps extends LayoutProps {
   data: {
@@ -82,7 +77,6 @@ const BlogPostPage = (props: BlogPostProps) => {
 
   return (
     <Container className="ui text container">
-      {/* <BlogTitle /> */}
       <Segment vertical style={{ border: 'none' }}>
         <Item.Group>
           <Item>

@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
 import Blog from '@/pages/blog';
+
 export default Blog;
 
 export const pageQuery = graphql`

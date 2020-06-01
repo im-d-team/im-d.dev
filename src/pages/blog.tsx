@@ -1,24 +1,12 @@
 import * as React from 'react';
-
-import { Link } from 'gatsby';
-import { StaticQuery, graphql } from 'gatsby';
-import {
-  Header,
-  Grid,
-  Card,
-  List,
-  Container,
-  Feed,
-  Segment,
-  Comment,
-} from 'semantic-ui-react';
-import { MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
-import BlogTitle from '../components/BlogTitle/BlogTitle';
-import TagsCard from '../components/TagsCard';
-import BlogPagination from '../components/Pagination';
+import { Link, graphql } from 'gatsby';
 import { get } from 'lodash';
-import { withLayout, LayoutProps } from '../components/Layout';
-import { MarkdownRemark } from '../graphql-types';
+import { Grid, Card, Container, Segment, Comment } from 'semantic-ui-react';
+
+import { MarkdownRemarkConnection, MarkdownRemark } from '@/graphql-types';
+import TagsCard from '@/components/TagsCard';
+import BlogPagination from '@/components/Pagination';
+import { withLayout, LayoutProps } from '@/components/Layout';
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -27,7 +15,7 @@ interface BlogProps extends LayoutProps {
   };
 
   pageContext: {
-    tag?: string; // only set into `templates/tags-pages.tsx`
+    tag?: string;
   };
 }
 
@@ -37,7 +25,6 @@ const BlogPage = (props: BlogProps) => {
   const { pathname } = props.location;
   const pageCount = Math.ceil(props.data.posts.totalCount / 10);
 
-  // TODO export posts in a proper component
   const Posts = (
     <Container>
       {posts.map(({ node }: { node: MarkdownRemark }) => {
@@ -92,10 +79,6 @@ const BlogPage = (props: BlogProps) => {
 
   return (
     <Container>
-      {/* Title */}
-      {/* <BlogTitle /> */}
-      {/* Content */}
-
       <Segment vertical>
         <Grid padded style={{ justifyContent: 'center' }}>
           <div style={{ maxWidth: 600 }}>

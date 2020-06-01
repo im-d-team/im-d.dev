@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Segment, Sidebar } from 'semantic-ui-react';
 
 import HeaderMenu from '@/components/HeaderMenu';
-import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
+import SidebarMenu from '@/components/SidebarMenu';
 import { store } from '@/store';
 
 import 'prismjs/themes/prism-okaidia.css';
