@@ -18,10 +18,10 @@ import {
   markdownRemarkGroupConnectionConnection,
 } from '@/graphql-types';
 
-import HeaderMenu from '@/components/HeaderMenu';
-import { withLayout, LayoutProps } from '@/components/Layout';
 import TagsCard from '@/components/TagsCard';
+import HeaderMenu from '@/components/HeaderMenu';
 import BlogPagination from '@/components/Pagination';
+import { withLayout, LayoutProps } from '@/components/Layout';
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -57,6 +57,9 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
               </Comment.Author>
               <Comment.Metadata style={{ margin: 0 }}>
                 {frontmatter.createdDate}
+              </Comment.Metadata>
+              <Comment.Metadata style={{ margin: 10 }}>
+                {timeToRead} min read
               </Comment.Metadata>
             </Comment.Content>
           </Comment>
@@ -95,12 +98,13 @@ const IndexPage = (props: BlogProps) => {
 
   return (
     <>
-      <HeaderMenu Link={Link} pathname={props.location.pathname} inverted />
-      <Segment vertical inverted textAlign="center" className="masthead">
-        <Button primary size="medium">
-          Im-D DevDocs
-        </Button>
-      </Segment>
+      <HeaderMenu pathname={props.location.pathname} />
+      <Segment
+        vertical
+        inverted
+        textAlign="center"
+        className="masthead"
+      ></Segment>
 
       {/* About this starter */}
       <Segment vertical className="">
