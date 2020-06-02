@@ -54,6 +54,7 @@
     "graphql-code-generator": "^0.18.2",
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.15",
+    "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
@@ -63,6 +64,7 @@
     "semantic-ui-react": "^0.88.2",
     "slash": "^3.0.0",
     "ts-loader": "^7.0.4",
+    "typeface-noto-sans-kr": "^0.0.63",
     "typescript": "^3.9.2"
   },
   "devDependencies": {

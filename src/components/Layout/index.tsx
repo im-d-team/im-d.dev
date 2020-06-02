@@ -10,8 +10,8 @@ import 'prismjs/themes/prism-okaidia.css';
 
 import '@/css/styles.css';
 import '@/css/responsive.css';
-import '@/css/semantic.min.css';
 import '@/css/reset.css';
+import '@/css/semantic.min.css';
 
 export interface LayoutProps {
   location: {
