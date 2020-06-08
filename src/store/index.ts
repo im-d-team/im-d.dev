@@ -6,11 +6,10 @@ export interface StoreState {
 }
 
 // Actions
-export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
-export type TOGGLE_SIDEBAR = typeof TOGGLE_SIDEBAR;
+const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 
 export interface ToggleSidebar {
-  type: TOGGLE_SIDEBAR;
+  type: typeof TOGGLE_SIDEBAR;
 }
 
 export const toggleSidebar = () => ({ type: TOGGLE_SIDEBAR });
