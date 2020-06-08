@@ -20,7 +20,7 @@ export const pageQuery = graphql`
         frontmatter: { draft: { ne: true } }
         fileAbsolutePath: { regex: "/blog/" }
       }
-      limit: 10
+      limit: 5
       skip: $skip
     ) {
       totalCount
