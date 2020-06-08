@@ -19,7 +19,7 @@ import {
 } from '@/graphql-types';
 
 import TagsCard from '@/components/TagsCard';
-import HeaderMenu from '@/components/HeaderMenu';
+import Header from '@/components/Header';
 import BlogPagination from '@/components/Pagination';
 import { withLayout, LayoutProps } from '@/components/Layout';
 
@@ -98,15 +98,8 @@ const IndexPage = (props: BlogProps) => {
 
   return (
     <>
-      <HeaderMenu pathname={props.location.pathname} />
-      <Segment
-        vertical
-        inverted
-        textAlign="center"
-        className="masthead"
-      ></Segment>
+      <Header pathname={props.location.pathname} />
 
-      {/* About this starter */}
       <Segment vertical className="">
         <Grid padded style={{ justifyContent: 'center' }}>
           <div style={{ maxWidth: 600 }}>
