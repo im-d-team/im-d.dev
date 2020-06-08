@@ -18,7 +18,7 @@ import {
   markdownRemarkGroupConnectionConnection,
 } from '@/graphql-types';
 
-import HeaderMenu from '@/components/HeaderMenu';
+import Header from '@/components/Header';
 import { withLayout, LayoutProps } from '@/components/Layout';
 import TagsCard from '@/components/TagsCard';
 import BlogPagination from '@/components/Pagination';
@@ -95,14 +95,8 @@ const IndexPage = (props: BlogProps) => {
 
   return (
     <>
-      <HeaderMenu Link={Link} pathname={props.location.pathname} inverted />
-      <Segment vertical inverted textAlign="center" className="masthead">
-        <Button primary size="medium">
-          Im-D DevDocs
-        </Button>
-      </Segment>
+      <Header pathname={props.location.pathname} />
 
-      {/* About this starter */}
       <Segment vertical className="">
         <Grid padded style={{ justifyContent: 'center' }}>
           <div style={{ maxWidth: 600 }}>
