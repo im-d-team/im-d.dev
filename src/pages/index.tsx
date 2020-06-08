@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 import { get } from 'lodash';
 import {
-  Button,
   Segment,
   Container,
   Grid,
@@ -66,23 +65,20 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
         </Comment.Group>
       );
 
-      const description = (
-        <Card.Description>
-          {excerpt}
-          <br />
-          <Link to={slug}>Read more…</Link>
-        </Card.Description>
-      );
+      const description = <Card.Description>{excerpt}</Card.Description>;
 
       return (
-        <Card
-          key={slug}
-          fluid
-          image={cover}
-          header={frontmatter.title}
-          extra={extra}
-          description={description}
-        />
+        <Link to={slug}>
+          <Card
+            key={slug}
+            fluid
+            image={cover}
+            header={frontmatter.title}
+            extra={extra}
+            description={description}
+            style={{ margin: 10 }}
+          />
+        </Link>
       );
     })}
   </Container>
