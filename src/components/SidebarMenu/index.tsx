@@ -15,8 +15,8 @@ export const SidebarMenu = ({ visible }: SidebarMenuProps) => {
     <Sidebar
       as={Menu}
       animation="slide along"
-      direction="right"
-      width="thin"
+      direction="left"
+      width="wide"
       visible={visible}
       icon="labeled"
       vertical
