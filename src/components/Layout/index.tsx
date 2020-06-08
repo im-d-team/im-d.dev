@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { Segment, Sidebar } from 'semantic-ui-react';
 
-import HeaderMenu from '@/components/HeaderMenu';
+import Header from '@/components/Header';
 import SidebarMenu from '@/components/SidebarMenu';
 import { store } from '@/store';
 
@@ -30,7 +30,7 @@ const Layout = (props: LayoutProps) => {
         <SidebarMenu visible={true} />
         <Sidebar.Pusher style={{ minHeight: '100vh' }}>
           {/* Header */}
-          {isHome ? null : <HeaderMenu pathname={pathname} />}
+          {isHome ? null : <Header pathname={pathname} />}
 
           {/* Render children pages */}
           <div style={{ paddingBottom: 60 }}>{props.children}</div>
