@@ -6,33 +6,22 @@
 
   width: 100%;
 
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 
-  padding: 8px 16px;
+  padding: 3px 16px;
 }
 
 .imd-header__logo-image{
-  width: 50px;
-  height: 5ß0px;
+  width: 40px;
+  height: 40px;
   border-radius: 25px;
 
   cursor: pointer;
-}
-
-.imd-header__title{
-  font-size: 24px;
-  font-weight: bold;
 }
 
 .imd-header__sidebar-image{
   width: 25px;
   height: 25px;
 
-  transition: color 2s;
-
   cursor: pointer;
-}
-
-.imd-header__sidebar-image:hover{
-  color: blue;
 }

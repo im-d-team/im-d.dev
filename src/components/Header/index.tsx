@@ -20,8 +20,6 @@ export const Header = ({ dispatch }: HeaderProps) => (
       onClick={() => dispatch && dispatch(toggleSidebar())}
     />
 
-    <h1 className="imd-header__title">Im-D Dev Blog</h1>
-
     <Link to={'/'}>
       <img
         className="imd-header__logo-image"

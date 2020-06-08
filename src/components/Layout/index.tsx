@@ -27,13 +27,13 @@ const Layout = (props: LayoutProps) => {
   return (
     <Provider store={store}>
       <Sidebar.Pushable as={Segment}>
-        <SidebarMenu pathname={pathname} visible={true} />
+        <SidebarMenu pathname={pathname} />
         <Sidebar.Pusher style={{ minHeight: '100vh' }}>
           {/* Header */}
           {isHome ? null : <Header pathname={pathname} />}
 
           {/* Render children pages */}
-          <div style={{ paddingBottom: 60 }}>{props.children}</div>
+          <div>{props.children}</div>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
     </Provider>
