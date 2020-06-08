@@ -61,22 +61,19 @@ const BlogPage = (props: BlogProps) => {
           </Comment.Group>
         );
 
-        const description = (
-          <Card.Description>
-            {excerpt}
-            <br />
-            <Link to={slug}>Read more…</Link>
-          </Card.Description>
-        );
+        const description = <Card.Description>{excerpt}</Card.Description>;
+
         return (
-          <Card
-            key={slug}
-            fluid
-            image={cover}
-            header={frontmatter.title}
-            extra={extra}
-            description={description}
-          />
+          <Link to={slug}>
+            <Card
+              key={slug}
+              fluid
+              image={cover}
+              header={frontmatter.title}
+              extra={extra}
+              description={description}
+            />
+          </Link>
         );
       })}
     </Container>
@@ -96,9 +93,9 @@ const BlogPage = (props: BlogProps) => {
               />
             </Segment>
           </div>
-          <div style={{ maxWidth: 250 }}>
+          {/* <div style={{ maxWidth: 250 }}>
             <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
-          </div>
+          </div> */}
         </Grid>
       </Segment>
     </Container>
@@ -124,7 +121,7 @@ export const pageQuery = graphql`
         frontmatter: { draft: { ne: true } }
         fileAbsolutePath: { regex: "/blog/" }
       }
-      limit: 10
+      limit: 5
     ) {
       totalCount
       edges {

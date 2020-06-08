@@ -2,7 +2,7 @@ const path = require('path');
 const slash = require('slash');
 const { kebabCase, uniq, get, compact, times } = require('lodash');
 
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 5;
 const cleanArray = (arr) => compact(uniq(arr));
 
 exports.onCreateWebpackConfig = ({ actions }) => {

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 import { get } from 'lodash';
 import {
-  Button,
   Segment,
   Container,
   Grid,
@@ -71,23 +70,19 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
         </Comment.Group>
       );
 
-      const description = (
-        <Card.Description>
-          {excerpt}
-          <br />
-          <Link to={slug}>Read more…</Link>
-        </Card.Description>
-      );
+      const description = <Card.Description>{excerpt}</Card.Description>;
 
       return (
-        <Card
-          key={slug}
-          fluid
-          image={cover}
-          header={frontmatter.title}
-          extra={extra}
-          description={description}
-        />
+        <Link to={slug}>
+          <Card
+            key={slug}
+            fluid
+            image={cover}
+            header={frontmatter.title}
+            extra={extra}
+            description={description}
+          />
+        </Link>
       );
     })}
   </Container>
@@ -103,8 +98,6 @@ const IndexPage = (props: BlogProps) => {
 
   return (
     <>
-      <Header pathname={props.location.pathname} />
-
       <Segment vertical className="">
         <Grid padded style={{ justifyContent: 'center' }}>
           <div style={{ maxWidth: 600 }}>
@@ -117,11 +110,11 @@ const IndexPage = (props: BlogProps) => {
               />
             </Segment>
           </div>
-          <Responsive minWidth={Responsive.onlyComputer.minWidth}>
+          {/* <Responsive minWidth={Responsive.onlyComputer.minWidth}>
             <div style={{ maxWidth: 250 }}>
               <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
             </div>
-          </Responsive>
+          </Responsive> */}
         </Grid>
       </Segment>
     </>
@@ -146,7 +139,7 @@ export const pageQuery = graphql`
         frontmatter: { draft: { ne: true } }
         fileAbsolutePath: { regex: "/blog/" }
       }
-      limit: 10
+      limit: 5
     ) {
       totalCount
       edges {

@@ -30,7 +30,7 @@ const Layout = (props: LayoutProps) => {
         <SidebarMenu pathname={pathname} />
         <Sidebar.Pusher style={{ minHeight: '100vh' }}>
           {/* Header */}
-          {isHome ? null : <Header pathname={pathname} />}
+          <Header pathname={pathname} />
 
           {/* Render children pages */}
           <div>{props.children}</div>
