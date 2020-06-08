@@ -39,6 +39,7 @@ const BlogPostPage = (props: BlogPostProps) => {
   const recents = props.data.recents.edges.map(({ node }) => {
     const recentAvatar = node.frontmatter.author.avatar;
     const recentCover = get(node, 'frontmatter.image.children.0.fixed', {});
+
     const extra = (
       <Comment.Group>
         <Comment>
@@ -138,7 +139,7 @@ export const pageQuery = graphql`
         author {
           id
           bio
-          twitter
+          github
           avatar {
             childImageSharp {
               fixed(width: 80, height: 80, quality: 100) {

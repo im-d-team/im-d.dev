@@ -18,10 +18,10 @@ import {
   markdownRemarkGroupConnectionConnection,
 } from '@/graphql-types';
 
-import Header from '@/components/Header';
-import { withLayout, LayoutProps } from '@/components/Layout';
 import TagsCard from '@/components/TagsCard';
+import Header from '@/components/Header';
 import BlogPagination from '@/components/Pagination';
+import { withLayout, LayoutProps } from '@/components/Layout';
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -42,24 +42,32 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
         fields: { slug },
         excerpt,
       } = node;
-      const avatar = frontmatter.author.avatar;
+      const author = frontmatter.author;
+      const { avatar } = author;
+      const githubAddress = `https://github.com/${author.github}`;
       const cover = get(frontmatter, 'image.children.0.fixed', {});
+
       const extra = (
         <Comment.Group>
-          <Comment>
-            <Comment.Avatar
-              src={avatar.childImageSharp.fixed.src}
-              srcSet={avatar.childImageSharp.fixed.srcSet}
-            />
-            <Comment.Content>
-              <Comment.Author style={{ fontWeight: 400 }}>
-                {frontmatter.author.id}
-              </Comment.Author>
-              <Comment.Metadata style={{ margin: 0 }}>
-                {frontmatter.createdDate}
-              </Comment.Metadata>
-            </Comment.Content>
-          </Comment>
+          <section className="main-page__post-contents-footer">
+            <a href={githubAddress} target="_blank">
+              <img
+                className="main-page__post-contents-footer__avatar-image"
+                src={avatar.childImageSharp.fixed.src}
+                alt="Avatar"
+                srcSet={avatar.childImageSharp.fixed.srcSet}
+              />
+            </a>
+            <Comment.Author style={{ fontWeight: 400 }}>
+              {author.id}
+            </Comment.Author>
+            <Comment.Metadata style={{ margin: 0 }}>
+              {frontmatter.createdDate}
+            </Comment.Metadata>
+            <Comment.Metadata style={{ margin: 10 }}>
+              {timeToRead} min read
+            </Comment.Metadata>
+          </section>
         </Comment.Group>
       );
 
@@ -154,6 +162,8 @@ export const pageQuery = graphql`
             createdDate(formatString: "DD MMMM, YYYY")
             author {
               id
+              bio
+              github
               avatar {
                 childImageSharp {
                   fixed(width: 35, height: 35) {

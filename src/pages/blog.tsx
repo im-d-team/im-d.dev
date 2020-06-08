@@ -34,16 +34,21 @@ const BlogPage = (props: BlogProps) => {
           fields: { slug },
           excerpt,
         } = node;
-
-        const avatar = frontmatter.author.avatar;
+        const author = frontmatter.author;
+        const { avatar } = author;
+        const githubAddress = `https://github.com/${author.github}`;
         const cover = get(frontmatter, 'image.children.0.fixed', {});
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar
-                src={avatar.childImageSharp.fixed.src}
-                srcSet={avatar.childImageSharp.fixed.srcSet}
-              />
+              <a href={githubAddress} target="_blank">
+                <img
+                  className="main-page__post-contents-footer__avatar-image"
+                  src={avatar.childImageSharp.fixed.src}
+                  alt="Avatar"
+                  srcSet={avatar.childImageSharp.fixed.srcSet}
+                />
+              </a>
               <Comment.Content>
                 <Comment.Author style={{ fontWeight: 400 }}>
                   {frontmatter.author.id}
@@ -135,6 +140,7 @@ export const pageQuery = graphql`
             createdDate(formatString: "DD MMMM, YYYY")
             author {
               id
+              github
               avatar {
                 childImageSharp {
                   fixed(width: 35, height: 35) {
