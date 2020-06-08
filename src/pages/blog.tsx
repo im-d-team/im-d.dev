@@ -59,22 +59,19 @@ const BlogPage = (props: BlogProps) => {
         const description = (
           <Card.Description>
             {excerpt}
-            {timeToRead}
+            <br />
+            <Link to={slug}>Read more…</Link>
           </Card.Description>
         );
-
         return (
-          <Link to={slug}>
-            <Card
-              key={slug}
-              fluid
-              image={cover}
-              header={frontmatter.title}
-              extra={extra}
-              description={description}
-              style={{ margin: 10 }}
-            />
-          </Link>
+          <Card
+            key={slug}
+            fluid
+            image={cover}
+            header={frontmatter.title}
+            extra={extra}
+            description={description}
+          />
         );
       })}
     </Container>

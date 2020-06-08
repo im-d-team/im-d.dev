@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 import { get } from 'lodash';
 import {
+  Button,
   Segment,
   Container,
   Grid,
@@ -17,10 +18,10 @@ import {
   markdownRemarkGroupConnectionConnection,
 } from '@/graphql-types';
 
-import TagsCard from '@/components/TagsCard';
 import HeaderMenu from '@/components/HeaderMenu';
-import BlogPagination from '@/components/Pagination';
 import { withLayout, LayoutProps } from '@/components/Layout';
+import TagsCard from '@/components/TagsCard';
+import BlogPagination from '@/components/Pagination';
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -57,28 +58,28 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
               <Comment.Metadata style={{ margin: 0 }}>
                 {frontmatter.createdDate}
               </Comment.Metadata>
-              <Comment.Metadata style={{ margin: 10 }}>
-                {timeToRead} min read
-              </Comment.Metadata>
             </Comment.Content>
           </Comment>
         </Comment.Group>
       );
 
-      const description = <Card.Description>{excerpt}</Card.Description>;
+      const description = (
+        <Card.Description>
+          {excerpt}
+          <br />
+          <Link to={slug}>Read more…</Link>
+        </Card.Description>
+      );
 
       return (
-        <Link to={slug}>
-          <Card
-            key={slug}
-            fluid
-            image={cover}
-            header={frontmatter.title}
-            extra={extra}
-            description={description}
-            style={{ margin: 10 }}
-          />
-        </Link>
+        <Card
+          key={slug}
+          fluid
+          image={cover}
+          header={frontmatter.title}
+          extra={extra}
+          description={description}
+        />
       );
     })}
   </Container>
@@ -94,13 +95,12 @@ const IndexPage = (props: BlogProps) => {
 
   return (
     <>
-      <HeaderMenu pathname={props.location.pathname} />
-      <Segment
-        vertical
-        inverted
-        textAlign="center"
-        className="masthead"
-      ></Segment>
+      <HeaderMenu Link={Link} pathname={props.location.pathname} inverted />
+      <Segment vertical inverted textAlign="center" className="masthead">
+        <Button primary size="medium">
+          Im-D DevDocs
+        </Button>
+      </Segment>
 
       {/* About this starter */}
       <Segment vertical className="">

@@ -10,8 +10,8 @@ import 'prismjs/themes/prism-okaidia.css';
 
 import '@/css/styles.css';
 import '@/css/responsive.css';
-import '@/css/reset.css';
 import '@/css/semantic.min.css';
+import '@/css/reset.css';
 
 export interface LayoutProps {
   location: {
@@ -27,7 +27,7 @@ const Layout = (props: LayoutProps) => {
   return (
     <Provider store={store}>
       <Sidebar.Pushable as={Segment}>
-        <SidebarMenu visible={true} />
+        <SidebarMenu pathname={pathname} visible={true} />
         <Sidebar.Pusher style={{ minHeight: '100vh' }}>
           {/* Header */}
           {isHome ? null : <HeaderMenu pathname={pathname} />}
@@ -39,6 +39,8 @@ const Layout = (props: LayoutProps) => {
     </Provider>
   );
 };
+
+export default Layout;
 
 export const withLayout = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
