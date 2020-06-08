@@ -18,10 +18,10 @@ import {
   markdownRemarkGroupConnectionConnection,
 } from '@/graphql-types';
 
-import TagsCard from '@/components/TagsCard';
 import Header from '@/components/Header';
-import BlogPagination from '@/components/Pagination';
 import { withLayout, LayoutProps } from '@/components/Layout';
+import TagsCard from '@/components/TagsCard';
+import BlogPagination from '@/components/Pagination';
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -57,9 +57,6 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
               </Comment.Author>
               <Comment.Metadata style={{ margin: 0 }}>
                 {frontmatter.createdDate}
-              </Comment.Metadata>
-              <Comment.Metadata style={{ margin: 10 }}>
-                {timeToRead} min read
               </Comment.Metadata>
             </Comment.Content>
           </Comment>
