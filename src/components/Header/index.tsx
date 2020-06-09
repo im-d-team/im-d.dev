@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { BsReverseLayoutTextSidebarReverse } from 'react-icons/bs';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 import { toggleSidebar } from '@/store';
 import { MenuProps } from '@/components/Menu';
@@ -15,7 +15,7 @@ interface HeaderProps extends MenuProps {
 
 export const Header = ({ dispatch }: HeaderProps) => (
   <header className="imd-header">
-    <BsReverseLayoutTextSidebarReverse
+    <AiOutlineMenu
       className="imd-header__sidebar-image"
       onClick={() => dispatch && dispatch(toggleSidebar())}
     />

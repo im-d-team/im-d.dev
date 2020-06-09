@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { Link, graphql } from 'gatsby';
-import { get } from 'lodash';
-import { Container, Card, Comment } from 'semantic-ui-react';
+import { Link } from 'gatsby';
+import { Card, Comment } from 'semantic-ui-react';
 
 import { MarkdownRemark, MarkdownRemarkEdge } from '@/graphql-types';
 
 const PostList = (posts: Array<MarkdownRemarkEdge>) => (
-  <Container>
+  <>
     {posts.map(({ node }: { node: MarkdownRemark }) => {
       const {
         frontmatter,
@@ -18,7 +17,6 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
       const author = frontmatter.author;
       const { avatar } = author;
       const githubAddress = `https://github.com/${author.github}`;
-      const cover = get(frontmatter, 'image.children.0.fixed', {});
 
       const extra = (
         <Comment.Group>
@@ -52,7 +50,6 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
           <Card
             key={slug}
             fluid
-            image={cover}
             header={frontmatter.title}
             extra={extra}
             description={description}
@@ -60,7 +57,7 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
         </Link>
       );
     })}
-  </Container>
+  </>
 );
 
 export default PostList;
