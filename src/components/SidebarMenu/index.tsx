@@ -21,16 +21,11 @@ export const SidebarMenu = ({ visible }: SidebarMenuProps) => {
       icon="labeled"
       vertical
     >
-      {/* {items.map(item => {
-        const active = isActive(item);
-
-        return (
-          <Menu.Item as={Link} to={item.path} active={active} key={item.path}>
-            <Icon name={item.icon as SemanticICONS} />
-            {item.name}
-          </Menu.Item>
-        );
-      })} */}
+      {/* <Responsive minWidth={Responsive.onlyComputer.minWidth}>
+            <div style={{ maxWidth: 250 }}>
+              <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+            </div>
+          </Responsive> */}
     </Sidebar>
   );
 };

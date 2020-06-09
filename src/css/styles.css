@@ -113,7 +113,10 @@ pre {
   justify-content: center;
   align-items: center;
 
-  padding: 30px 10px;
+  max-width: 600px;
+
+  margin: auto;
+  padding: 20px 10px 0;
 }
 
 .post-pagination-area{
@@ -121,5 +124,7 @@ pre {
   justify-content: center;
   align-items: center;
 
-  padding: 30px;
+  width: 100%;
+
+  padding: 20px 10px;
 }

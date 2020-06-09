@@ -36,12 +36,6 @@ const IndexPage = (props: BlogProps) => {
       <div className="post-pagination-area">
         <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
       </div>
-
-      {/* <Responsive minWidth={Responsive.onlyComputer.minWidth}>
-            <div style={{ maxWidth: 250 }}>
-              <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
-            </div>
-          </Responsive> */}
     </section>
   );
 };

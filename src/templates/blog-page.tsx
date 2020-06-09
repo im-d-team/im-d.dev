@@ -33,9 +33,11 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            updatedDate(formatString: "DD MMMM, YYYY")
+            updatedDate(formatString: "MMMM DD, YYYY")
+            createdDate(formatString: "MMMM DD, YYYY")
             author {
               id
+              github
               avatar {
                 childImageSharp {
                   fixed(width: 35, height: 35) {
