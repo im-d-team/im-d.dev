@@ -2,8 +2,10 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 
 import { File } from '@/graphql-types';
+import Tag from '@/components/Tag';
 
 import './style.css';
+import TagsCard from '../TagsCard';
 
 export interface CardProps {
   title: string;
@@ -14,6 +16,7 @@ export interface CardProps {
   avatar: File;
   id: string;
   createdDate: string;
+  tags: Array<string>;
 }
 
 const PostList = ({
@@ -25,10 +28,13 @@ const PostList = ({
   avatar,
   id,
   createdDate,
+  tags,
 }: CardProps) => (
   <div className="post-card">
     <section className="post-card__header">
-      <h1 className="post-card__header__title">{title}</h1>
+      <Link to={slug}>
+        <h1 className="post-card__header__title">{title}</h1>
+      </Link>
       <span className="post-card__header__min-read">{timeToRead} min read</span>
     </section>
 
@@ -53,7 +59,11 @@ const PostList = ({
 
     <section className="post-card__footer">
       {/* <span className="post-card__footer__created-date">{createdDate}</span> */}
-      tags
+      <div className="post-card__footer__tag-list">
+        {tags.map((tagName) => (
+          <Tag tagName={tagName} />
+        ))}
+      </div>
     </section>
   </div>
 );

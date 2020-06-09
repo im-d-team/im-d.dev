@@ -26,7 +26,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 100, truncate: true)
           timeToRead
           fields {
             slug
@@ -35,6 +35,7 @@ export const pageQuery = graphql`
             title
             updatedDate(formatString: "MMMM DD, YYYY")
             createdDate(formatString: "MMMM DD, YYYY")
+            tags
             author {
               id
               github

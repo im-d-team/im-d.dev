@@ -119,6 +119,12 @@ pre {
   padding: 20px 10px 0;
 }
 
+@media all and (max-width:480px) {
+  .post-contents-list{
+    padding: 20px 0px 0;
+  }
+}
+
 .post-pagination-area{
   display: flex;
   justify-content: center;
