@@ -3,19 +3,42 @@
     "id": "BKJang",
     "bio": "Frontend Engineer",
     "avatar": "avatars/bkjang.png",
-    "twitter": "@fabien0102",
-    "github": "@BKJang"
+    "github": "BKJang"
   },
   {
     "id": "Jinseong",
     "bio": "🖥",
     "avatar": "avatars/jinseong.png",
-    "github": "@eugene94"
+    "github": "devjinius"
   },
   {
     "id": "sNyung",
     "bio": "💻 Front-end 📝Javascript, CleanCode 💚[JS, TS], New:[K8S, Rust, Flutter]",
     "avatar": "avatars/snyung.png",
-    "github": "@SeonHyungJo"
+    "github": "SeonHyungJo"
+  },
+  {
+    "id": "Dae-Hwa Jeong",
+    "bio": "",
+    "avatar": "avatars/Dae-Hwa.jpeg",
+    "github": "Dae-Hwa"
+  },
+  {
+    "id": "EUNJIHA",
+    "bio": "",
+    "avatar": "avatars/EUNJIHA.jpeg",
+    "github": "EUNJIHA"
+  },
+  {
+    "id": "JegalEun",
+    "bio": "",
+    "avatar": "avatars/JegalEun.png",
+    "github": "JegalEun"
+  },
+  {
+    "id": "ssy0619",
+    "bio": "",
+    "avatar": "avatars/ssy0619.png",
+    "github": "ssy0619ssy0619ssy0619"
   }
 ]

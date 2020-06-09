@@ -1,24 +1,14 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
-import { get } from 'lodash';
-import {
-  Segment,
-  Container,
-  Grid,
-  Card,
-  Comment,
-  Responsive,
-} from 'semantic-ui-react';
 
 import {
-  MarkdownRemark,
   MarkdownRemarkConnection,
   MarkdownRemarkEdge,
   markdownRemarkGroupConnectionConnection,
 } from '@/graphql-types';
 
 import TagsCard from '@/components/TagsCard';
-import HeaderMenu from '@/components/HeaderMenu';
+import PostList from '@/components/PostList';
 import BlogPagination from '@/components/Pagination';
 import { withLayout, LayoutProps } from '@/components/Layout';
 
@@ -32,58 +22,6 @@ interface BlogProps extends LayoutProps {
   };
 }
 
-const PostList = (posts: Array<MarkdownRemarkEdge>) => (
-  <Container>
-    {posts.map(({ node }: { node: MarkdownRemark }) => {
-      const {
-        frontmatter,
-        timeToRead,
-        fields: { slug },
-        excerpt,
-      } = node;
-      const avatar = frontmatter.author.avatar;
-      const cover = get(frontmatter, 'image.children.0.fixed', {});
-      const extra = (
-        <Comment.Group>
-          <Comment>
-            <Comment.Avatar
-              src={avatar.childImageSharp.fixed.src}
-              srcSet={avatar.childImageSharp.fixed.srcSet}
-            />
-            <Comment.Content>
-              <Comment.Author style={{ fontWeight: 400 }}>
-                {frontmatter.author.id}
-              </Comment.Author>
-              <Comment.Metadata style={{ margin: 0 }}>
-                {frontmatter.createdDate}
-              </Comment.Metadata>
-              <Comment.Metadata style={{ margin: 10 }}>
-                {timeToRead} min read
-              </Comment.Metadata>
-            </Comment.Content>
-          </Comment>
-        </Comment.Group>
-      );
-
-      const description = <Card.Description>{excerpt}</Card.Description>;
-
-      return (
-        <Link to={slug}>
-          <Card
-            key={slug}
-            fluid
-            image={cover}
-            header={frontmatter.title}
-            extra={extra}
-            description={description}
-            style={{ margin: 10 }}
-          />
-        </Link>
-      );
-    })}
-  </Container>
-);
-
 const IndexPage = (props: BlogProps) => {
   const { data, location } = props;
   const { pathname } = location;
@@ -93,36 +31,12 @@ const IndexPage = (props: BlogProps) => {
   const pageCount = Math.ceil(data.posts.totalCount / 10);
 
   return (
-    <>
-      <HeaderMenu pathname={props.location.pathname} />
-      <Segment
-        vertical
-        inverted
-        textAlign="center"
-        className="masthead"
-      ></Segment>
-
-      {/* About this starter */}
-      <Segment vertical className="">
-        <Grid padded style={{ justifyContent: 'center' }}>
-          <div style={{ maxWidth: 600 }}>
-            {PostList(posts)}
-            <Segment vertical textAlign="center">
-              <BlogPagination
-                Link={Link}
-                pathname={pathname}
-                pageCount={pageCount}
-              />
-            </Segment>
-          </div>
-          <Responsive minWidth={Responsive.onlyComputer.minWidth}>
-            <div style={{ maxWidth: 250 }}>
-              <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
-            </div>
-          </Responsive>
-        </Grid>
-      </Segment>
-    </>
+    <section className="post-contents-list">
+      {PostList(posts)}
+      <div className="post-pagination-area">
+        <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
+      </div>
+    </section>
   );
 };
 
@@ -144,22 +58,25 @@ export const pageQuery = graphql`
         frontmatter: { draft: { ne: true } }
         fileAbsolutePath: { regex: "/blog/" }
       }
-      limit: 10
+      limit: 5
     ) {
       totalCount
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 100, truncate: true)
           timeToRead
           fields {
             slug
           }
           frontmatter {
             title
+            tags
             updatedDate(formatString: "DD MMMM, YYYY")
             createdDate(formatString: "DD MMMM, YYYY")
             author {
               id
+              bio
+              github
               avatar {
                 childImageSharp {
                   fixed(width: 35, height: 35) {

@@ -1,0 +1,130 @@
+.post-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+
+  padding: 15px 20px 10px;
+  margin-bottom: 16px;
+}
+
+@media all and (min-width:480px) and (max-width:769px) {
+}
+
+@media all and (max-width:480px) {
+  .post-card{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0px;
+    box-shadow: none;
+
+    padding: 5px 10px 15px;
+    margin-bottom: 0px;
+  }
+}
+
+.post-card__header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 15px 0px 10px;
+}
+
+.post-card__header__title{
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.post-card__header__min-read{
+  font-size: 14px;
+  font-weight: 500;
+  color: #7D7D7D;
+}
+
+.post-card__main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  width: 100%;
+
+  margin-bottom: 15px;
+}
+
+.post-card__main__expert{
+  font-size: 16px;
+  color: black;
+
+  word-break: keep-all;
+  line-height: 1.4;
+}
+
+@media all and (max-width:480px) {
+  .post-card__main__expert{
+    font-size: 14px;
+  }
+}
+
+.post-card__main__author-area{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 70px;
+
+  margin-left: 15px;
+}
+
+.post-card__main__avatar-image{
+  width: 35px;
+  height: 35px;
+
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.post-card__main__github-id{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.post-card__footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  width: 100%;
+}
+
+.post-card__footer__created-date{
+
+}
+
+.post-card__footer__tag-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.post-card__footer__tag-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}

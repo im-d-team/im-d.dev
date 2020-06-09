@@ -1,22 +1,32 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Sidebar } from 'semantic-ui-react';
+import { Menu, Sidebar } from 'semantic-ui-react';
 
 import { StoreState } from '@/store';
+import { MenuProps } from '@/components/Menu';
+import TagsCard from '@/components/TagsCard';
 
-interface SidebarMenuProps {
-  visible: boolean;
+interface SidebarMenuProps extends MenuProps {
+  visible?: boolean;
 }
 
-export const SidebarMenu = ({ visible = false }: SidebarMenuProps) => {
+export const SidebarMenu = ({ visible }: SidebarMenuProps) => {
   return (
     <Sidebar
-      as="div"
+      as={Menu}
       animation="slide along"
-      direction="right"
-      width="thin"
+      direction="left"
+      width="wide"
       visible={visible}
-    ></Sidebar>
+      icon="labeled"
+      vertical
+    >
+      {/* <Responsive minWidth={Responsive.onlyComputer.minWidth}>
+            <div style={{ maxWidth: 250 }}>
+              <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+            </div>
+          </Responsive> */}
+    </Sidebar>
   );
 };
 

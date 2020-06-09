@@ -1,8 +1,17 @@
 import * as React from 'react';
 import { graphql, Link } from 'gatsby';
 import { get } from 'lodash';
-import { Label, Grid, Card, Image, Comment } from 'semantic-ui-react';
-
+import {
+  Header,
+  Container,
+  Segment,
+  Label,
+  Grid,
+  Card,
+  Image,
+  Item,
+  Comment,
+} from 'semantic-ui-react';
 import {
   MarkdownRemark,
   MarkdownRemarkConnection,
@@ -21,7 +30,6 @@ interface BlogPostProps extends LayoutProps {
 const BlogPostPage = (props: BlogPostProps) => {
   const { frontmatter, html, timeToRead } = props.data.post;
   const avatar = frontmatter.author.avatar;
-
   const tags = props.data.post.frontmatter.tags.map((tag) => (
     <Label key={tag}>
       <Link to={`/blog/tags/${tag}/`}>{tag}</Link>
@@ -31,6 +39,7 @@ const BlogPostPage = (props: BlogPostProps) => {
   const recents = props.data.recents.edges.map(({ node }) => {
     const recentAvatar = node.frontmatter.author.avatar;
     const recentCover = get(node, 'frontmatter.image.children.0.fixed', {});
+
     const extra = (
       <Comment.Group>
         <Comment>
@@ -43,9 +52,7 @@ const BlogPostPage = (props: BlogPostProps) => {
             <Comment.Author style={{ fontWeight: 400 }}>
               {node.frontmatter.author.id}
             </Comment.Author>
-            <Comment.Metadata style={{ margin: 0 }}>
-              {frontmatter.createdDate}
-            </Comment.Metadata>
+
             <Comment.Metadata style={{ margin: 0 }}>
               {node.timeToRead} min read
             </Comment.Metadata>
@@ -70,36 +77,44 @@ const BlogPostPage = (props: BlogPostProps) => {
   const cover = get(frontmatter, 'image.children.0.fixed', {});
 
   return (
-    <section className="ui text container">
-      <section style={{ border: 'none' }}>
-        <Image
-          size="tiny"
-          src={avatar.childImageSharp.fixed.src}
-          srcSet={avatar.childImageSharp.fixed.srcSet}
-          circular
-        />
-        <section>
-          <p>{frontmatter.author.id}</p>
-          <p>{frontmatter.author.bio}</p>
-          <span>
-            {frontmatter.updatedDate} - {timeToRead} min read
-          </span>
-        </section>
-        <h1>{frontmatter.title}</h1>
-      </section>
+    <Container className="ui text container">
+      <Segment vertical style={{ border: 'none' }}>
+        <Item.Group>
+          <Item>
+            <Item.Image
+              size="tiny"
+              src={avatar.childImageSharp.fixed.src}
+              srcSet={avatar.childImageSharp.fixed.srcSet}
+              circular
+            />
+            <Item.Content>
+              <Item.Description>{frontmatter.author.id}</Item.Description>
+              <Item.Meta>{frontmatter.author.bio}</Item.Meta>
+              <Item.Extra>
+                {frontmatter.updatedDate} - {timeToRead} min read
+              </Item.Extra>
+            </Item.Content>
+          </Item>
+        </Item.Group>
+        <Header as="h1">{frontmatter.title}</Header>
+      </Segment>
       <Image {...cover} fluid />
-      <article
+      <Segment
+        vertical
         dangerouslySetInnerHTML={{
           __html: html,
         }}
       />
-      <section>{tags}</section>
-      <section>
+      <Segment vertical>{tags}</Segment>
+      {props.data.site &&
+        props.data.site.siteMetadata &&
+        props.data.site.siteMetadata.disqus && <Segment vertical></Segment>}
+      <Segment vertical>
         <Grid padded centered>
           {recents}
         </Grid>
-      </section>
-    </section>
+      </Segment>
+    </Container>
   );
 };
 
@@ -124,7 +139,7 @@ export const pageQuery = graphql`
         author {
           id
           bio
-          twitter
+          github
           avatar {
             childImageSharp {
               fixed(width: 80, height: 80, quality: 100) {
@@ -156,8 +171,6 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             title
-            updatedDate(formatString: "DD MMMM, YYYY")
-            createdDate(formatString: "DD MMMM, YYYY")
             author {
               id
               avatar {

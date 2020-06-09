@@ -2,19 +2,24 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { BsReverseLayoutTextSidebarReverse } from 'react-icons/bs';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 import { toggleSidebar } from '@/store';
 import { MenuProps } from '@/components/Menu';
 
 import './style.css';
 
-interface HeaderMenuProps extends MenuProps {
+interface HeaderProps extends MenuProps {
   dispatch?: Dispatch<any>;
 }
 
-export const HeaderMenu = ({ dispatch }: HeaderMenuProps) => (
+export const Header = ({ dispatch }: HeaderProps) => (
   <header className="imd-header">
+    <AiOutlineMenu
+      className="imd-header__sidebar-image"
+      onClick={() => dispatch && dispatch(toggleSidebar())}
+    />
+
     <Link to={'/'}>
       <img
         className="imd-header__logo-image"
@@ -22,14 +27,7 @@ export const HeaderMenu = ({ dispatch }: HeaderMenuProps) => (
         alt="imd logo"
       />
     </Link>
-
-    <h1 className="imd-header__title">Im-D Dev Blog</h1>
-
-    <BsReverseLayoutTextSidebarReverse
-      className="imd-header__sidebar-image"
-      onClick={() => dispatch && dispatch(toggleSidebar())}
-    />
   </header>
 );
 
-export default connect()(HeaderMenu);
+export default connect()(Header);

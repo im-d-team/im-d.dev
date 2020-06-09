@@ -97,3 +97,40 @@ pre {
   border-radius: 0.3em;
   background: #272822;
 }
+
+.main-page__post-contents-footer__avatar-image{
+  display: block;
+  width: 2.5em;
+  height: auto;
+  float: left;
+  margin: .2em 0 0;
+  border-radius: .25rem;
+}
+
+.post-contents-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 600px;
+
+  margin: auto;
+  padding: 20px 10px 0;
+}
+
+@media all and (max-width:480px) {
+  .post-contents-list{
+    padding: 20px 0px 0;
+  }
+}
+
+.post-pagination-area{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 20px 10px;
+}
