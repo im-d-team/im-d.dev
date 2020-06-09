@@ -7,7 +7,7 @@
   "scripts": {
     "start": "gatsby develop",
     "dev": "npm run clean & gatsby develop",
-    "deploy": "gh-pages -d public",
+    "deploy": "gh-pages -d public -b master",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "lint": "npm run lint:ts && npm run lint:md && npm run lint:js && npm run lint:css",
