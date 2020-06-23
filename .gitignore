@@ -137,3 +137,4 @@ $RECYCLE.BIN/
 ### Gatsby ###
 public
 .cache
+.vscode
