@@ -9,7 +9,7 @@ import { MenuProps } from '@/components/Menu';
 
 import './style.css';
 
-interface HeaderProps extends MenuProps {
+export interface HeaderProps extends MenuProps {
   dispatch?: Dispatch<any>;
 }
 

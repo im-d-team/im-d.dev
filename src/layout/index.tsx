@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { Segment, Sidebar } from 'semantic-ui-react';
 
-import Header from '@/components/Header';
 import SidebarMenu from '@/components/SidebarMenu';
+import Header from '@/components/Header';
+
 import { store } from '@/store';
 
 import 'prismjs/themes/prism-okaidia.css';
@@ -25,21 +25,17 @@ const Layout = (props: LayoutProps) => {
 
   return (
     <Provider store={store}>
-      <Sidebar.Pushable as={Segment}>
-        <SidebarMenu pathname={pathname} />
-        <Sidebar.Pusher style={{ minHeight: '100vh' }}>
-          {/* Header */}
-          <Header pathname={pathname} />
+      <SidebarMenu pathname={pathname} />
+      <section>
+        {/* Header */}
+        <Header pathname={pathname} />
 
-          {/* Render children pages */}
-          <div>{props.children}</div>
-        </Sidebar.Pusher>
-      </Sidebar.Pushable>
+        {/* Render children pages */}
+        <main>{props.children}</main>
+      </section>
     </Provider>
   );
 };
-
-export default Layout;
 
 export const withLayout = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
@@ -53,3 +49,5 @@ export const withLayout = <P extends object>(
       );
     }
   };
+
+export default Layout;
