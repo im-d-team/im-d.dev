@@ -3,7 +3,6 @@ title: {{title}}
 createdDate: "{{createdDate}}"
 updatedDate: "{{createdDate}}"
 author: {{author}}{{tags}}
-image: welcoming.png
 draft: {{draft}}
 ---
 
