@@ -1,16 +1,13 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import {
-  MarkdownRemarkConnection,
-  MarkdownRemarkEdge,
-  markdownRemarkGroupConnectionConnection,
-} from '@/graphql-types';
+import { MarkdownRemarkConnection } from '@/graphql-types';
 
-import TagsCard from '@/components/TagsCard';
 import PostList from '@/components/PostList';
 import BlogPagination from '@/components/Pagination';
-import { withLayout, LayoutProps } from '@/components/Layout';
+import { withLayout, LayoutProps } from '@/Layout';
+
+const POSTS_PER_PAGE = 5;
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -22,13 +19,10 @@ interface BlogProps extends LayoutProps {
   };
 }
 
-const IndexPage = (props: BlogProps) => {
-  const { data, location } = props;
+const IndexPage = ({ data, location }: BlogProps) => {
+  const { edges: posts, totalCount } = data.posts;
+  const pageCount = Math.ceil(totalCount / POSTS_PER_PAGE);
   const { pathname } = location;
-
-  const posts: Array<MarkdownRemarkEdge> = data.posts.edges;
-  const tags: Array<markdownRemarkGroupConnectionConnection> = data.tags.group;
-  const pageCount = Math.ceil(data.posts.totalCount / 10);
 
   return (
     <section className="post-contents-list">

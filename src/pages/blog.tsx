@@ -5,7 +5,7 @@ import { MarkdownRemarkConnection } from '@/graphql-types';
 
 import PostList from '@/components/PostList';
 import BlogPagination from '@/components/Pagination';
-import { withLayout, LayoutProps } from '@/components/Layout';
+import { withLayout, LayoutProps } from '@/Layout';
 
 const POSTS_PER_PAGE = 5;
 
