@@ -1,28 +1,16 @@
-name: website
+name: Gatsby Publish
 
 on:
   push:
     branches:
-    - prod
+      - prod
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-      -
-        name: Gen dummy page
-        run: |
-          npm run build
-          EOL
-      -
-        name: Deploy to GitHub Pages
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v2
+      - uses: actions/checkout@v1
+      - uses: enriikke/gatsby-gh-pages-action@v2
         with:
-          target_branch: master
-          build_dir: public
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: master
