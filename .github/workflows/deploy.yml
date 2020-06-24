@@ -12,6 +12,8 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
+      -
+        name: Gen dummy page
         run: |
           npm run build
           EOL
