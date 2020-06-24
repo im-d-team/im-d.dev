@@ -34,6 +34,5 @@ jobs:
         with:
           target_branch: master
           build_dir: public
-          committer: im-d-team@im.developer09@gmail.com
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
