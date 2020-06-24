@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { withLayout } from '@/Layout';
+import { withLayout } from '@/layout';
 
 const NotFoundPage = () => (
   <>

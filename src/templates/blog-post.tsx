@@ -17,7 +17,7 @@ import {
   MarkdownRemarkConnection,
   Site,
 } from '@/graphql-types';
-import { withLayout, LayoutProps } from '@/Layout';
+import { withLayout, LayoutProps } from '@/layout';
 
 interface BlogPostProps extends LayoutProps {
   data: {
