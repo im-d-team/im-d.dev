@@ -2,39 +2,50 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { Menu, Sidebar } from 'semantic-ui-react';
 
 import { StoreState, toggleSidebar } from '@/store';
 
 import { MenuProps } from '@/components/Menu';
 import TagsCard from '@/components/TagsCard';
 
+import './style.css';
+import {markdownRemarkGroupConnectionConnection} from "@/graphql-types";
+
 interface SidebarMenuProps extends MenuProps {
+  tags?: markdownRemarkGroupConnectionConnection[];
   visible?: boolean;
   dispatch?: Dispatch<any>;
 }
 
-export const SidebarMenu = ({ visible, dispatch }: SidebarMenuProps) => {
+// Sidebar
+export const SidebarMenu = ({ tags, visible, dispatch }: SidebarMenuProps) => {
+  console.log('tags', tags);
+
+  // Prevent Scroll
+  if (visible) {
+    window.document.body.style.overflow = 'hidden';
+  } else {
+    window.document.body.style.overflow = 'auto';
+  }
+
   return (
-    <Sidebar
-      as={Menu}
-      animation="slide along"
-      direction="left"
-      width="wide"
-      visible={visible}
-      icon="labeled"
-      vertical
+    <section
+      className={`${visible ? 'sidebar-menu-container__overlay' : ''}`}
+      onClick={() => dispatch && dispatch(toggleSidebar())}
     >
-      <AiOutlineArrowLeft
-        className="imd-header__sidebar-image"
-        onClick={() => dispatch && dispatch(toggleSidebar())}
-      />
-      {/* <Responsive minWidth={Responsive.onlyComputer.minWidth}>
-            <div style={{ maxWidth: 250 }}>
-              <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
-            </div>
-          </Responsive> */}
-    </Sidebar>
+      <section
+        className={`sidebar-menu-container ${visible ? 'visible' : ''}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <section className={'sidebar-menu-container__top'}>
+          <AiOutlineArrowLeft
+            className={'sidebar-menu__close-icon'}
+            onClick={() => dispatch && dispatch(toggleSidebar())}
+          />
+        </section>
+        <section className={'sidebar-menu-container__main'}>'태그들'</section>
+      </section>
+    </section>
   );
 };
 

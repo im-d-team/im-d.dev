@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { MarkdownRemark, MarkdownRemarkEdge } from '@/graphql-types';
 import Card, { CardProps } from '@/components/Card';
 
@@ -13,6 +12,7 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
           tags,
           author: { avatar, github, id },
         },
+        id: nodeId,
         timeToRead,
         fields: { slug },
         excerpt,
@@ -30,7 +30,7 @@ const PostList = (posts: Array<MarkdownRemarkEdge>) => (
         tags,
       };
 
-      return <Card {...cardProps}></Card>;
+      return <Card key="nodeId" {...cardProps} />;
     })}
   </>
 );

@@ -21,8 +21,9 @@ interface BlogProps extends LayoutProps {
 
 const BlogPage = ({ data, location }: BlogProps) => {
   const { edges: posts, totalCount } = data.posts;
-  const pageCount = Math.ceil(totalCount / POSTS_PER_PAGE);
   const { pathname } = location;
+
+  const pageCount = Math.ceil(totalCount / POSTS_PER_PAGE);
 
   return (
     <section className="post-contents-list">
@@ -37,53 +38,53 @@ const BlogPage = ({ data, location }: BlogProps) => {
 
 export default withLayout(BlogPage);
 
-export const pageQuery = graphql`
-  query PageBlog2 {
-    # Get tags
-    tags: allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
-      }
-    }
-
-    # Get posts
-    posts: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___createdDate] }
-      filter: {
-        frontmatter: { draft: { ne: true } }
-        fileAbsolutePath: { regex: "/blog/" }
-      }
-      limit: 5
-    ) {
-      totalCount
-      edges {
-        node {
-          excerpt(pruneLength: 100, truncate: true)
-          timeToRead
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            updatedDate(formatString: "MMMM DD, YYYY")
-            createdDate(formatString: "MMMM DD, YYYY")
-            tags
-            author {
-              id
-              github
-              avatar {
-                childImageSharp {
-                  fixed(width: 35, height: 35) {
-                    src
-                    srcSet
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query PageBlog2 {
+//     # Get tags
+//     tags: allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
+//       group(field: frontmatter___tags) {
+//         fieldValue
+//         totalCount
+//       }
+//     }
+//
+//     # Get posts
+//     posts: allMarkdownRemark(
+//       sort: { order: DESC, fields: [frontmatter___createdDate] }
+//       filter: {
+//         frontmatter: { draft: { ne: true } }
+//         fileAbsolutePath: { regex: "/blog/" }
+//       }
+//       limit: 5
+//     ) {
+//       totalCount
+//       edges {
+//         node {
+//           excerpt(pruneLength: 100, truncate: true)
+//           timeToRead
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             title
+//             updatedDate(formatString: "MMMM DD, YYYY")
+//             createdDate(formatString: "MMMM DD, YYYY")
+//             tags
+//             author {
+//               id
+//               github
+//               avatar {
+//                 childImageSharp {
+//                   fixed(width: 35, height: 35) {
+//                     src
+//                     srcSet
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;

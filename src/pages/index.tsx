@@ -6,6 +6,7 @@ import { MarkdownRemarkConnection } from '@/graphql-types';
 import PostList from '@/components/PostList';
 import BlogPagination from '@/components/Pagination';
 import { withLayout, LayoutProps } from '@/layout';
+import SidebarMenu from '@/components/SidebarMenu';
 
 const POSTS_PER_PAGE = 5;
 
@@ -19,18 +20,29 @@ interface BlogProps extends LayoutProps {
   };
 }
 
+// Index Page
+// 메인페이지
 const IndexPage = ({ data, location }: BlogProps) => {
   const { edges: posts, totalCount } = data.posts;
-  const pageCount = Math.ceil(totalCount / POSTS_PER_PAGE);
   const { pathname } = location;
 
+  const pageCount = Math.ceil(totalCount / POSTS_PER_PAGE);
+
   return (
-    <section className="post-contents-list">
-      {PostList(posts)}
-      <div className="post-pagination-area">
-        <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
-      </div>
-    </section>
+    <>
+      <SidebarMenu pathname={pathname} tags={data.tags} />
+      <section className="post-contents-list">
+        {PostList(posts)}
+
+        <section className="post-pagination-area">
+          <BlogPagination
+            Link={Link}
+            pathname={pathname}
+            pageCount={pageCount}
+          />
+        </section>
+      </section>
+    </>
   );
 };
 

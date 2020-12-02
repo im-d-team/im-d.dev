@@ -23,16 +23,16 @@ export interface LayoutProps {
 const Layout = (props: LayoutProps) => {
   const { pathname } = props.location;
 
+  console.log('props', props);
+
   return (
     <Provider store={store}>
-      <SidebarMenu pathname={pathname} />
-      <section>
-        {/* Header */}
-        <Header pathname={pathname} />
+      {/*<SidebarMenu pathname={pathname} />*/}
+      {/* Header */}
+      <Header pathname={pathname} />
 
-        {/* Render children pages */}
-        <main>{props.children}</main>
-      </section>
+      {/* Render children pages */}
+      <main>{props.children}</main>
     </Provider>
   );
 };

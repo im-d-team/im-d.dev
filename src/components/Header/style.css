@@ -1,4 +1,5 @@
-.imd-header{
+.main-header {
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -6,12 +7,14 @@
 
   width: 100%;
 
+  background-color: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 
   padding: 3px 16px;
+  z-index: 50;
 }
 
-.imd-header__logo-image{
+.main-header__logo-image {
   width: 40px;
   height: 40px;
   border-radius: 25px;
@@ -19,7 +22,7 @@
   cursor: pointer;
 }
 
-.imd-header__sidebar-image{
+.main-header__sidebar-image {
   width: 25px;
   height: 25px;
 

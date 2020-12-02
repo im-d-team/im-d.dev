@@ -14,15 +14,15 @@ export interface HeaderProps extends MenuProps {
 }
 
 export const Header = ({ dispatch }: HeaderProps) => (
-  <header className="imd-header">
+  <header className="main-header">
     <AiOutlineMenu
-      className="imd-header__sidebar-image"
+      className={'main-header__sidebar-image'}
       onClick={() => dispatch && dispatch(toggleSidebar())}
     />
 
     <Link to={'/'}>
       <img
-        className="imd-header__logo-image"
+        className={'main-header__logo-image'}
         src="https://avatars1.githubusercontent.com/u/45911353?s=200&v=4"
         alt="imd logo"
       />
