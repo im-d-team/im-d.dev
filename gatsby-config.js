@@ -13,6 +13,7 @@ module.exports = {
       options: {
         alias: {
           '@': 'src',
+          '@css': 'src/assets/css'
         },
         extensions: ['ts', 'tsx', 'js', 'css'],
       },
