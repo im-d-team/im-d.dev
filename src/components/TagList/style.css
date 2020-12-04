@@ -1,0 +1,25 @@
+.IMD-tag-list__tag-icon{
+  width: 18px;
+  height: 18px;
+
+  color: #133b5c;
+
+  margin-right: 16px;
+}
+
+.IMD-tag-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.IMD-tag-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}

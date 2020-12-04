@@ -1,19 +1,46 @@
-.pagination{
-  display: inline-block;
-  box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
+.IMD-author-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 90px;
+  margin-left: 20px;
 }
 
-.pagination__indexing{
-  font-size: 18px;
+.IMD-author-card__author-image{
+  width: 60px;
+  height: 60px;
 
-  border: none;
-  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-  padding: 10px 15px;
+  margin-bottom: 8px;
 }
 
-.active{
-  font-weight: 700;
-  color: black;
-  background-color: lightgray;
+.IMD-author-card__icon{
+  width: 12px;
+  height: 12px;
+
+  color: #1e5f74;
+}
+
+.IMD-author-card__github-id{
+  font-size: 12px;
+  font-weight: bold;
+
+  margin-left: 4px;
+}
+
+.IMD-author-card__created-date{
+  font-size: 12px;
+  font-weight: bold;
+
+  margin-left: 4px;
+}
+
+@media all and (max-width:480px) {
+  .IMD-author-card{
+    display: none;
+  }
 }

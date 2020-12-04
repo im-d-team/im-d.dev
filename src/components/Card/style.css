@@ -47,74 +47,6 @@
   margin: 12px 0 12px 8px;
 }
 
-.IMD-post-card__tag-icon{
-  width: 18px;
-  height: 18px;
-
-  color: #133b5c;
-
-  margin-right: 16px;
-}
-
-.IMD-post-card__tag-list{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-
-  width: 100%;
-
-  overflow: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.IMD-post-card__tag-list::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
-}
-
-/* User info */
-.IMD-post-card__user-info{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  min-width: 90px;
-  margin-left: 20px;
-}
-
-.IMD-post-card__author-image{
-  width: 60px;
-  height: 60px;
-
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-  margin-bottom: 8px;
-}
-
-.IMD-post-card__icon{
-  width: 12px;
-  height: 12px;
-
-  color: #1e5f74;
-}
-
-.IMD-post-card__github-id{
-  font-size: 12px;
-  font-weight: bold;
-
-  margin-left: 4px;
-}
-
-.IMD-post-card__created-date{
-  font-size: 12px;
-  font-weight: bold;
-
-  margin-left: 4px;
-}
-
 @media all and (min-width:480px) and (max-width:769px) {
 }
 
@@ -129,9 +61,5 @@
 
   .IMD-post-card__main__expert{
     font-size: 14px;
-  }
-
-  .IMD-post-card__user-info{
-    display: none;
   }
 }
