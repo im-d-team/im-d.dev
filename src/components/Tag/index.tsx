@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Link } from '@reach/router';
 
 import './style.css';
@@ -9,9 +8,9 @@ interface Tag {
 }
 
 export default ({ tagName }: Tag) => (
-  <div className="tag">
-    <Link to={`/blog/tags/${tagName}/`}>
-      <span className="tag__name">{`${tagName}`}</span>
-    </Link>
-  </div>
+  <Link to={`/blog/tags/${tagName}/`}>
+    <div className="IMD-tag">
+      <span className="IMD-tag__name">{`${tagName}`}</span>
+    </div>
+  </Link>
 );

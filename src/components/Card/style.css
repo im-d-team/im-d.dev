@@ -11,6 +11,7 @@
   box-sizing: border-box;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
+  margin-top: 30px;
   padding: 24px 24px 16px 24px;
 }
 
@@ -51,6 +52,8 @@
   height: 18px;
 
   color: #133b5c;
+
+  margin-right: 16px;
 }
 
 .IMD-post-card__tag-list{
@@ -117,15 +120,18 @@
 
 @media all and (max-width:480px) {
   .IMD-post-card{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 0px;
-    box-shadow: none;
+    border-radius: 0;
 
-    padding: 5px 10px 15px;
-    margin-bottom: 0px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 18px 12px;
   }
 
   .IMD-post-card__main__expert{
     font-size: 14px;
+  }
+
+  .IMD-post-card__user-info{
+    display: none;
   }
 }

@@ -116,13 +116,6 @@ pre {
   max-width: 600px;
 
   margin: auto;
-  padding: 80px 0 0;
-}
-
-@media all and (max-width:480px) {
-  .post-contents-list{
-    padding: 60px 0 0;
-  }
 }
 
 .post-pagination-area{

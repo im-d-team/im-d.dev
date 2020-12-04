@@ -1,24 +1,27 @@
-.tag {
+.IMD-tag {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  border-radius: 4px;
+  border-radius: 25px;
 
-  padding: 5px;
-  margin-right: 6px;
+  padding: 6px 12px;
+  margin-right: 12px;
 
-  background-color: #E8E8E8;
+  color: #fff4e4;
+  background-color: #133b5c;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  transition: color .2s ease, background-color .2s ease;
 }
 
-.tag__name {
-  font-size: 14px;
-
-  color: rgba(0,0,0,0.3);
-  transition: color .3s ease;
+.IMD-tag:hover{
+  color: #000;
+  background-color: #fcdab7;
 }
 
-.tag__name:hover{
-  color: black
+.IMD-tag__name {
+  font-size: 12px;
+  font-weight: bold;
 }
