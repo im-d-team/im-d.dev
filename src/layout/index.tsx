@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
 
-import SidebarMenu from '@/components/SidebarMenu';
 import Header from '@/components/Header';
 
 import { store } from '@/store';
@@ -23,15 +22,9 @@ export interface LayoutProps {
 const Layout = (props: LayoutProps) => {
   const { pathname } = props.location;
 
-  console.log('props', props);
-
   return (
     <Provider store={store}>
-      {/*<SidebarMenu pathname={pathname} />*/}
-      {/* Header */}
       <Header pathname={pathname} />
-
-      {/* Render children pages */}
       <main>{props.children}</main>
     </Provider>
   );

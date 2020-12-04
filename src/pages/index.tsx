@@ -6,7 +6,6 @@ import { MarkdownRemarkConnection } from '@/graphql-types';
 import PostList from '@/components/PostList';
 import BlogPagination from '@/components/Pagination';
 import { withLayout, LayoutProps } from '@/layout';
-import SidebarMenu from '@/components/SidebarMenu';
 
 const POSTS_PER_PAGE = 5;
 
@@ -30,7 +29,6 @@ const IndexPage = ({ data, location }: BlogProps) => {
 
   return (
     <>
-      <SidebarMenu pathname={pathname} tags={data.tags} />
       <section className="post-contents-list">
         {PostList(posts)}
 
