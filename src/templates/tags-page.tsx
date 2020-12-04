@@ -1,4 +1,4 @@
-import Blog from '@/pages/blog';
+import Blog from '@/pages';
 import { graphql } from 'gatsby';
 
 export default Blog;

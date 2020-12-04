@@ -1,0 +1,19 @@
+.pagination{
+  display: inline-block;
+  box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
+}
+
+.pagination__indexing{
+  font-size: 18px;
+
+  border: none;
+  background-color: transparent;
+
+  padding: 10px 15px;
+}
+
+.active{
+  font-weight: 700;
+  color: black;
+  background-color: lightgray;
+}

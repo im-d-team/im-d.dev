@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { AiFillTag, AiFillIdcard, AiFillCalendar } from 'react-icons/ai';
-
 import { File } from '@/graphql-types';
+import { AiFillTag } from 'react-icons/ai';
+
 import Tag from '@/components/Tag';
+import AuthorCard from '@/components/AuthorCard';
 
 import './style.css';
 
@@ -43,26 +44,12 @@ const PostList = ({
     </Link>
 
     <section className="IMD-post-card__user-info">
-      <a
-        className="IMD-post-card__author-area"
-        href={githubAddress}
-        target="_blank"
-      >
-        <img
-          className="IMD-post-card__author-image"
-          src={avatar.childImageSharp.fixed.src}
-          srcSet={avatar.childImageSharp.fixed.srcSet}
-          alt="IMD Author Avatar"
-        />
-      </a>
-      <div>
-        <AiFillIdcard className={'IMD-post-card__icon'} />
-        <span className="IMD-post-card__github-id">{id}</span>
-      </div>
-      <div>
-        <AiFillCalendar className={'IMD-post-card__icon'} />
-        <span className="IMD-post-card__created-date">{createdDate}</span>
-      </div>
+      <AuthorCard
+        githubAddress={githubAddress}
+        avatar={avatar}
+        id={id}
+        createdDate={createdDate}
+      />
     </section>
   </section>
 );

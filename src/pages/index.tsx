@@ -19,9 +19,7 @@ interface BlogProps extends LayoutProps {
   };
 }
 
-// Index Page
-// 메인페이지
-const IndexPage = ({ data, location }: BlogProps) => {
+export const PostPage = ({ data, location }: BlogProps) => {
   const { edges: posts, totalCount } = data.posts;
   const { pathname } = location;
 
@@ -44,7 +42,7 @@ const IndexPage = ({ data, location }: BlogProps) => {
   );
 };
 
-export default withLayout(IndexPage);
+export default withLayout(PostPage);
 
 export const pageQuery = graphql`
   query PageBlog {

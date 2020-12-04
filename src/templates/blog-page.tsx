@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import Blog from '@/pages/blog';
+import Blog from '@/pages';
 
 export default Blog;
 
