@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import { AiFillTag, AiFillIdcard, AiFillCalendar } from 'react-icons/ai';
 
 import { File } from '@/graphql-types';
 import Tag from '@/components/Tag';
 
 import './style.css';
-import TagsCard from '../TagsCard';
 
 export interface CardProps {
   title: string;
-  timeToRead: number;
   slug: string;
   excerpt: string;
   githubAddress: string;
@@ -21,7 +20,6 @@ export interface CardProps {
 
 const PostList = ({
   title,
-  timeToRead,
   slug,
   excerpt,
   githubAddress,
@@ -30,42 +28,43 @@ const PostList = ({
   createdDate,
   tags,
 }: CardProps) => (
-  <div className="post-card">
-    <section className="post-card__header">
-      <Link to={slug}>
-        <h1 className="post-card__header__title">{title}</h1>
-      </Link>
-      <span className="post-card__header__min-read">{timeToRead} min read</span>
-    </section>
+  <section className="IMD-post-card">
+    <Link to={slug}>
+      <section className="IMD-post-card__post-info">
+        <h1 className="IMD-post-card__header__title">{title}</h1>
+        <p className="IMD-post-card__main__expert">{excerpt}</p>
+        <div className="IMD-post-card__tag-list">
+          <AiFillTag className={'IMD-post-card__tag-icon'} />
+          {tags.map((tagName) => (
+            <Tag tagName={tagName} />
+          ))}
+        </div>
+      </section>
+    </Link>
 
-    <section className="post-card__main">
-      <Link to={slug}>
-        <p className="post-card__main__expert">{excerpt}</p>
-      </Link>
+    <section className="IMD-post-card__user-info">
       <a
-        className="post-card__main__author-area"
+        className="IMD-post-card__author-area"
         href={githubAddress}
         target="_blank"
       >
         <img
-          className="post-card__main__avatar-image"
+          className="IMD-post-card__author-image"
           src={avatar.childImageSharp.fixed.src}
-          alt="Avatar"
           srcSet={avatar.childImageSharp.fixed.srcSet}
+          alt="IMD Author Avatar"
         />
-        <span className="post-card__main__github-id">{id}</span>
       </a>
-    </section>
-
-    <section className="post-card__footer">
-      {/* <span className="post-card__footer__created-date">{createdDate}</span> */}
-      <div className="post-card__footer__tag-list">
-        {tags.map((tagName) => (
-          <Tag tagName={tagName} />
-        ))}
+      <div>
+        <AiFillIdcard className={'IMD-post-card__icon'} />
+        <span className="IMD-post-card__github-id">{id}</span>
+      </div>
+      <div>
+        <AiFillCalendar className={'IMD-post-card__icon'} />
+        <span className="IMD-post-card__created-date">{createdDate}</span>
       </div>
     </section>
-  </div>
+  </section>
 );
 
 export default PostList;

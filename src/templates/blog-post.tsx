@@ -150,7 +150,7 @@ export const pageQuery = graphql`
           }
         }
         title
-        updatedDate(formatString: "MMM D, YYYY")
+        updatedDate(formatString: "YYYY-MM-DD")
       }
     }
 

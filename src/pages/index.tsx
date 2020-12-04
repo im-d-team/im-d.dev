@@ -75,8 +75,8 @@ export const pageQuery = graphql`
           frontmatter {
             title
             tags
-            updatedDate(formatString: "DD MMMM, YYYY")
-            createdDate(formatString: "DD MMMM, YYYY")
+            updatedDate(formatString: "YYYY-MM-DD")
+            createdDate(formatString: "YYYY-MM-DD")
             author {
               id
               bio

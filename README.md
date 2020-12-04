@@ -3,6 +3,7 @@
 ## MockUp Design
 
 - [draw.io](https://app.diagrams.net/#G1IFQrd6q98YUp96aJ_U_9_EnecczDaVyN)
+- [메인 색상](https://colorhunt.co/palette/207331)
 
 ## Page
 

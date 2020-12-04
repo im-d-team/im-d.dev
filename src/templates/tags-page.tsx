@@ -31,8 +31,8 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            updatedDate(formatString: "MMMM DD, YYYY")
-            createdDate(formatString: "MMMM DD, YYYY")
+            updatedDate(formatString: "YYYY-MM-DD")
+            createdDate(formatString: "YYYY-MM-DD")
             tags
             author {
               id
