@@ -9,8 +9,6 @@ tags:
 draft: false
 ---
 
-# javascript의 module
-
 Java나 Python과 같은 OOP 언어들에서는 Class라는 이름으로 객체지향 프로그래밍을 구현해왔다. OOP의 보통 특징으로는 널리 알려져있듯 encapsulation, inheritance, polymorphism이 있다. 그 중 자바스크립트의 scope를 공부하고 있었는데 encapsulation과 관련이 있었으며, 자연스레 class와 비슷한 기능을 하는 자바스크립트의 module을 공부해봤다.
 
 javascript에서는 이 scope를 기준으로 캡슐화를 한다. 그래서 자연스레 이 scope를 이용하여 외부로부터 보호하려는 노력이 있어왔다. ES5에서는 함수가 scope의 기준이기 때문에 당연히도 함수의 scope를 이용해 encapsulation을 시도했다. 또한 자신의 스코프의 참조를 가진다는 클로저를 이용해 내부 속성들을 사용할 수 있게 했다.

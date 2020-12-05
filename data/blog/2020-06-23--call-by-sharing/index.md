@@ -8,8 +8,6 @@ tags:
 draft: false
 ---
 
-# Call By Sharing(a.k.a Call By Object, Call By Object-Sharing)
-
 ## Call By Value와 Call By Reference
 
 들어가기에 앞서, 메소드의 호출 방식에는 크게 두 가지가 있다. **call by value(값에 의한 호출)** 과 **call by reference(주소에 의한 호출)** 이다. 이 두 가지 방법은 매개 변수로 전달된 값의 유형으로 구분한다. 이처럼 함수 호출 시 전달 값의 종류를 결정하는 방법을 [평가 전략(Evaluation strategy)](https://en.wikipedia.org/wiki/Evaluation_strategy) 이라고 한다.

@@ -9,8 +9,6 @@ tags:
 draft: false
 ---
 
-# Singleton 패턴
-
 ## Singleton 패턴이란?
 
 `Singleton`패턴은 클래스에 객체가 단 하나만 필요한 경우에 사용되는 디자인 패턴이다.

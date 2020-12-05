@@ -10,7 +10,6 @@ tags:
 draft: false
 ---
 
-# 사용자 인증 방식
 ## 목차
 1. 서버 기반 인증 (Cookie-Session)
 2. 토큰 기반 인증 (oAuth 2.0, JWT)
