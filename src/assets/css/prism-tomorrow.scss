@@ -8,8 +8,8 @@ code[class*="language-"],
 pre[class*="language-"] {
   color: #ccc;
   background: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 1em;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -42,9 +42,18 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: .1em;
-  border-radius: .3em;
+  font-size: 14px;
+  font-weight: bold;
+
+  margin: 0 2px;
+  padding: 0 10px;
+
+  color: #1d2d50;
+  border: 2px solid #1d2d50;
+  border-radius: 4px;
   white-space: normal;
+
+  background-color: #fff;
 }
 
 .token.comment,
