@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import './style.css';
+import './style.scss';
 
 const LOGO_URL = 'https://avatars1.githubusercontent.com/u/45911353?s=200&v=4';
 

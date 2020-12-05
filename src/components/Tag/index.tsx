@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from '@reach/router';
 
-import './style.css';
+import './style.scss';
 
 interface Tag {
   tagName: string;

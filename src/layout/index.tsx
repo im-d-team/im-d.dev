@@ -5,12 +5,9 @@ import Header from '@/components/Header';
 
 import { store } from '@/store';
 
-import 'prismjs/themes/prism-okaidia.css';
-
-import '@css/styles.css';
-import '@css/responsive.css';
-import '@css/semantic.min.css';
 import '@css/reset.css';
+import '@css/prism-tomorrow.scss';
+import '@css/styles.scss';
 
 export interface LayoutProps {
   location: {

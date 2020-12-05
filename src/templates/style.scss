@@ -1,0 +1,41 @@
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.blog-post__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+}
+
+.blog-post__title {
+  font-size: 24px;
+  font-weight: bold;
+
+  margin: 0 24px;
+}
+
+.blog-post__main{
+  width: 100%;
+  box-sizing: border-box;
+
+  margin: 16px 12px;
+}
+
+@media all and (max-width:480px) {
+  .blog-post__header{
+
+  }
+}

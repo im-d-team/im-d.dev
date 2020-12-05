@@ -2,7 +2,7 @@ import * as React from 'react';
 import { GatsbyLinkProps } from 'gatsby-link';
 import { times } from 'lodash';
 
-import './style.css';
+import './style.scss';
 
 interface BlogPaginationProps extends React.HTMLProps<HTMLDivElement> {
   pathname: string;

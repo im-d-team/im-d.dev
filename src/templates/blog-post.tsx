@@ -43,13 +43,15 @@ const createCardProps = ({
   tags,
 });
 
+import './style.scss';
+
 const BlogPostPage = (props: BlogPostProps) => {
   const { frontmatter, html } = props.data.post;
   const cardData = createCardProps(props.data.post);
   const cover = get(frontmatter, 'image.children.0.fixed', {});
 
   return (
-    <article className={'blog-post'}>
+    <section className={'blog-post'}>
       <section className={'blog-post__header'}>
         <AuthorCard
           githubAddress={cardData.githubAddress}
@@ -62,9 +64,12 @@ const BlogPostPage = (props: BlogPostProps) => {
 
       <img {...cover} />
 
-      <p dangerouslySetInnerHTML={{ __html: html }} />
+      <article
+        className={'blog-post__main'}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
       <TagList tags={frontmatter.tags} />
-    </article>
+    </section>
   );
 };
 

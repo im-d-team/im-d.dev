@@ -5,7 +5,7 @@ import { File } from '@/graphql-types';
 import TagList from '@/components/TagList';
 import AuthorCard from '@/components/AuthorCard';
 
-import './style.css';
+import './style.scss';
 
 export interface CardProps {
   title: string;

@@ -3,7 +3,7 @@ import { AiFillTag } from 'react-icons/ai';
 
 import Tag from '@/components/Tag';
 
-import './style.css';
+import './style.scss';
 
 interface TagListProps {
   tags: Array<string>;

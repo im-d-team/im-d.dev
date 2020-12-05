@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { AiFillCalendar, AiFillIdcard } from 'react-icons/ai';
 
-import './style.css';
+import './style.scss';
 
 interface AuthorCardProps {
   githubAddress: string;

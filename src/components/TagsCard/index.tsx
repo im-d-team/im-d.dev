@@ -4,7 +4,7 @@ import { AiFillTag } from 'react-icons/ai';
 
 import { markdownRemarkGroupConnectionConnection } from '@/graphql-types';
 
-import './style.css';
+import './style.scss';
 
 interface TagsCardProps extends React.HTMLProps<HTMLDivElement> {
   tags: markdownRemarkGroupConnectionConnection[];
