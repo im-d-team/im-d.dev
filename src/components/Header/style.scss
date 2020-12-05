@@ -5,6 +5,7 @@
 
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 50;
 }
 
 .IMD-header__contents{
@@ -22,15 +23,15 @@
 
 .IMD-header__logo-image {
   width: 60px;
-  height: 46px;
-  border-radius: 16px;
+  height: 50px;
+  border-radius: 25px;
   object-fit: cover;
 
   cursor: pointer;
 }
 
 .IMD-header__text {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 
   margin-left: 12px;
@@ -55,4 +56,6 @@
   font-size: 16px;
 
   margin-left: 12px;
+
+  cursor: pointer;
 }

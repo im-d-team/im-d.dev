@@ -18,11 +18,15 @@ export const Header = () => (
             alt="IMD Logo"
           />
         </Link>
-        <span className={'IMD-header__text'}>{'Tech-D'}</span>
+        <span className={'IMD-header__text'}>{'기술 블로그'}</span>
       </section>
       <section className={'IMD-header__right-contents'}>
-        <span className={'IMD-header__menu-text'}>{'FaceBook'}</span>
-        <span className={'IMD-header__menu-text'}>{'GitHub'}</span>
+        <Link to={'https://www.facebook.com/ImDev-361775957711957'}>
+          <span className={'IMD-header__menu-text'}>{'FaceBook'}</span>
+        </Link>
+        <Link to={'https://github.com/im-d-team/Dev-Docs'}>
+          <span className={'IMD-header__menu-text'}>{'GitHub'}</span>
+        </Link>
       </section>
     </section>
   </header>
