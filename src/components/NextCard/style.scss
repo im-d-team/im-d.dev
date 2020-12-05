@@ -25,6 +25,15 @@
 
 @media all and (max-width: 480px) {
   .IMD-next-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
     width: 100%;
+
+    .IMD-next-card__title{
+      margin-bottom: 0;
+    }
   }
 }
