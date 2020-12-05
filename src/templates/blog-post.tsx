@@ -22,6 +22,7 @@ export const pageQuery = graphql`
         slug
       }
       frontmatter {
+        title
         tags
         author {
           id
@@ -49,7 +50,7 @@ export const pageQuery = graphql`
         fileAbsolutePath: { regex: "/blog/" }
       }
       sort: { order: DESC, fields: [frontmatter___updatedDate] }
-      limit: 4
+      limit: 3
     ) {
       edges {
         node {
@@ -58,8 +59,11 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            createdDate(formatString: "YYYY-MM-DD")
+            updatedDate(formatString: "YYYY-MM-DD")
             author {
               id
+              github
               avatar {
                 childImageSharp {
                   fixed(width: 36, height: 36) {

@@ -1,4 +1,4 @@
-.IMD-author-card{
+.IMD-author-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,9 +6,25 @@
 
   min-width: 90px;
   margin-left: 20px;
+
+  &.vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 0px;
+  }
 }
 
-.IMD-author-card__author-image{
+.IMD-author-card__author-image {
   width: 60px;
   height: 60px;
 
@@ -16,31 +32,55 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   margin-bottom: 8px;
+
+  &.horizontal{
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 0;
+  }
 }
 
-.IMD-author-card__icon{
-  width: 12px;
-  height: 12px;
+.IMD-author-card__contents-area{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  color: #1e5f74;
+  &.vertical{
+  }
+
+  &.horizontal{
+    align-items: flex-start;
+    margin-left: 8px;
+  }
+
+  .IMD-author-card__icon {
+    width: 12px;
+    height: 12px;
+
+    color: #1e5f74;
+  }
+
+  .IMD-author-card__github-id {
+    font-size: 12px;
+    font-weight: bold;
+
+    margin-left: 4px;
+  }
+
+  .IMD-author-card__created-date {
+    font-size: 12px;
+    font-weight: bold;
+
+    margin-left: 4px;
+  }
 }
 
-.IMD-author-card__github-id{
-  font-size: 12px;
-  font-weight: bold;
-
-  margin-left: 4px;
-}
-
-.IMD-author-card__created-date{
-  font-size: 12px;
-  font-weight: bold;
-
-  margin-left: 4px;
-}
-
-@media all and (max-width:480px) {
-  .IMD-author-card{
-    display: none;
+@media all and (max-width: 480px) {
+  .IMD-author-card {
+    &.vertical {
+      display: none;
+    }
   }
 }

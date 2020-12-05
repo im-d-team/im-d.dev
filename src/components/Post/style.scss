@@ -27,7 +27,7 @@
   margin: 0 24px;
 }
 
-.blog-post__main{
+.blog-post__main {
   @import "../../assets/css/post-contents.scss";
 
   width: 100%;
@@ -36,11 +36,31 @@
   margin: 16px 12px;
 }
 
-@media all and (max-width:480px) {
+.blog-post__next-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+
+  margin-top: 50px;
+}
+
+@media all and (max-width: 480px) {
   .blog-post__title {
     font-size: 24px;
     font-weight: bold;
 
     margin: 0;
+  }
+
+  .blog-post__next-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    margin-top: 30px;
   }
 }
