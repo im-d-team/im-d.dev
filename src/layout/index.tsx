@@ -5,9 +5,9 @@ import Header from '@/components/Header';
 
 import { store } from '@/store';
 
-import '@css/reset.css';
-import '@css/prism-tomorrow.scss';
-import '@css/styles.scss';
+import '@/assets/css/reset.css';
+import '@/assets/css/prism-tomorrow.scss';
+import '@/assets/css/styles.scss';
 
 export interface LayoutProps {
   location: {

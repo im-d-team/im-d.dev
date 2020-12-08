@@ -10,7 +10,7 @@
   margin-right: 12px;
 
   color: #fff4e4;
-  background-color: #133b5c;
+  background-color: $theme-color-2;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   transition: color .2s ease, background-color .2s ease;
@@ -18,7 +18,7 @@
 
 .IMD-tag:hover{
   color: #000;
-  background-color: #fcdab7;
+  background-color: $theme-color-4;
 }
 
 .IMD-tag__name {

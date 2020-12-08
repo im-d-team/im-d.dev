@@ -2,6 +2,8 @@
 @import "~fontsource-noto-sans-kr/index.css";
 @import "~fontsource-fira-sans/index.css";
 
+@import "../../assets/css/valuable";
+
 body {
   font-family: "Noto Sans KR", "Lato", sans-serif;
 }
@@ -23,7 +25,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  max-width: 600px;
+  max-width: $content-max-width;
 
   margin: auto;
 }

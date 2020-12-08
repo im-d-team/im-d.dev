@@ -48,7 +48,7 @@ a {
 a:active,
 a:hover {
   outline-width: 0;
-  color: #1e5f74;
+  color: $theme-color-3;
 }
 
 abbr[title] {
@@ -335,10 +335,10 @@ blockquote {
   margin: 16px 0;
   padding: 1.13rem;
 
-  border-left: 4px solid #1e5f74;
+  border-left: 4px solid $theme-color-3;
   line-height: 1.43;
 
-  background: #fcdab7;
+  background: $theme-color-4;
 }
 
 form, noscript, iframe {

@@ -76,7 +76,12 @@ module.exports = {
     },
 
     `gatsby-transformer-json`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        data: `@import "${__dirname}/src/assets/css/valuable.scss";`,
+      }
+    },
     `gatsby-plugin-typescript`,
   ],
 };
