@@ -48,7 +48,7 @@ pre[class*="language-"] {
   margin: 0 2px;
   padding: 0 10px;
 
-  color: $theme-color-1;
+  color: $theme-color-2;
   border: 2px solid $theme-color-1;
   border-radius: 4px;
   white-space: normal;
@@ -129,4 +129,50 @@ pre[class*="language-"] {
 
 .token.inserted {
   color: green;
+}
+
+// line-number css
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 40px;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+
+  font-size: 100%;
+  width: 30px; /* works for line-numbers below 1000 lines */
+  height: 100%;
+
+  border-right: 1px solid #999;
+
+  padding: 1.2rem 10px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+  text-align: center;
+
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #fff;
+  display: block;
 }

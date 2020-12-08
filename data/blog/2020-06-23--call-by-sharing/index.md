@@ -14,8 +14,8 @@ draft: false
 
 함수에 전달한 매개변수는 **actual parameter(actual argument; 실질 인자)** 라고 하고, 함수에서 수신받은 매개변수는 **formal parameter(formal argument; 형식인자)** 라고 한다.
 
-```js
-void method(formal parameter){}
+```javascript{numberLines: true}
+void method(formal parameter){
 
 method(actual paramter)
 ```
@@ -28,7 +28,7 @@ method(actual paramter)
 
 call by value 방식은 actual parameter의 값을 formal parameter에 복사한다. 각각은 서로 다른 메모리 공간에 할당된다. 따라서 call by value 방식에서는 formal parameter가 지역변수 처럼 사용되고, formal parameter의 변경은 actual parameter에 영향을 주지 않는다.
 
-```js
+```js{numberLines: true}
 int i = 0;
 
 function changeValue(i){
@@ -42,7 +42,7 @@ changeValue(i); // i == 0
 
 call by reference 방식은 formal parameter가 actual parameter를 그대로 사용한다. 따라서 formal parameter가 변경되면 actual parameter도 변경된다.
 
-```js
+```js{numberLines: true}
 int i = 0;
 
 function changeValue(i){
