@@ -175,4 +175,5 @@ pre[class*="language-"].line-numbers > code {
   content: counter(linenumber);
   color: #fff;
   display: block;
+  text-align: right;
 }
