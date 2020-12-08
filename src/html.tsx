@@ -19,10 +19,10 @@ export default (props: HtmlProps) => {
     ) : null;
 
   return (
-    <html lang="en">
+    <html lang="ko">
       <head>
         {props.headComponents}
-        <title>ImD_Blog</title>
+        <title>IMD_tech</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
