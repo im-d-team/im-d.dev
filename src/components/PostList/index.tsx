@@ -26,8 +26,8 @@ const createCardProps = ({
 
 const PostList = (posts: Array<MarkdownRemarkEdge>) => (
   <>
-    {posts.map(({ node }: { node: MarkdownRemark }) => (
-      <Card key="nodeId" {...createCardProps(node)} />
+    {posts.map(({ node }: { node: MarkdownRemark }, idx) => (
+      <Card key={idx} {...createCardProps(node)} />
     ))}
   </>
 );
