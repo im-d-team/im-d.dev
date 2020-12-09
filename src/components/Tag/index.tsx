@@ -7,8 +7,8 @@ interface Tag {
   tagName: string;
 }
 
-export default ({tagName}: Tag) => {
-  const tagLink = tagName.toLowerCase().replaceAll(' ', '-')
+export default ({tagName = ''}: Tag) => {
+  const tagLink = tagName.toLowerCase().replace(new RegExp(' ', 'g'), '-')
   return (
     <Link to={`/blog/tags/${tagLink}/`}>
       <div className="IMD-tag">
