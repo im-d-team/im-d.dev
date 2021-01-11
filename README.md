@@ -5,6 +5,8 @@
 - [draw.io](https://app.diagrams.net/#G1IFQrd6q98YUp96aJ_U_9_EnecczDaVyN)
 - [메인 색상](https://colorhunt.co/palette/226680)
 
+![color](./src/images/Color.png)
+
 ## Page
 
 - index : 메인 페이지 
