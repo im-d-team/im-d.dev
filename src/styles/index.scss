@@ -1,8 +1,10 @@
+@import "./reset";
+@import "./valuable";
+@import "./prism-tomorrow";
+
 @import "~fontsource-lato/index.css";
 @import "~fontsource-noto-sans-kr/index.css";
 @import "~fontsource-fira-sans/index.css";
-
-@import "../../assets/css/valuable";
 
 body {
   font-family: "Noto Sans KR", "Lato", sans-serif;

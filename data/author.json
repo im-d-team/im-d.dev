@@ -1,5 +1,11 @@
 [
   {
+    "id": "Im-D",
+    "bio": "I'm Developer. Study group for developers.",
+    "avatar": "avatars/imd_team.png",
+    "github": "im-d-team"
+  },
+  {
     "id": "BKJang",
     "bio": "Frontend Engineer",
     "avatar": "avatars/bkjang.png",

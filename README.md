@@ -3,15 +3,40 @@
 ## MockUp Design
 
 - [draw.io](https://app.diagrams.net/#G1IFQrd6q98YUp96aJ_U_9_EnecczDaVyN)
-- [메인 색상](https://colorhunt.co/palette/207331)
+- [메인 색상](https://colorhunt.co/palette/226680)
 
 ## Page
 
+- index : 메인 페이지 
+- blog : blog 페이지
+- tag : tag 검색 페이지
+- blog post : 블로그 Post 페이지
+
 ## Component
+
+- AuthorCard
+- Card
+- Header
+- NextCard
+- Pagination
+- Post
+- PostList
+- Tag
+- TagList
 
 ## Data
 
+- Avatar Image(추후 URL로 변경 예정)
+- Author
+- Blog Post Markdown
+
 ## Feature
+
+- [X] Tag 검색
+- [X] 블로그 포스트 내 이동
+- [X] 페이스북, 깃헙 이동
+- [X] 사진클릭시 깃헙 이동
+- [] 댓글
 
 ## 🔒 Post Rule
 

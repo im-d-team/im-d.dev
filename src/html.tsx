@@ -22,7 +22,7 @@ export default (props: HtmlProps) => {
     <html lang="ko">
       <head>
         {props.headComponents}
-        <title>IMD_tech</title>
+        <title>Im-D | 기술 블로그</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta

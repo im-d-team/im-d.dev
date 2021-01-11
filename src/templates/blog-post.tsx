@@ -8,6 +8,7 @@ const BlogPostPage = (props: BlogPostProps) => {
 };
 
 export default withLayout(BlogPostPage);
+
 export const pageQuery = graphql`
   query TemplateBlogPost($slug: String!) {
     site: site {

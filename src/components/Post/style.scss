@@ -28,7 +28,7 @@
 }
 
 .blog-post__main {
-  @import "../../assets/css/post-contents.scss";
+  @import "./post-contents.scss";
 
   width: 100%;
   box-sizing: border-box;

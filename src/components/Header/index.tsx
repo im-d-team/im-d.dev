@@ -1,7 +1,6 @@
 import { Link } from 'gatsby';
 
 import * as React from 'react';
-import { connect } from 'react-redux';
 
 import './style.scss';
 
@@ -32,4 +31,4 @@ export const Header = () => (
   </header>
 );
 
-export default connect()(Header);
+export default Header;

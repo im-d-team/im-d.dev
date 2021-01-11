@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: `IMD_Tech`,
+    title: `Im-D | 기술 블로그`,
     googleVerification: `abcdefz`,
     disqus: `gatsby-typescript`,
   },
@@ -13,15 +13,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `IMD_tech`,
-        short_name: `IMD`,
+        name: `Im-D | 기술 블로그`,
+        short_name: `Im-D`,
         start_url: `/`,
         background_color: `#fcdab7`,
         theme_color: `#1d2d50`,
         display: `standalone`,
-        icon: path.join(__dirname, 'data/img/imd_logo.png'),
+        icon: path.join(__dirname, 'data/avatars/imd_team.png'),
       },
     },
+
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-alias-imports`,
@@ -33,6 +34,7 @@ module.exports = {
         extensions: ['ts', 'tsx', 'js', 'css'],
       },
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -52,6 +54,7 @@ module.exports = {
         respectDNT: true,
       },
     },
+
     // Parse all images files
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -98,7 +101,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: `@import "${__dirname}/src/assets/css/valuable.scss";`,
+        data: `@import "${__dirname}/src/styles/valuable.scss";`,
       }
     },
     `gatsby-plugin-typescript`,
