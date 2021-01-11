@@ -8,7 +8,7 @@
     "start": "gatsby develop",
     "dev": "npm run clean & gatsby develop",
     "predeploy": "npm run clean & npm run build",
-    "deploy": "gh-pages -d public -b prod",
+    "deploy": "gh-pages -d public -b master",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "generate": "plop --plopfile ./generators/plopfile.js",
