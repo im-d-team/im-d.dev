@@ -2,12 +2,13 @@
 @import "./valuable";
 @import "./prism-tomorrow";
 
-@import "~fontsource-lato/index.css";
-@import "~fontsource-noto-sans-kr/index.css";
-@import "~fontsource-fira-sans/index.css";
+@import "~@fontsource/lato/latin.css";
+@import "~@fontsource/karla/latin.css";
+@import "~@fontsource/noto-sans-kr/korean.css";
+@import "~@fontsource/fira-sans/latin.css";
 
 body {
-  font-family: "Noto Sans KR", "Lato", sans-serif;
+  font-family: "Karla", "Noto Sans KR", "Lato", sans-serif;
 }
 
 .main-page__post-contents-footer__avatar-image {
