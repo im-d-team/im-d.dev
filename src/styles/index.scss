@@ -7,6 +7,13 @@
 @import "~@fontsource/noto-sans-kr/korean.css";
 @import "~@fontsource/fira-sans/latin.css";
 
+html {
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: $background-color;
+}
+
 body {
   font-family: "Karla", "Noto Sans KR", "Lato", sans-serif;
 }
