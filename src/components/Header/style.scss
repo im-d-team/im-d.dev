@@ -3,7 +3,7 @@
   top: 0;
   width: 100%;
 
-  background-color: #ffffff;
+  background-color: $theme-color-4;
   box-shadow: $shadow;
   z-index: 50;
 }
@@ -15,15 +15,14 @@
   align-items: center;
 
   max-width: $header-max-width;
-  height: 74px;
 
   margin: 0 auto;
   padding: 12px;
 }
 
 .IMD-header__logo-image {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 25px;
   object-fit: cover;
 

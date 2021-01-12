@@ -46,10 +46,10 @@ pre[class*="language-"] {
   font-weight: bold;
 
   margin: 0 2px;
-  padding: 0 10px;
+  padding: 1px 6px;
 
-  color: $theme-color-2;
-  border: 2px solid $theme-color-1;
+  color: $theme-color-1;
+  border: 2px solid $theme-color-2;
   border-radius: 4px;
   white-space: normal;
 
@@ -155,7 +155,7 @@ pre[class*="language-"].line-numbers > code {
 
   border-right: 1px solid #999;
 
-  padding: 1.2rem 10px;
+  padding: 1.5rem 10px;
 
   -webkit-user-select: none;
   -moz-user-select: none;

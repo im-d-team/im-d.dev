@@ -40,15 +40,17 @@ template {
 
 a {
   background-color: transparent;
-  -webkit-text-decoration-skip: objects;
-  color: black;
+  color: $theme-color-1;
+  font-weight: bold;
+
   text-decoration: none;
+  -webkit-text-decoration-skip: objects;
 }
 
 a:active,
 a:hover {
-  outline-width: 0;
-  color: $theme-color-3;
+  outline: 0;
+  color: $theme-color-1;
 }
 
 abbr[title] {
@@ -218,8 +220,8 @@ img {
 }
 
 h1 {
-  font-size: 24px;
-  margin: 12px 0;
+  font-size: 26px;
+  margin: 16px 0 12px;
 
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -229,7 +231,7 @@ h1 {
 
 h2 {
   font-size: 22px;
-  margin: 12px 0 12px 4px;
+  margin: 12px 0 8px;
 
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -237,8 +239,8 @@ h2 {
 }
 
 h3 {
-  font-size: 20px;
-  margin: 12px 0 12px 4px;
+  font-size: 18px;
+  margin: 8px 0;
 
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -303,7 +305,10 @@ dl, dd, figure {
 }
 
 p {
-  margin: 0 6px;
+  font-size: 14.5px;
+  line-height: 1.57;
+
+  margin: 8px 2px;
   padding: 0;
 }
 
@@ -314,7 +319,7 @@ pre {
   border-radius: 4px;
   overflow: auto;
   word-wrap: normal;
-  padding: 1.2rem;
+  padding: 1.6rem;
 }
 
 table {
@@ -332,13 +337,11 @@ fieldset {
 }
 
 blockquote {
-  margin: 16px 0;
-  padding: 1.13rem;
+  font-size: 16px;
+  padding: 0.5rem;
 
-  border-left: 4px solid $theme-color-3;
-  line-height: 1.43;
-
-  background: $theme-color-4;
+  border-left: 4px solid $theme-color-1;
+  background: $theme-color-3;
 }
 
 form, noscript, iframe {
@@ -377,7 +380,7 @@ th {
 }
 
 li {
-  margin: calc(0.8rem / 2) 0;
+  margin: calc(0.6rem / 2) 0;
 }
 
 li > ol {

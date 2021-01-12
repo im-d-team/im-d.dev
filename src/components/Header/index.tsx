@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import {Link} from 'gatsby';
 
 import * as React from 'react';
 
@@ -9,16 +9,16 @@ const LOGO_URL = 'https://avatars1.githubusercontent.com/u/45911353?s=200&v=4';
 export const Header = () => (
   <header className={'IMD-header'}>
     <section className={'IMD-header__contents'}>
-      <section className={'IMD-header__left-contents'}>
-        <Link to={'/'}>
+      <Link to={'/'}>
+        <section className={'IMD-header__left-contents'}>
           <img
             className={'IMD-header__logo-image'}
             src={LOGO_URL}
             alt="IMD Logo"
           />
-        </Link>
-        <span className={'IMD-header__text'}>{'기술 블로그'}</span>
-      </section>
+          <span className={'IMD-header__text'}>{'기술 블로그'}</span>
+        </section>
+      </Link>
       <section className={'IMD-header__right-contents'}>
         <Link to={'https://www.facebook.com/ImDev-361775957711957'}>
           <span className={'IMD-header__menu-text'}>{'FaceBook'}</span>
