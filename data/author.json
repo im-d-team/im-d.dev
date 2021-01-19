@@ -8,7 +8,7 @@
   {
     "id": "BKJang",
     "bio": "Frontend Engineer",
-    "avatar": "avatars/bkjang.png",
+    "avatar": "avatars/bkjang.jpeg",
     "github": "BKJang"
   },
   {
@@ -38,7 +38,13 @@
   {
     "id": "JegalEun",
     "bio": "",
-    "avatar": "avatars/JegalEun.png",
+    "avatar": "avatars/EUN.jpeg",
     "github": "JegalEun"
+  },
+  {
+    "id": "YONGJAE LEE",
+    "bio": "",
+    "avatar": "avatars/dididy.jpeg",
+    "github": "dididy"
   }
 ]
