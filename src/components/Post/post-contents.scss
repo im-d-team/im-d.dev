@@ -221,7 +221,7 @@ img {
 
 h1 {
   font-size: 26px;
-  margin: 16px 0 12px;
+  margin: 1.4rem 0 1rem;
 
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -231,7 +231,7 @@ h1 {
 
 h2 {
   font-size: 22px;
-  margin: 12px 0 8px;
+  margin: 1.4rem 0 0.6rem;
 
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -240,7 +240,7 @@ h2 {
 
 h3 {
   font-size: 18px;
-  margin: 8px 0;
+  margin: 1.1rem 0 0.6rem;
 
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -249,7 +249,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  margin: 12px 0 12px 4px;
+  margin: 1.1rem 0 0.6rem 4px;
 
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -290,7 +290,7 @@ ul {
 }
 
 ol {
-  margin: 0 0 1.45rem 2.45rem;
+  margin: 0 0 1rem 2.3rem;
   padding: 0;
 
   list-style-position: outside;
@@ -305,10 +305,10 @@ dl, dd, figure {
 }
 
 p {
-  font-size: 14.5px;
-  line-height: 1.57;
+  font-size: 0.95rem;
+  line-height: 1.61;
 
-  margin: 8px 2px;
+  margin: 0.8rem 2px;
   padding: 0;
 }
 
@@ -380,7 +380,8 @@ th {
 }
 
 li {
-  margin: calc(0.6rem / 2) 0;
+  font-size: 0.9rem;
+  margin: calc(0.4rem / 2) 0;
 }
 
 li > ol {
@@ -396,7 +397,7 @@ li > ul {
 }
 
 blockquote *:last-child {
-  margin-bottom: 0;
+  margin: 0.5rem;
 }
 
 li *:last-child {
