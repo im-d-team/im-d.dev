@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{"1GPU":function(t,e,a){"use strict";a.r(e);var n=a("q1tI"),c=a("Wbzz"),o=a("uP4m"),s=a("WKca"),i=a("8yLC");e.default=Object(i.a)((function(t){var e=t.data,a=t.location,i=e.posts,p=i.edges,l=i.totalCount,r=a.pathname,u=Math.ceil(l/5);return n.createElement("section",{className:"post-contents-list"},Object(o.a)(p),n.createElement("section",{className:"post-pagination-area"},n.createElement(s.a,{Link:c.Link,pathname:r,pageCount:u})))}))}}]);
+//# sourceMappingURL=component---src-pages-blog-tsx-3c8a9cb79fe0c2e1a732.js.map
