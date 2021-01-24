@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: `Im-D | 기술 블로그`,
-    googleVerification: `abcdefz`,
+    googleVerification: `9kL6ekItqrlzFqd1loDDvjGj12JXmG4utbAkXUFoYgc`,
     disqus: `gatsby-typescript`,
   },
   mapping: {
