@@ -5,6 +5,7 @@ module.exports = {
     title: `Im-D | 기술 블로그`,
     googleVerification: `9kL6ekItqrlzFqd1loDDvjGj12JXmG4utbAkXUFoYgc`,
     disqus: `gatsby-typescript`,
+    siteUrl: 'https://im-d.dev/'
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': `AuthorJson`,
@@ -36,22 +37,33 @@ module.exports = {
     },
 
     {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/sitemap.xml',
+        exclude: [],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`
+      }
+    },
+
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
         path: `${__dirname}/data`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
-        // Puts tracking script in the head instead of the body
-        head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
       },
     },
 
